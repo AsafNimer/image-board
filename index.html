@@ -7,14 +7,21 @@
 </head>
 <body class="body_container">
     <header class="header_section">
-        <h1>MyImage</h1>
-        <!-- <nav>
-            <menu>Menu</menu>
-        </nav> -->
+        <h1>GuitarBoard</h1>
     </header>
-
 <!-- vue container-->
-<div id="main_container">
+<div id="main_container"> 
+    <modal-component>I am modal-component</modal-component>
+        <div class="form_container">
+        <form method="post" action="/upload" enctype="multipart/form-data" @submit="handleSubmit">
+            <input name = "title" type="text" placeholder="title" required>
+            <input name = "description" type="text" placeholder="decription" required>
+            <input name = "username" type="text" placeholder="user" required>
+            <input name = "image" type="file" accept="image/*">
+            <!-- The accept attribute tells the browser to disallow files that are not images -->
+                <button type="submit">Upload</button>
+        </form>
+    </div>  
     <div class="image_container" v-if="images.length" v-for="image in images" >
         <img v-bind:src=image.url v-bind:key=image.id>
         <p>{{image.title}}</p>

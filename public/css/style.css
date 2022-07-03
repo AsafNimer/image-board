@@ -1,6 +1,14 @@
 * {
     margin: 0px;
 }
+/* html,
+body {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+} */
 /* -------------------------------
           BODY CONTAINER
 -------------------------------*/
@@ -13,14 +21,15 @@
 .header_section {
     background-color: black;
     display: flex;
+    justify-content: center;
     width: 100vw;
     height: 100px;
-    margin: 20px;
     margin-top: 0px;
-    justify-content: center;
+    box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.8);
+    opacity: 0.7;
 }
 
-h1 {
+.header_section h1 {
     font-family: QuiteMagical-Regular;
     font-weight: lighter;
     font-size: 80px;
@@ -29,22 +38,51 @@ h1 {
     align-self: center;
     justify-self: center;
 }
-
-/* menu {
-    color: black;
-    font-size: 30px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: lighter;
-    margin: 0px;
-} */
 /* -------------------------------
           MAIN CONTAINER
 -------------------------------*/
 #main_container {
     width: 100vw;
     display: grid;
+    justify-content: center;
     grid-template-rows: repeat(auto-fill, 505px); /*add minmax!*/
     grid-template-columns: repeat(auto-fill, 505px); /*add minmax!*/
+}
+/* -------------------------------
+          FORM CONTAINER
+-------------------------------*/
+.form_container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 25px;
+    width: 100%;
+    height: 50px;
+}
+
+.form_container form {
+    object-fit: cover;
+    height: 25px;
+    align-self: center;
+}
+
+.form_container input {
+    width: 200px;
+    height: 20px;
+    padding: 10px;
+    margin: 15px;
+    border-radius: 15px;
+}
+
+button {
+    width: 200px;
+    height: 35px;
+    margin: 15px;
+    border-radius: 15px;
+    background-color: rgb(86, 83, 83);
+    color: white;
+    border: none;
 }
 /* -------------------------------
           IMAGE/TITLE CONTAINER
@@ -53,14 +91,13 @@ h1 {
     position: relative;
     width: fit-content;
     height: fit-content;
-    left: 60px;
+    top: 150px;
     grid-row-gap: 5px;
     grid-column-gap: 5px;
 }
 
 .image_container img {
     position: relative;
-
     width: 500px;
     height: 500px;
     object-fit: cover;

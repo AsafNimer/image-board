@@ -11,6 +11,7 @@ const modalComponent = {
         fetch(`/image_board/${this.selectedImg}`)
             .then((res) => res.json())
             .then((data) => {
+                console.log("DATAAA", data);
                 this.img = data;
             })
             .catch((err) => {
@@ -22,16 +23,15 @@ const modalComponent = {
             this.$emit("close");
         },
     },
-    template: `<div class="modal container">
-    <div class="image-modal">
-        <img v-bind:src="image.url" v-bind:alt="image.title" v-bind:key="image.id"/>
-        <h1>{{image.title}}</h1>
-        <p>Uploaded by: {{image.user}}</p>
-        <p>{{description}}</p>
-    </div>
-    <span @close="close"></span>
+    template: `<div class="modal_container">
+        <span @click="close" class=close-tag>x</span>
+        <div class="image-modal">
+            <img v-bind:src="img.url" v-bind:alt="img.title" v-bind:key="img.id"/><br/>
+            <h1>{{img.title}}</h1><br/>
+            <p>Uploaded By: {{img.username}}</p><br/>
+            <p>{{description}}</p>
+        </div>
     </div>`,
-    //MAKE SURE SPAN DOESN'T CAUSE ANY PROBLEMS
 };
 
 export default modalComponent;

@@ -41,8 +41,8 @@ Vue.createApp({
                     this.images.unshift(data.payload);
                 });
         },
-        selectImg(id) {
-            console.log("ID OF CLICKED IMG: ", id);
+        selectedImg(id) {
+            console.log("ID OF THE CLICKED IMG: ", id);
             this.imgSelected = id;
         },
         closeModalComponent() {

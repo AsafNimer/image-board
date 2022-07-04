@@ -1,14 +1,7 @@
 * {
     margin: 0px;
+    margin-bottom: 3px;
 }
-/* html,
-body {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-} */
 /* -------------------------------
           BODY CONTAINER
 -------------------------------*/
@@ -98,28 +91,71 @@ button {
 }
 
 .image_container img {
-    position: absolute;
+    position: relative;
     width: 500px;
     height: 500px;
     object-fit: cover;
+    cursor: pointer;
 }
 
 .image_container p {
-    position: relative;
+    position: absolute;
     font-size: 15px;
     font-weight: lighter;
+    color: white;
+    font-weight: lighter;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
     background-color: rgb(86, 83, 83);
     height: 45px;
     width: 500px;
     color: white;
-    font-weight: lighter;
-    font-family: Arial, Helvetica, sans-serif;
     opacity: 0.6;
 }
 /* -------------------------------
-                MODAL
+              IMAGE MODAL
 -------------------------------*/
+.modal_container {
+    border: 0.5px solid black;
+    position: fixed;
+    width: fit-content;
+    height: 800px;
+    z-index: 1;
+    background-color: whitesmoke;
+    left: 520px;
+    top: 50px;
+    border-radius: 10px;
+}
+
+.modal_container span {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    float: right;
+    margin: 7px;
+    cursor: pointer;
+}
+
 .image-modal {
-    border: solid 2px black;
-    background-color: aliceblue;
+    position: relative;
+    margin: 25px;
+    top: -10px;
+}
+
+.image-modal img {
+    margin: 5px;
+    margin-bottom: 0px;
+    width: 450px;
+    height: 450px;
+    object-fit: cover;
+}
+
+.image-modal h1 {
+    position: relative;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.image-modal p {
+    position: relative;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    float: left;
+    bottom: 20px;
 }

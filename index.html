@@ -26,9 +26,10 @@
     </div> 
     
     <div class="image_container" v-if="images.length" v-for="image in images" >
-        <img v-bind:src=image.url v-bind:key=image.id @click="selectImg(image.id)" alt="image.title" >
+        <img v-bind:src=image.url v-bind:key=image.id @click="selectedImg(image.id)" alt="image.title" >
         <p>{{image.title}}</p>
     </div>
+
      
 </div>
     <script src="/js/app.js" type="module" crossorigin="use-credentials"></script>

@@ -7,7 +7,9 @@ import modalComponent from "./modal-component.js";
 Vue.createApp({
     data() {
         return {
+            name: "images",
             images: [],
+            imgSelected: "",
         };
     },
     mounted() {
@@ -39,13 +41,12 @@ Vue.createApp({
                     this.images.unshift(data.payload);
                 });
         },
-
-        openModalComponent() {
-            console.log("modal opened");
+        selectImg(id) {
+            console.log("ID OF CLICKED IMG: ", id);
+            this.imgSelected = id;
         },
-
         closeModalComponent() {
-            console.log("modal component closed");
+            this.imgSelected = null;
         },
     },
 }).mount("#main_container");

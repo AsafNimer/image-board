@@ -94,18 +94,32 @@ button {
     top: 150px;
     grid-row-gap: 5px;
     grid-column-gap: 5px;
+    display: flex;
 }
 
 .image_container img {
-    position: relative;
+    position: absolute;
     width: 500px;
     height: 500px;
     object-fit: cover;
 }
 
 .image_container p {
+    position: relative;
     font-size: 15px;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
     font-weight: lighter;
+    background-color: rgb(86, 83, 83);
+    height: 45px;
+    width: 500px;
+    color: white;
+    font-weight: lighter;
+    font-family: Arial, Helvetica, sans-serif;
+    opacity: 0.6;
+}
+/* -------------------------------
+                MODAL
+-------------------------------*/
+.image-modal {
+    border: solid 2px black;
+    background-color: aliceblue;
 }

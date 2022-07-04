@@ -22,6 +22,12 @@ app.get("/image_board", (req, res) => {
         });
 });
 
+app.get("/image_board/:image", (req, res) => {
+    db.getSingleImg(req.params.image).then((result) => {
+        res.json(result.rows[0]);
+    });
+});
+
 // multer.diskStorage specifies functions that
 // multer should use for determining the path
 // and filename to use when saving files.
@@ -62,24 +68,25 @@ const uploader = multer({
 app.post("/upload", uploader.single("image"), s3.upload, (req, res) => {
     console.log("IN UPLOAD...");
     console.log("req.body: ", req.body);
+    console.log("TRY THISSSSSS: ", req.params.img);
     console.log("input:", req.body);
     console.log("*****************");
     console.log("POST /upload.json Route");
     console.log("*****************");
     console.log("file:", req.file);
 
-    if (!req.body.title) {
-        res.json({ error: "missing field title!" });
-        return;
-    }
-    if (!req.body.description) {
-        res.json({ error: "missing field description!" });
-        return;
-    }
-    if (!req.body.username) {
-        res.json({ error: "missing field user!" });
-        return;
-    }
+    // if (!req.body.title) {
+    //     res.json({ error: "missing field title!" });
+    //     return;
+    // }
+    // if (!req.body.description) {
+    //     res.json({ error: "missing field description!" });
+    //     return;
+    // }
+    // if (!req.body.username) {
+    //     res.json({ error: "missing field user!" });
+    //     return;
+    // }
 
     const url = `https://s3.amazonaws.com/spicedling/${req.file.filename}`;
 
@@ -92,6 +99,7 @@ app.post("/upload", uploader.single("image"), s3.upload, (req, res) => {
         .then((results) => {
             res.json({ success: true, payload: results.rows[0] });
             console.log("MY PAYLOAD: ", results.rows[0]);
+            /*to get ONLY photo without title underneath i gave only url, and not generally results.rows[0]*/
         })
         .catch((err) => {
             console.log("ERROR UPLOADING MY IMG: ", err);

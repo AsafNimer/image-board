@@ -20,3 +20,7 @@ module.exports.storeToImages = (url, title, description, username) => {
     const param = [url, title, description, username];
     return db.query(q, param);
 };
+
+module.exports.getSingleImg = (id) => {
+    return db.query(`SELECT * FROM images WHERE id = $1`, [id]);
+};

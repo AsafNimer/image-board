@@ -15,7 +15,7 @@
     <!--"v-bind:" only if i bind values that are defined inside the data object,-->
     <modal-component v-if="imgSelected" v-bind:selected-Img="imgSelected" @close="closeModalComponent"></modal-component>
         <div class="form_container">
-        <form method="post" action="/upload" enctype="multipart/form-data" @submit="handleSubmit">
+        <form method="post" action="/upload" enctype="multipart/form-data" @submit="handleImgSubmit">
             <input name = "title" type="text" placeholder="title" required>
             <input name = "description" type="text" placeholder="decription" required>
             <input name = "username" type="text" placeholder="user" required>
@@ -24,13 +24,13 @@
                 <button type="submit">Upload</button>
         </form>
     </div> 
-    
     <div class="image_container" v-if="images.length" v-for="image in images" >
         <img v-bind:src=image.url v-bind:key=image.id @click="selectedImg(image.id)" alt="image.title" >
-        <p>{{image.title}}</p>
+        <!-- <div class="title_container"> -->
+            <p>{{image.title}}</p>
+        <!-- </div> -->
     </div>
-
-     
+    <button v-if="morePhotosButton" @click="getMoreImages" class="more_button">More Photos</button></br>
 </div>
     <script src="/js/app.js" type="module" crossorigin="use-credentials"></script>
 </body>

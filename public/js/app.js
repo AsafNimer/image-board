@@ -10,6 +10,7 @@ Vue.createApp({
             name: "images",
             images: [],
             imgSelected: "",
+            morePhotosButton: true,
         };
     },
     mounted() {
@@ -27,9 +28,10 @@ Vue.createApp({
         "modal-component": modalComponent,
     },
     methods: {
-        handleSubmit(e) {
+        handleImgSubmit(e) {
             e.preventDefault();
-            console.log("HANDLED SUBMIT"); //the default i prevent is to redirect me to a new page /submit. i want to stay on my page "/"
+            console.log("HANDLED IMAGE SUBMIT");
+            //the default i prevent is to redirect me to a new page /submit. i want to stay on my page "/"
 
             fetch("/upload", {
                 method: "POST",
@@ -39,6 +41,34 @@ Vue.createApp({
                 .then((data) => {
                     console.log(data);
                     this.images.unshift(data.payload);
+                });
+        },
+
+        getMoreImages() {
+            let smallestId = this.images[0].id;
+            console.log("SMALLEST ID: ", smallestId);
+
+            fetch(`/moreImages/${smallestId}`)
+                .then((rsp) => rsp.json())
+                .then((data) => {
+                    console.log("DATA.PAYLOAD: ", data.payload);
+                    this.images.unshift(data.payload); //I DON'T GET ANY DATA.PAYLOAD === []
+
+                    const lowestImg = this.images[0];
+                    console.log("lowestImg", lowestImg);
+
+                    if (lowestImg.id === lowestImg.smallestId) {
+                        console.log("lowestImg.id === lowestImg.smallestId");
+                        console.log("lowestImg.id", lowestImg.id);
+                        console.log(
+                            "lowestImg.smallestId",
+                            lowestImg.smallestId
+                        );
+                        this.morePhotosButton = null;
+                    }
+                })
+                .catch((err) => {
+                    console.log("ERROR WITH GET MORE PHOTOS: ", err);
                 });
         },
         selectedImg(id) {

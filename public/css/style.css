@@ -1,6 +1,6 @@
 * {
     margin: 0px;
-    margin-bottom: 3px;
+    margin-bottom: 20px;
 }
 /* -------------------------------
           BODY CONTAINER
@@ -41,6 +41,22 @@
     grid-template-rows: repeat(auto-fill, 505px); /*add minmax!*/
     grid-template-columns: repeat(auto-fill, 505px); /*add minmax!*/
 }
+
+.more_button {
+    position: absolute;
+    width: 200px;
+    height: 35px;
+    margin: 15px;
+    border-radius: 15px;
+    background-color: rgb(86, 83, 83);
+    color: white;
+    border: none;
+    top: 1350px;
+    left: 670px;
+    margin: 25px;
+    z-index: 1;
+    margin: 20px;
+}
 /* -------------------------------
           FORM CONTAINER
 -------------------------------*/
@@ -55,6 +71,7 @@
 }
 
 .form_container form {
+    position: relative;
     object-fit: cover;
     height: 25px;
     align-self: center;
@@ -118,13 +135,14 @@ button {
 .modal_container {
     border: 0.5px solid black;
     position: fixed;
-    width: fit-content;
+    width: 1500px;
     height: 800px;
     z-index: 1;
-    background-color: whitesmoke;
-    left: 520px;
+    background-color: white;
+    left: 50px;
     top: 50px;
     border-radius: 10px;
+    overflow: scroll;
 }
 
 .modal_container span {
@@ -135,27 +153,77 @@ button {
 }
 
 .image-modal {
-    position: relative;
-    margin: 25px;
-    top: -10px;
+    position: absolute;
 }
 
 .image-modal img {
-    margin: 5px;
-    margin-bottom: 0px;
-    width: 450px;
-    height: 450px;
     object-fit: cover;
+    width: 750px;
+    height: 800px;
 }
 
-.image-modal h1 {
+.modal_container .user_details {
+    position: relative;
+    float: right;
+    right: 300px;
+    top: 15px;
+}
+
+.user_details p {
     position: relative;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.image-modal p {
+.user_details h1 {
     position: relative;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    float: left;
-    bottom: 20px;
+}
+
+.user_details h4 {
+    position: relative;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: lighter;
+}
+/* -------------------------------
+             COMMENT
+-------------------------------*/
+.comments_container {
+    position: absolute;
+    left: 1000px;
+}
+
+.comments_container form {
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    top: 170px;
+}
+
+.comments_container input {
+    width: 200px;
+    height: 35px;
+    border-radius: 15px;
+    margin: 10px;
+}
+
+button {
+    background-color: gray;
+}
+
+.comments_container .comment_box {
+    position: relative;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    top: 380px;
+    right: 50px;
+    width: 350px;
+}
+
+.comment_box li {
+    margin: 20px;
+    padding: 3px;
+}
+
+.comment_box p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

@@ -6,7 +6,30 @@ const uidSafe = require("uid-safe");
 const path = require("path");
 const s3 = require("./s3");
 
-app.use(express.urlencoded({ extended: false })); // GIVES US AN ACCESS TO OUR FORM DATA, WITHOUT MIDDLEWARE EXPRESS CAN'T INTERPRET IT
+const storage = multer.diskStorage({
+    destination(req, file, callback) {
+        callback(null, "uploads");
+    },
+    filename(req, file, callback) {
+        uidSafe(24).then((randomString) => {
+            //keepS the original file extension
+            console.log("file: ", file);
+            const extname = path.extname(file.originalname);
+            console.log("EXTNAME: ", extname);
+            callback(null, `${randomString}${extname}`);
+        });
+    },
+});
+
+const uploader = multer({
+    //proccess out img data we're getting
+    storage,
+    limits: {
+        fileSize: 2097152,
+    },
+});
+
+app.use(express.urlencoded({ extended: false })); // GIVES US AN ACCESS TO OUR FORM DATA, WITHOUT, MIDDLEWARE EXPRESS CAN'T INTERPRET IT
 
 app.use(express.static("./public"));
 
@@ -28,41 +51,52 @@ app.get("/image_board/:image", (req, res) => {
     });
 });
 
-// multer.diskStorage specifies functions that
-// multer should use for determining the path
-// and filename to use when saving files.
-const storage = multer.diskStorage({
-    // destination function tells multer to put
-    // files in the uploads directory
-    destination(req, file, callback) {
-        callback(null, "uploads");
-    },
-    // filename function tells multer to use
-    // as the file name the unique id generated
-    // by the call to uidSafe with the extension of the original
-    //  file name appended to it
-    filename(req, file, callback) {
-        //work here
-        //create a random file name
-        //pick up the file name extension and save it to
-        uidSafe(24).then((randomString) => {
-            //keep the original file extension
-            console.log("file: ", file);
-            const extname = path.extname(file.originalname);
-            console.log("EXTNAME: ", extname);
-            //you may want to use the extname method to be found on the core path library.
-            //to be found on the properties on the 'file' obj when i console log it.
-            callback(null, `${randomString}${extname}`);
+app.get("/comments/:imageId", (req, res) => {
+    console.log("IN GET comments/:imageId, req.params: ", req.params);
+    db.getAllComments(req.params.imageId)
+        .then((result) => {
+            res.json(result.rows);
+        })
+        .catch((err) => {
+            console.log("ERROR: PROBLEM WITH GET COMMENTS ", err);
         });
-    },
 });
 
-const uploader = multer({
-    //proccess out img data we're getting
-    storage,
-    limits: {
-        fileSize: 2097152,
-    },
+app.get("/moreImages/:id", (req, res) => {
+    console.log("REQ.PARAMS.ID :", req.params.id);
+    db.getMorePhotos(req.params.id)
+        .then((result) => {
+            console.log("RESULT.ROWS :", result.rows); // RESULT.ROWS === []
+            res.json({
+                payload: result.rows,
+            });
+        })
+        .catch((err) => {
+            console.log("ERROR WITH GETTING MORE PHOTOS ", err);
+        });
+});
+
+app.post("/comment", (req, res) => {
+    console.log("BODY in POST comment: ", req.body);
+    if (req.body.comment && req.body.username) {
+        db.addCommentToImg(
+            req.body.comment,
+            req.body.username,
+            req.body.image_id
+        )
+            .then((result) => {
+                res.json({
+                    success: true,
+                    payload: result.rows[0],
+                });
+            })
+            .catch((err) => {
+                console.log(
+                    "ERROR: PROBLEM WITH ADDING THE COMMENT TO IMG ",
+                    err
+                );
+            });
+    }
 });
 
 app.post("/upload", uploader.single("image"), s3.upload, (req, res) => {
@@ -74,19 +108,6 @@ app.post("/upload", uploader.single("image"), s3.upload, (req, res) => {
     console.log("POST /upload.json Route");
     console.log("*****************");
     console.log("file:", req.file);
-
-    // if (!req.body.title) {
-    //     res.json({ error: "missing field title!" });
-    //     return;
-    // }
-    // if (!req.body.description) {
-    //     res.json({ error: "missing field description!" });
-    //     return;
-    // }
-    // if (!req.body.username) {
-    //     res.json({ error: "missing field user!" });
-    //     return;
-    // }
 
     const url = `https://s3.amazonaws.com/spicedling/${req.file.filename}`;
 

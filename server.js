@@ -6,6 +6,8 @@ const uidSafe = require("uid-safe");
 const path = require("path");
 const s3 = require("./s3");
 
+console.log("NEW IMAGEBOARD");
+
 const storage = multer.diskStorage({
     destination(req, file, callback) {
         callback(null, "uploads");

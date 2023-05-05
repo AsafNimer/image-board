@@ -16,11 +16,11 @@ const modalComponent = {
         fetch(`/image_board/${this.selectedImg}`)
             .then((res) => res.json())
             .then((data) => {
-                console.log("FETCHED DATA", data);
+                console.log("FETCHED DATA: ", data);
                 this.img = data;
             })
             .catch((err) => {
-                console.log("ERROR: PROBLEM TO FETCH DATA ", err);
+                console.log("ERROR: PROBLEM TO FETCH DATA: ", err);
             });
     },
     methods: {
@@ -28,17 +28,21 @@ const modalComponent = {
             this.$emit("close");
         },
     },
-    template: `<div class="modal_container">
-        <span @click="close" class=close-tag>x</span>
-        <div class="image-modal">
-            <img v-bind:src="img.url" v-bind:alt="img.title" v-bind:key="img.id"/><br/>
+    template: `<div class="modal_wrapper_div">
+        <div class="modal_component_div">
+            <div class="span_x_div">
+                <span @click="close" class=close-tag>x</span>
+            </div>
+            <div class="modal_img_div">
+                <img v-bind:src="img.url" v-bind:alt="img.title" v-bind:key="img.id"/><br/>
+            </div>
+            <div class="user_details_div">
+                <h1>{{img.title}}</h1>
+                <p class="uploaded_by_par">Uploaded By: {{img.username}}</p>
+                <p class="decription_par">Description: {{img.description}}</p>
+                <comments-component v-bind:img-id="selectedImg"></comments-component> 
+            </div> 
         </div>
-        <div class="user_details">
-            <h1>{{img.title}}</h1><br/>
-            <h4>Uploaded By: {{img.username}}</h4><br/>
-            <p>Description: {{img.description}}</p>
-        </div>
-         <comments-component v-bind:img-id="selectedImg" ></comments-component>
     </div>`,
 };
 

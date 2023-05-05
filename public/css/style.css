@@ -1,229 +1,325 @@
+/* :root {
+     --button-color: rgb(238, 204, 6);
+    --font-color: rgb(0, 0, 0);
+    --error-and-links-color: rgb(238, 66, 9);
+    --background-forms: rgba(255, 255, 255, 0.5);
+    --user-input-border-bottom: solid 1px rgba(0, 0, 128, 0.7);
+    --light-font: lighter;
+    --text-deco: none;
+    --font-family: "Gill Sans", "Gill Sans MT", "Calibri", "Trebuchet MS";
+} */
+
 * {
     margin: 0px;
-    margin-bottom: 20px;
 }
-/* -------------------------------
-          BODY CONTAINER
--------------------------------*/
-.body_container {
+
+html {
+    font-size: 15px;
+}
+
+.body {
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-/* -------------------------------
-          HEADER SECTION
--------------------------------*/
-.header_section {
-    background-color: black;
+
+header {
+    background-color: rgba(138, 43, 226, 0.3);
     display: flex;
     justify-content: center;
-    width: 100vw;
-    height: 100px;
-    margin-top: 0px;
-    box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.8);
-    opacity: 0.7;
+    align-items: center;
+    width: 100%;
+    height: 7rem;
+    box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.3);
 }
 
-.header_section h1 {
+header .header_title_div {
+    padding-top: 1.2rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+hr {
+    color: black;
+    width: 100%;
+    opacity: 0.3;
+    margin: 0.5rem;
+}
+
+.header_title_div h1 {
     font-family: QuiteMagical-Regular;
     font-weight: lighter;
-    font-size: 80px;
+    font-size: 5.3rem;
     color: white;
-    margin: 0px;
-    align-self: center;
-    justify-self: center;
 }
-/* -------------------------------
-          MAIN CONTAINER
--------------------------------*/
-#main_container {
-    width: 100vw;
-    display: grid;
+/* -------------- MAIN CONTAINER-----------------*/
+#app_container {
+    margin-top: 0.5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    grid-template-rows: repeat(auto-fill, 505px); /*add minmax!*/
-    grid-template-columns: repeat(auto-fill, 505px); /*add minmax!*/
+    align-items: center;
 }
 
-.more_button {
-    position: absolute;
-    width: 200px;
-    height: 35px;
-    margin: 15px;
-    border-radius: 15px;
-    background-color: rgb(86, 83, 83);
-    color: white;
-    border: none;
-    top: 1350px;
-    left: 670px;
-    margin: 25px;
-    z-index: 1;
-    margin: 20px;
-}
-/* -------------------------------
-          FORM CONTAINER
--------------------------------*/
-.form_container {
-    position: absolute;
+#app_container .upload_form_container {
     display: flex;
     justify-content: center;
     align-content: center;
-    margin: 25px;
+    margin-top: 2.5rem;
+    margin-bottom: 2rem;
     width: 100%;
-    height: 50px;
 }
 
-.form_container form {
-    position: relative;
+.upload_form_container .upload_form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 2rem;
+    height: 100%;
+}
+
+.upload_form .upload_input {
+    width: 15rem;
+    height: 1.8rem;
+    padding: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+
+.upload_form #choose_file_button {
+    border: none;
+}
+
+.upload_form .upload_button {
+    width: 12rem;
+    height: 3rem;
+    background-color: rgb(86, 83, 83);
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.img_board_grid_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 25rem);
+    width: 100%;
+    gap: 0.125rem 0.125rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.img_board_grid_container .single_image_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.img_title_div .img_title_par {
+    padding: 0.5rem;
+    position: absolute;
+    z-index: 1;
+    font-size: 1rem;
+    font-weight: lighter;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.9rem;
+    background-color: rgba(86, 83, 83, 0.5);
+    height: 2.5rem;
+    width: 24rem;
+    color: white;
+}
+
+.single_image_container img {
+    width: 25rem;
+    height: 25rem;
     object-fit: cover;
-    height: 25px;
-    align-self: center;
+    cursor: pointer;
+    display: block;
+}
+/* ----------------------MODAL COMPONENT-------------------------*/
+.modal_wrapper_div {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+.modal_component_div {
+    border: none;
+    position: fixed;
+    width: 80rem;
+    height: 53.3rem;
+    z-index: 3;
+    background-color: rgb(214, 209, 209);
+    border-radius: 5px;
+    overflow: scroll;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(auto-fit, 1fr);
 }
 
-.form_container input {
-    width: 200px;
-    height: 20px;
-    padding: 10px;
-    margin: 15px;
-    border-radius: 15px;
+.modal_component_div .span_x_div {
+    grid-column: 3/4;
+    grid-row: 1/2;
+    justify-self: flex-end;
+    position: absolute;
+    margin: 0.4rem;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
 }
 
-button {
-    width: 200px;
-    height: 35px;
-    margin: 15px;
-    border-radius: 15px;
+.span_x_div span {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.3rem;
+    font-weight: lighter;
+    cursor: pointer;
+    color: antiquewhite;
+}
+
+.modal_img_div {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    grid-column: 1/3;
+}
+
+.modal_img_div img {
+    object-fit: cover;
+    width: 100%;
+    height: 40rem;
+}
+
+.modal_component_div .user_details_div {
+    grid-column: 3/4;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0.2rem;
+    padding: 0.5rem;
+    overflow: scroll;
+    height: 100%;
+}
+
+.user_details_div h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.user_details_div .uploaded_by_par {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: lighter;
+    font-size: 1rem;
+}
+
+.user_details_div .decription_par {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: lighter;
+    font-size: 1rem;
+}
+/* ----------------COMMENTS COMPONENT-----------------*/
+.comments_component_div {
+    grid-column: 3/4;
+    grid-row: 2/3;
+    width: 100%;
+    overflow: scroll;
+}
+
+.comments_form_div {
+    margin-top: 1rem;
+    padding: 0.5rem;
+}
+
+.comments_form_div .comments_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.comments_form .username_input {
+    width: 18.4rem;
+    height: 1.5rem;
+    padding: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+
+.comments_form .comment_input {
+    width: 18rem;
+    height: 4rem;
+    padding: 0.8rem;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    overflow: auto;
+    outline: none;
+    resize: none;
+}
+
+.comments_form .comments_button {
+    width: 8rem;
+    height: 2.2rem;
     background-color: rgb(86, 83, 83);
     color: white;
     border: none;
 }
-/* -------------------------------
-          IMAGE/TITLE CONTAINER
--------------------------------*/
-.image_container {
-    position: relative;
-    width: fit-content;
-    height: fit-content;
-    top: 150px;
-    grid-row-gap: 5px;
-    grid-column-gap: 5px;
-    display: flex;
-}
 
-.image_container img {
-    position: relative;
-    width: 500px;
-    height: 500px;
-    object-fit: cover;
-    cursor: pointer;
-}
-
-.image_container p {
-    position: absolute;
-    font-size: 15px;
-    font-weight: lighter;
-    color: white;
-    font-weight: lighter;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 15px;
-    background-color: rgb(86, 83, 83);
-    height: 45px;
-    width: 500px;
-    color: white;
-    opacity: 0.6;
-}
-/* -------------------------------
-              IMAGE MODAL
--------------------------------*/
-.modal_container {
-    border: 0.5px solid black;
-    position: fixed;
-    width: 1500px;
-    height: 800px;
-    z-index: 1;
-    background-color: white;
-    left: 50px;
-    top: 50px;
-    border-radius: 10px;
-    overflow: scroll;
-}
-
-.modal_container span {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    float: right;
-    margin: 7px;
-    cursor: pointer;
-}
-
-.image-modal {
-    position: absolute;
-}
-
-.image-modal img {
-    object-fit: cover;
-    width: 750px;
-    height: 800px;
-}
-
-.modal_container .user_details {
-    position: relative;
-    float: right;
-    right: 300px;
-    top: 15px;
-}
-
-.user_details p {
-    position: relative;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-.user_details h1 {
-    position: relative;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-.user_details h4 {
-    position: relative;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: lighter;
-}
-/* -------------------------------
-             COMMENT
--------------------------------*/
-.comments_container {
-    position: absolute;
-    left: 1000px;
-}
-
-.comments_container form {
-    position: absolute;
-    width: fit-content;
-    height: fit-content;
-    top: 170px;
-}
-
-.comments_container input {
-    width: 200px;
-    height: 35px;
-    border-radius: 15px;
-    margin: 10px;
-}
-
-button {
-    background-color: gray;
-}
-
-.comments_container .comment_box {
+.comments_component_div .single_comment_box {
+    border: 1px solid black;
     position: relative;
     background-color: whitesmoke;
-    border-radius: 10px;
-    top: 380px;
-    right: 50px;
-    width: 350px;
+    border-radius: 5px;
+    width: 23rem;
 }
 
-.comment_box li {
-    margin: 20px;
-    padding: 3px;
+.single_comment_box ul {
+    display: flex;
+    flex-direction: column;
 }
 
-.comment_box p {
+ul li {
+    list-style: none;
+    margin: 1.3rem;
+    padding: 0.2rem;
+}
+
+.username_par_div #username_par {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.8rem;
+}
+
+.user_comment_div #comment_par {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.8rem;
+}
+
+@media only screen and (max-width: 480px) and (orientation: portrait) {
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+}
+
+@media only screen and (min-width: 1201px) and (max-width: 1600px) {
 }

@@ -1,7 +1,4 @@
-//CLIENT SIDE - TO LOOK IN THE BROWSER
-//FOR SENDING DATA FROM SERVER TO CLIENT SIDE WE DO IT WITH JSON.
 import * as Vue from "./vue.js";
-//importing our components from their files reuires us to use the file extension. (.js)
 import modalComponent from "./modal-component.js";
 
 Vue.createApp({
@@ -14,9 +11,7 @@ Vue.createApp({
         };
     },
     mounted() {
-        //runs automaticly when vue reads our content
-        //this is the location for us to ask if there are images to retrieve in the db
-        fetch("/image_board") //talks to the server. mounted runs right away. and then server responds that yes it has /images.
+        fetch("/image_board")
             .then((res) => res.json())
             .then((fetchedData) => {
                 console.log("response from /IMAGES: ", fetchedData);
@@ -31,8 +26,7 @@ Vue.createApp({
         handleImgSubmit(e) {
             e.preventDefault();
             console.log("HANDLED IMAGE SUBMIT");
-            //the default i prevent is to redirect me to a new page /submit. i want to stay on my page "/"
-
+            //the default i prevent is to redirect me to a new page/submit. i want to stay on my page "/"
             fetch("/upload", {
                 method: "POST",
                 body: new FormData(e.target),
@@ -41,6 +35,11 @@ Vue.createApp({
                 .then((data) => {
                     console.log(data);
                     this.images.unshift(data.payload);
+                    const userInput =
+                        document.getElementsByClassName("upload_input");
+                    for (let i = 0; i < userInput.length; i++) {
+                        userInput[i].value = "";
+                    }
                 });
         },
 
@@ -79,4 +78,4 @@ Vue.createApp({
             this.imgSelected = null;
         },
     },
-}).mount("#main_container");
+}).mount("#app_container");

@@ -68,7 +68,7 @@ app.get("/moreImages/:id", (req, res) => {
     console.log("REQ.PARAMS.ID :", req.params.id);
     db.getMorePhotos(req.params.id)
         .then((result) => {
-            console.log("RESULT.ROWS :", result.rows); // RESULT.ROWS === []
+            console.log("RESULT.ROWS :", result.rows);
             res.json({
                 payload: result.rows,
             });
@@ -122,7 +122,6 @@ app.post("/upload", uploader.single("image"), s3.upload, (req, res) => {
         .then((results) => {
             res.json({ success: true, payload: results.rows[0] });
             console.log("MY PAYLOAD: ", results.rows[0]);
-            /*to get ONLY photo without title underneath i gave only url, and not generally results.rows[0]*/
         })
         .catch((err) => {
             console.log("ERROR UPLOADING MY IMG: ", err);

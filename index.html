@@ -2,35 +2,41 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title></title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
-<body class="body_container">
-    <header class="header_section">
-        <h1>GuitarBoard</h1>
-    </header><br><br><br>
-    <hr>
+<body>
+    <header>
+        <div class="header_title_div">
+            <h1>GuitarBoard</h1>
+        </div>
+    </header>
 <!-- vue container-->
-<div id="main_container">
+<div id="app_container">
     <!--"v-bind:" only if i bind values that are defined inside the data object,-->
     <modal-component v-if="imgSelected" v-bind:selected-Img="imgSelected" @close="closeModalComponent"></modal-component>
-        <div class="form_container">
-        <form method="post" action="/upload" enctype="multipart/form-data" @submit="handleImgSubmit">
-            <input name = "title" type="text" placeholder="title" required>
-            <input name = "description" type="text" placeholder="decription" required>
-            <input name = "username" type="text" placeholder="user" required>
-            <input name = "image" type="file" accept="image/*">
+    <div class="upload_form_container">
+        <form class="upload_form" method="post" action="/upload" enctype="multipart/form-data" @submit="handleImgSubmit">
+            <input class="upload_input" name = "title" type="text" placeholder="title" required>
+            <input class="upload_input" name = "description" type="text" placeholder="decription" required>
+            <input class="upload_input"  name = "username" type="text" placeholder="user" required>
+            <input class="upload_input"  id="choose_file_button" name = "image" type="file" accept="image/*">
             <!-- The accept attribute tells the browser to disallow files that are not images -->
-                <button type="submit">Upload</button>
+            <button class="upload_button" type="submit">Upload</button>
         </form>
-    </div> 
-    <div class="image_container" v-if="images.length" v-for="image in images" >
-        <img v-bind:src=image.url v-bind:key=image.id @click="selectedImg(image.id)" alt="image.title" >
-        <!-- <div class="title_container"> -->
-            <p>{{image.title}}</p>
-        <!-- </div> -->
+    </div>
+    <hr>
+    <div class="img_board_grid_container">
+        <div class="single_image_container" v-if="images.length" v-for="image in images" >       
+            <div class="img_title_div">
+                <p class="img_title_par">{{image.title}}</p>
+            </div>
+            <img v-bind:src=image.url v-bind:key=image.id @click="selectedImg(image.id)" alt="image.title" >
+        </div>
     </div>
 </div>
+
     <script src="/js/app.js" type="module" crossorigin="use-credentials"></script>
 </body>
 </html>

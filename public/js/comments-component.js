@@ -44,22 +44,16 @@ const commentsComponent = {
     template: `<div class="comments_component_div">    
         <div class="comments_form_div">
             <form class="comments_form">
-                <input class="username_input" v-model='username' type="text" name="username" placeholder="user">
+                <input class="username_input" v-model='username' type="text" name="username" placeholder="User Name">
                 <textarea class="comment_input" v-model='comment' id="commentbox" type="text" name="comment" placeholder="Add Your Comment..." cols="30" rows="10"></textarea>
                 <button class="comments_button" @click="handleCommentSubmit">Add Comment</button>
             </form>
         </div>
         <div class="single_comment_box" v-if="comments.length" v-for="comment in comments" :key="comment.id">
-            <ul>
-                <li>
-                    <div class="username_par_div">
-                        <p id="username_par"><strong>{{comment.username}}:</strong></p>
-                    </div>
-                    <div class="user_comment_div>
-                        <p id="comment_par">{{comment.comment}}</p>
-                    </div>
-                </li>
-            </ul>
+            <div class="list_item">
+                <p id="username_par"><strong>{{comment.username}}:</strong></p>
+                <p id="comment_par">{{comment.comment}}</p>
+            </div>
         </div>
     </div>`,
 };

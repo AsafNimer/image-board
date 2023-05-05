@@ -48,7 +48,7 @@ hr {
     color: black;
     width: 100%;
     opacity: 0.3;
-    margin: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .header_title_div h1 {
@@ -56,6 +56,23 @@ hr {
     font-weight: lighter;
     font-size: 5.3rem;
     color: white;
+}
+
+.more_button_div {
+    margin: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+.more_button_div .more_button {
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 12rem;
+    height: 3rem;
+    background-color: rgb(86, 83, 83);
+    color: white;
+    border: none;
+    border-radius: 5px;
 }
 /* -------------- MAIN CONTAINER-----------------*/
 #app_container {
@@ -98,6 +115,8 @@ hr {
 }
 
 .upload_form .upload_button {
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
     width: 12rem;
     height: 3rem;
     background-color: rgb(86, 83, 83);
@@ -153,6 +172,7 @@ hr {
     justify-content: center;
     align-items: center;
     z-index: 2;
+    overflow: auto;
 }
 .modal_component_div {
     border: none;
@@ -224,13 +244,13 @@ hr {
 .user_details_div .uploaded_by_par {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: lighter;
-    font-size: 1rem;
+    font-size: 0.8rem;
 }
 
 .user_details_div .decription_par {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: lighter;
-    font-size: 1rem;
+    font-size: 0.8rem;
 }
 /* ----------------COMMENTS COMPONENT-----------------*/
 .comments_component_div {
@@ -238,6 +258,8 @@ hr {
     grid-row: 2/3;
     width: 100%;
     overflow: scroll;
+    display: flex;
+    flex-direction: column;
 }
 
 .comments_form_div {
@@ -278,33 +300,37 @@ hr {
     background-color: rgb(86, 83, 83);
     color: white;
     border: none;
+    margin-bottom: 2rem;
 }
 
 .comments_component_div .single_comment_box {
-    border: 1px solid black;
     position: relative;
+    left: 2.2rem;
+    padding: 1rem;
+    margin: 0.5rem;
     background-color: whitesmoke;
     border-radius: 5px;
-    width: 23rem;
+    width: 18rem;
 }
 
-.single_comment_box ul {
-    display: flex;
-    flex-direction: column;
+.single_comment_box .list_item {
+    /* width: 100%; */
+}
+
+/* .single_comment_box ul {
+    width: 100%;
 }
 
 ul li {
     list-style: none;
-    margin: 1.3rem;
-    padding: 0.2rem;
-}
+} */
 
-.username_par_div #username_par {
+#username_par {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 0.8rem;
 }
 
-.user_comment_div #comment_par {
+#comment_par {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 0.8rem;
 }

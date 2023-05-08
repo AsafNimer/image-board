@@ -34,7 +34,6 @@ header {
 header .header_title_div {
     padding-top: 1.2rem;
     width: 100%;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,21 +54,7 @@ hr {
 }
 
 .more_button_div {
-    margin: 3rem;
-    display: flex;
-    justify-content: center;
-}
-
-.more_button_div .more_button {
-    font-size: 1.1rem;
-    font-family: var(--font-family);
-    width: 12rem;
-    height: 3rem;
-    background-color: var(--button-color);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    display: none;
 }
 /* -------------- MAIN CONTAINER-----------------*/
 #app_container {
@@ -95,7 +80,7 @@ hr {
     justify-content: center;
     align-items: center;
     width: 100%;
-    gap: 2rem;
+    gap: 3rem;
     height: 100%;
 }
 
@@ -107,15 +92,25 @@ hr {
     border-radius: 5px;
 }
 
-.upload_form #choose_file_button {
-    border: none;
+.upload_form .select_img_btn {
+    font-size: 1.1rem;
+    border-radius: 5px;
+    width: 10rem;
+    height: 3rem;
+    background-color: rgba(138, 43, 226, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--font-color);
+    font-family: var(--font-family);
+    cursor: pointer;
 }
 
 .upload_form .upload_button {
     font-size: 1.1rem;
     font-family: var(--font-family);
     width: 12rem;
-    height: 3rem;
+    height: 2.8rem;
     background-color: var(--button-color);
     color: var(--font-color);
     border: none;
@@ -125,9 +120,8 @@ hr {
 
 .img_board_grid_container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(18rem, 25rem));
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 25rem));
     width: 100%;
-    gap: 0.125rem 0.125rem;
     justify-content: center;
     align-items: center;
     gap: 0.1rem 0.1rem;
@@ -324,6 +318,102 @@ hr {
 }
 
 @media only screen and (max-width: 480px) and (orientation: portrait) {
+    header {
+        height: 7rem;
+    }
+
+    header .header_title_div {
+        padding-top: 1.2rem;
+    }
+
+    hr {
+        display: none;
+    }
+
+    .header_title_div h1 {
+        font-size: 3rem;
+    }
+
+    .more_button_div {
+        margin: 3rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .more_button_div .more_button {
+        font-size: 0.7rem;
+        width: 6rem;
+        height: 2rem;
+        font-family: var(--font-family);
+        background-color: var(--button-color);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    /* -------------- MAIN CONTAINER-----------------*/
+    #app_container {
+        margin-top: 0.5rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .upload_form_container .upload_form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+        height: 100%;
+    }
+
+    .upload_form .upload_input {
+        width: 12rem;
+        height: 1rem;
+        padding: 0.5rem;
+    }
+
+    .upload_form .upload_button {
+        font-size: 0.7rem;
+        width: 6rem;
+        height: 2rem;
+    }
+
+    .upload_form .select_img_btn {
+        font-size: 0.7rem;
+        border-radius: 5px;
+        width: 6rem;
+        height: 2rem;
+    }
+
+    #app_container .img_board_grid_container {
+        grid-template-columns: repeat(auto-fit, 5.4rem);
+        gap: 0.3rem;
+    }
+
+    .img_board_grid_container .single_image_container {
+        flex-direction: row;
+        justify-content: center;
+        width: fit-content;
+    }
+
+    .img_title_div .img_title_par {
+        padding: 0.2rem;
+        font-size: 0.7rem;
+        height: 1rem;
+        width: 5.1rem;
+    }
+
+    .single_image_container img {
+        width: 5.5rem;
+        height: 5.5rem;
+    }
+    /* ----------------------MODAL COMPONENT-------------------------*/
+    /* SOLVE THE MODAL */
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {

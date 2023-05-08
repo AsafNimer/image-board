@@ -20,8 +20,9 @@
                 <input class="upload_input" name = "title" type="text" placeholder="title" >
                 <input class="upload_input" name = "description" type="text" placeholder="decription" >
                 <input class="upload_input"  name = "username" type="text" placeholder="user" >
-                <input class="upload_input"  id="choose_file_button" name = "image" type="file" accept="image/*">
-            <!-- The accept attribute tells the browser to disallow files that are not images -->
+                <input class="upload_input"  id="choose_file_button" name = "image" type="file" accept="image/*" hidden>
+                <label class="select_img_btn" for="choose_file_button">Add Image</label>
+                <!-- The accept attribute tells the browser to disallow files that are not images -->
                 <button class="upload_button" type="submit">Upload</button>
             </form>
         </div>
@@ -36,7 +37,7 @@
         </div>
     </div>
     <div class="more_button_div">
-        <button class="more_button">More</button>
+        <button class="more_button">Load More</button>
     </div>
     <script src="/js/app.js" type="module" crossorigin="use-credentials"></script>
 </body>

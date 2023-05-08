@@ -1,17 +1,18 @@
 const aws = require("aws-sdk");
 const fs = require("fs");
 
-let secrets;
+let moreSecrets;
 if (process.env.NODE_ENV === "production") {
-    secrets = process.env;
+    moreSecrets = process.env;
 } else {
     //this means we're running locally
-    secrets = require("./moreSecrets.json");
+    moreSecrets = require("./moreSecrets.json");
 }
 
+//Creating s3 instance and configuration
 const s3 = new aws.S3({
-    accessKeyId: secrets.AWS_KEY,
-    secretAccessKey: secrets.AWS_SECRET,
+    accessKeyId: moreSecrets.AWS_KEY,
+    secretAccessKey: moreSecrets.AWS_SECRET,
 });
 
 module.exports.upload = (req, res, next) => {
@@ -31,7 +32,7 @@ module.exports.upload = (req, res, next) => {
             ContentType: mimetype,
             ContentLength: size,
         })
-        .promise();
+        .promise(); // The Promise() constructor creates Promise objects.
 
     promise
         .then(() => {

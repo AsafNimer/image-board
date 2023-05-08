@@ -12,11 +12,9 @@ const modalComponent = {
         "comments-component": commentsComponent,
     },
     mounted() {
-        console.log("modal component mounted");
         fetch(`/image_board/${this.selectedImg}`)
             .then((res) => res.json())
             .then((data) => {
-                console.log("FETCHED DATA: ", data);
                 this.img = data;
             })
             .catch((err) => {
@@ -28,7 +26,8 @@ const modalComponent = {
             this.$emit("close");
         },
     },
-    template: `<div class="modal_wrapper_div">
+    template: `
+    <div class="modal_wrapper_div">
         <div class="modal_component_div">
             <div class="span_x_div">
                 <span @click="close" class=close-tag>x</span>

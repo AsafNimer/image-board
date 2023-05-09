@@ -319,11 +319,11 @@ hr {
 
 @media only screen and (max-width: 480px) and (orientation: portrait) {
     header {
-        height: 7rem;
+        height: 4rem;
     }
 
     header .header_title_div {
-        padding-top: 1.2rem;
+        padding-top: 1.1rem;
     }
 
     hr {
@@ -331,10 +331,11 @@ hr {
     }
 
     .header_title_div h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 
-    .more_button_div {
+    #app_container .more_button_div {
+        width: 100%;
         margin: 3rem;
         display: flex;
         justify-content: center;
@@ -360,6 +361,10 @@ hr {
         justify-content: center;
         align-items: center;
     }
+
+    /* .modal_for_mobile {
+        background-color: red;
+    } */
 
     .upload_form_container .upload_form {
         display: flex;
@@ -413,7 +418,136 @@ hr {
         height: 5.5rem;
     }
     /* ----------------------MODAL COMPONENT-------------------------*/
-    /* SOLVE THE MODAL */
+    .modal_wrapper_div {
+        position: relative;
+        width: fit-content;
+        height: 100%;
+        z-index: 2;
+        overflow: visible;
+    }
+    .modal_component_div {
+        position: relative;
+        bottom: 4.6rem;
+        width: fit-content;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .modal_component_div .span_x_div {
+        background-color: rgba(128, 128, 128, 0.5);
+        align-self: flex-end;
+        width: 1rem;
+        height: 1rem;
+        margin: 0.8rem;
+    }
+
+    .span_x_div span {
+        position: relative;
+        bottom: 0.1rem;
+        font-size: 1rem;
+    }
+
+    .modal_img_div {
+        background-color: black;
+        width: fit-content;
+    }
+
+    .modal_img_div img {
+        object-fit: contain;
+        width: 100%;
+    }
+
+    .modal_component_div .user_details_div {
+        width: 95%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .user_details_div h1 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .user_details_div .uploaded_by_par {
+        font-size: 0.9rem;
+        width: fit-content;
+    }
+
+    .user_details_div .decription_par {
+        font-size: 0.9rem;
+        width: fit-content;
+    }
+    /* ----------------COMMENTS COMPONENT-----------------*/
+    .comments_component_div {
+        width: fit-content;
+        overflow: scroll;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .comments_form_div {
+        width: fit-content;
+        margin-top: 1rem;
+        padding: 0.5rem;
+    }
+
+    .comments_form_div .comments_form {
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.8rem;
+    }
+
+    .comments_form .username_input {
+        width: 14.5rem;
+        height: 1.2rem;
+        padding: 0.2rem;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+    }
+
+    .comments_form .comment_input {
+        width: 14rem;
+        height: 2.5;
+        padding: 0.5rem;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        border-radius: 20px;
+        overflow: auto;
+        outline: none;
+        resize: none;
+    }
+
+    .comments_form .comments_button {
+        font-size: 0.7rem;
+        border-radius: 5px;
+        width: 6rem;
+        height: 2rem;
+    }
+
+    .comments_component_div .single_comment_box {
+        padding: 0.5rem;
+        margin: 0.3rem;
+        width: 13rem;
+        height: auto;
+        left: 0rem;
+    }
+
+    #username_par {
+        font-family: var(--font-family);
+        font-size: 0.8rem;
+    }
+
+    #comment_par {
+        font-family: var(--font-family);
+        font-size: 0.8rem;
+    }
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {

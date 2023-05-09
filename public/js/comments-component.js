@@ -41,7 +41,8 @@ const commentsComponent = {
                 });
         },
     },
-    template: `<div class="comments_component_div">    
+    template: `
+    <div class="comments_component_div">    
         <div class="comments_form_div">
             <form class="comments_form">
                 <input class="username_input" v-model='username' type="text" name="username" placeholder="User Name">

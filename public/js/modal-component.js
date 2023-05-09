@@ -39,8 +39,8 @@ const modalComponent = {
                 <h1>{{img.title}}</h1>
                 <p class="uploaded_by_par">Uploaded By:<br>{{img.username}}</p><br>
                 <p class="decription_par">Description:<br>{{img.description}}</p>
-                <comments-component v-bind:img-id="selectedImg"></comments-component> 
-            </div> 
+                <comments-component v-bind:img-id="selectedImg"></comments-component>
+            </div>
         </div>
     </div>`,
 };

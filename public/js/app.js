@@ -8,6 +8,7 @@ Vue.createApp({
             images: [],
             imgSelected: "",
             morePhotosButton: true,
+            // addClass: { modal_for_mobile: this.imgSelected },
         };
     },
     mounted() {
@@ -15,8 +16,7 @@ Vue.createApp({
             .then((res) => res.json())
             .then((fetchedData) => {
                 console.log("response from /IMAGES: ", fetchedData);
-
-                this.images = fetchedData; //asigning this.images "fetchedData"
+                this.images = fetchedData;
             });
     },
     components: {
@@ -25,8 +25,8 @@ Vue.createApp({
     methods: {
         handleImgSubmit(e) {
             e.preventDefault();
-            console.log("HANDLED IMAGE SUBMIT");
-            //the default i prevent is to redirect me to a new page/submit. i want to stay on my page "/"
+            //the default i prevent is to redirect me to a new page/submit.
+            // I want to stay on my page "/"
             fetch("/upload", {
                 method: "POST",
                 body: new FormData(e.target),
@@ -42,7 +42,6 @@ Vue.createApp({
                     }
                 });
         },
-
         getMoreImages() {
             let smallestId = this.images[0].id;
             console.log("SMALLEST ID: ", smallestId);
@@ -51,7 +50,7 @@ Vue.createApp({
                 .then((rsp) => rsp.json())
                 .then((data) => {
                     console.log("DATA.PAYLOAD: ", data.payload);
-                    this.images.unshift(data.payload); //I DON'T GET ANY DATA.PAYLOAD === []
+                    this.images.unshift(data.payload);
 
                     const lowestImg = this.images[0];
                     console.log("lowestImg", lowestImg);
@@ -71,7 +70,6 @@ Vue.createApp({
                 });
         },
         selectedImg(id) {
-            console.log("ID OF THE CLICKED IMG: ", id);
             this.imgSelected = id;
         },
         closeModalComponent() {

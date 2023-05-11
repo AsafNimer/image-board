@@ -33,8 +33,8 @@ Vue.createApp({
             })
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log(data);
-                    this.images.unshift(data.payload);
+                    console.log("data: ", data);
+                    this.images.push(data.payload);
                     const userInput =
                         document.getElementsByClassName("upload_input");
                     for (let i = 0; i < userInput.length; i++) {

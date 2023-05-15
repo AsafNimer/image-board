@@ -98,6 +98,7 @@ app.post("/comment", (req, res) => {
     }
 });
 
+// The string passed to 'single' below is the name of the field in the request (name attribute on 'input' field).
 app.post("/upload", uploader.single("image"), s3.upload, (req, res) => {
     const url = `https://s3.amazonaws.com/spicedling/${req.file.filename}`;
 

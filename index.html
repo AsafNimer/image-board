@@ -13,36 +13,40 @@
         </div>
     </header>
     <div id="app_container">
-    <!--"v-bind:" only if i bind values that are defined inside the data object-->
-        <modal-component v-if="imgSelected" v-bind:selected-Img="imgSelected" @close="closeModalComponent"></modal-component>
+        <modal-component v-if="imgClicked" v-bind:selected-Img="imgClicked" @close="closeModalComponent"></modal-component>
         <!-- <main-app-view-component></main-app-view-component> -->
-            <div class="upload_form_container">
-                <form class="upload_form" method="post" action="/upload" enctype="multipart/form-data" @submit="handleImgSubmit">
-                    <div class="input_fields_div">
-                        <input class="upload_input" name = "title" type="text" placeholder="title" >
-                        <input class="upload_input" name = "description" type="text" placeholder="decription" >
-                        <input class="upload_input"  name = "username" type="text" placeholder="user" >
-                    </div>
-                    <input class="upload_input"  id="choose_file_button" name = "image" type="file" accept="image/*" hidden>
-                <!-- The accept attribute tells the browser to disallow files that are not images -->
-                    <div class="buttons_div">
-                        <label class="select_img_btn" for="choose_file_button">Select Image</label>
-                        <button class="upload_button" type="submit">Upload</button>
-                    </div>
-                </form>
-            </div>
-            <hr>
-            <div class="img_board_grid_container">
-                <div class="single_image_container" v-if="images.length" v-for="image in images" >       
-                    <div class="img_title_div">
-                        <p class="img_title_par">{{image.title}}</p>
-                    </div>
-                    <img v-bind:src=image.url v-bind:key=image.id @click="selectedImg(image.id)" alt="image.title" >
+        <div class="err_msgs_div">
+            <p v-if="formNotValid" class="form_not_valid_msg">Please fill in all fields and choose an image before submitting</p>
+            <p v-if="errorMsg" class="error_msg">Something went wrong, please try again</p>
+        </div>
+        <div class="upload_form_container">
+            <form class="upload_form" method="post" enctype="multipart/form-data" action="/upload" @submit.prevent="handleImgSubmit">
+                <div class="input_fields_div">
+                    <input v-model="userInput.title" class="upload_input" name="title" type="text" placeholder="title" >
+                    <input v-model="userInput.description" class="upload_input" name="description" type="text" placeholder="decription" >                     
+                    <input v-model="userInput.username" class="upload_input" name="username" type="text" placeholder="user" >
                 </div>
+                <div class="buttons_div">
+                    <div class="select_file_div">
+                        <input v-on:change="checkIfUserSelectedImg" class="upload_input" id="choose_file" name="image" type="file" accept="image/*" hidden>
+                        <label class="select_img_btn" for="choose_file">Select Image</label>
+                    </div>
+                    <button class="upload_button" type="submit">Upload</button>
+                </div>
+            </form>
+        </div>
+        <hr>
+        <div class="img_board_grid_container">
+            <div class="single_image_container" v-if="images.length" v-for="image in images" >       
+                <div class="img_title_div">
+                    <p class="img_title_par">{{image.title}}</p>
+                </div>
+                <img v-bind:src=image.url v-bind:key=image.id @click="clickedImg(image.id)" alt="image.title" >
             </div>
-            <div class="more_button_div">
-                <button class="more_button">Load More</button>
-            </div>
+        </div>
+        <div class="more_button_div">
+            <button class="more_button">Load More</button>
+        </div>
     </div>
     <script src="/js/app.js" type="module" crossorigin="use-credentials"></script>
 </body>

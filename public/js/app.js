@@ -6,9 +6,12 @@ Vue.createApp({
         return {
             name: "images",
             images: [],
-            imgSelected: "",
+            imgClicked: "",
             morePhotosButton: true,
-            // addClass: { modal_for_mobile: this.imgSelected },
+            imageSelected: false,
+            userInput: { username: "", description: "", title: "" },
+            formNotValid: false,
+            errorMsg: false,
         };
     },
     mounted() {
@@ -24,22 +27,32 @@ Vue.createApp({
     },
     methods: {
         handleImgSubmit(e) {
-            e.preventDefault();
-            //the default i prevent is to redirect me to a new page/submit.
-            // I want to stay on my page "/"
+            this.formNotValid = false;
+            for (const prop in this.userInput) {
+                if (
+                    this.userInput[prop].length === 0 ||
+                    this.imageSelected === false
+                ) {
+                    this.formNotValid = true;
+                    return;
+                } else {
+                    setTimeout(() => {
+                        this.userInput[prop] = "";
+                    }, 1500);
+                }
+            }
             fetch("/upload", {
                 method: "POST",
                 body: new FormData(e.target),
             })
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log("data: ", data);
-                    this.images.push(data.payload);
-                    const userInput =
-                        document.getElementsByClassName("upload_input");
-                    for (let i = 0; i < userInput.length; i++) {
-                        userInput[i].value = "";
-                    }
+                    console.log(data);
+                    this.images.unshift(data.payload);
+                })
+                .catch((err) => {
+                    console.log(err);
+                    this.errorMsg = true;
                 });
         },
         getMoreImages() {
@@ -67,13 +80,20 @@ Vue.createApp({
                 })
                 .catch((err) => {
                     console.log("ERROR WITH GET MORE PHOTOS: ", err);
+                    this.errorMsg = true;
                 });
         },
-        selectedImg(id) {
-            this.imgSelected = id;
+        clickedImg(id) {
+            this.imgClicked = id;
         },
         closeModalComponent() {
-            this.imgSelected = null;
+            this.imgClicked = null;
+        },
+        checkIfUserSelectedImg() {
+            const file = document.getElementById("choose_file");
+            if (file.value.length > 0) {
+                this.imageSelected = true;
+            }
         },
     },
 }).mount("#app_container");

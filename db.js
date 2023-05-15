@@ -51,7 +51,7 @@ module.exports.getMorePhotos = (id) => {
         FROM images
         WHERE id < $1
         ORDER BY id DESC
-        LIMIT 3`,
+        LIMIT 6`,
         [id]
     );
 };

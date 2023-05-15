@@ -53,8 +53,23 @@ hr {
     color: white;
 }
 
-.more_button_div {
-    display: none;
+#app_container .more_button_div {
+    width: 100%;
+    margin: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+.more_button_div .more_button {
+    font-size: 0.9125rem;
+    width: 9rem;
+    height: 2.5rem;
+    font-family: var(--font-family);
+    background-color: var(--button-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 /* -------------- MAIN CONTAINER-----------------*/
 #app_container {
@@ -1526,9 +1541,9 @@ hr {
     }
 
     .more_button_div .more_button {
-        font-size: 1rem;
-        width: 12rem;
-        height: 3rem;
+        font-size: 0.9125rem;
+        width: 9rem;
+        height: 2.5rem;
         font-family: var(--font-family);
         background-color: var(--button-color);
         color: white;

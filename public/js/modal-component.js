@@ -24,6 +24,13 @@ const modalComponent = {
     methods: {
         close() {
             this.$emit("close");
+            // Users will be able to type anything they want in a url so you should
+            // probably handle the possibility that what is in the url is not a
+            // valid image id. A simple way to do this is to have your component fire
+            //  an event to close the modal if the network request to get the image data
+            //   is not successful. In this situation, it is probably a good idea
+            //   to use replaceState to change the url so that it is not possible to
+            //   get back to the invalid url with the browser's history navigation buttons.
         },
     },
     template: `

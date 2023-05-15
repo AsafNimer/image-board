@@ -45,7 +45,7 @@
             </div>
         </div>
         <div class="more_button_div">
-            <button class="more_button">Load More</button>
+            <button v-if="moreButton" @click="getMoreImages" class="more_button">Load More</button>
         </div>
     </div>
     <script src="/js/app.js" type="module" crossorigin="use-credentials"></script>

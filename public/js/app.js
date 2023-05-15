@@ -7,7 +7,7 @@ Vue.createApp({
             name: "images",
             images: [],
             imgClicked: "",
-            morePhotosButton: true,
+            moreButton: true,
             imageSelected: false,
             userInput: { username: "", description: "", title: "" },
             formNotValid: false,
@@ -15,6 +15,18 @@ Vue.createApp({
         };
     },
     mounted() {
+        window.addEventListener("popstate", (e) => {
+            console.log(location.pathname, e.state);
+            // You will also want to open and close the modal appropriately when the user
+            // uses the browser's history navigation buttons to move forward or back in the history.
+            //  To detect that this is happening, you should start listening for the popstate
+            //   event when you initialize your app. In the event handler you can set the
+            //   reactive property you are using to keep track of the id of the image
+            //   displayed in the modal to the correct value for the new url.
+
+            // show whatever is appropriate for the new url
+            // if you need it, e.state has the data you passed to `pushState`
+        });
         fetch("/image_board")
             .then((res) => res.json())
             .then((fetchedData) => {
@@ -56,26 +68,20 @@ Vue.createApp({
                 });
         },
         getMoreImages() {
-            let smallestId = this.images[0].id;
+            let smallestId = this.images[this.images.length - 1].id;
             console.log("SMALLEST ID: ", smallestId);
 
             fetch(`/moreImages/${smallestId}`)
-                .then((rsp) => rsp.json())
+                .then((res) => res.json())
                 .then((data) => {
                     console.log("DATA.PAYLOAD: ", data.payload);
-                    this.images.unshift(data.payload);
+                    this.images.push(data.payload);
 
-                    const lowestImg = this.images[0];
+                    const lowestImg = this.images[this.images.length - 1];
                     console.log("lowestImg", lowestImg);
 
                     if (lowestImg.id === lowestImg.smallestId) {
-                        console.log("lowestImg.id === lowestImg.smallestId");
-                        console.log("lowestImg.id", lowestImg.id);
-                        console.log(
-                            "lowestImg.smallestId",
-                            lowestImg.smallestId
-                        );
-                        this.morePhotosButton = null;
+                        this.moreButton = false;
                     }
                 })
                 .catch((err) => {
@@ -85,9 +91,15 @@ Vue.createApp({
         },
         clickedImg(id) {
             this.imgClicked = id;
+            history.pushState(
+                {},
+                "",
+                `${location.pathname}/${this.imgClicked}`
+            );
         },
         closeModalComponent() {
             this.imgClicked = null;
+            history.pushState({}, "", "/home");
         },
         checkIfUserSelectedImg() {
             const file = document.getElementById("choose_file");

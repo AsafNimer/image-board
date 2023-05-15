@@ -57,7 +57,7 @@ app.get("/comments/:imageId", (req, res) => {
             res.json(result.rows);
         })
         .catch((err) => {
-            console.log("ERROR: PROBLEM WITH GET COMMENTS ", err);
+            console.log("ERROR WITH GET COMMENTS ", err);
         });
 });
 
@@ -67,6 +67,7 @@ app.get("/moreImages/:id", (req, res) => {
         .then((result) => {
             console.log("RESULT.ROWS :", result.rows);
             res.json({
+                success: true,
                 payload: result.rows,
             });
         })

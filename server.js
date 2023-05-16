@@ -40,7 +40,7 @@ app.get("/image_board", (req, res) => {
             res.json(results.rows);
         })
         .catch((err) => {
-            console.log("ERROR IN GET IMAGES", err);
+            console.log("error GET images", err);
         });
 });
 
@@ -51,13 +51,14 @@ app.get("/image_board/:image", (req, res) => {
 });
 
 app.get("/comments/:imageId", (req, res) => {
-    console.log("IN GET comments/:imageId, req.params: ", req.params);
+    console.log("req.params in GET comments/:imageId: ", req.params);
     db.getAllComments(req.params.imageId)
         .then((result) => {
+            console.log(result.rows);
             res.json(result.rows);
         })
         .catch((err) => {
-            console.log("ERROR WITH GET COMMENTS ", err);
+            console.log("error GET comments ", err);
         });
 });
 
@@ -72,12 +73,12 @@ app.get("/moreImages/:id", (req, res) => {
             });
         })
         .catch((err) => {
-            console.log("ERROR WITH GETTING MORE PHOTOS ", err);
+            console.log("error with getting more images ", err);
         });
 });
 
 app.post("/comment", (req, res) => {
-    console.log("BODY in POST comment: ", req.body);
+    console.log("req.body in POST /comment: ", req.body);
     if (req.body.comment && req.body.username) {
         db.addCommentToImg(
             req.body.comment,
@@ -85,16 +86,14 @@ app.post("/comment", (req, res) => {
             req.body.image_id
         )
             .then((result) => {
+                console.log(result.rows[0]);
                 res.json({
                     success: true,
                     payload: result.rows[0],
                 });
             })
             .catch((err) => {
-                console.log(
-                    "ERROR: PROBLEM WITH ADDING THE COMMENT TO IMG ",
-                    err
-                );
+                console.log("error with adding comment to img", err);
             });
     }
 });
@@ -111,10 +110,10 @@ app.post("/upload", uploader.single("image"), s3.upload, (req, res) => {
     )
         .then((result) => {
             res.json({ success: true, payload: result.rows[0] });
-            console.log("MY PAYLOAD: ", result.rows[0]);
+            console.log("my payload: ", result.rows[0]);
         })
         .catch((err) => {
-            console.log("ERROR UPLOADING MY IMG: ", err);
+            console.log("error uploading img: ", err);
         });
 });
 

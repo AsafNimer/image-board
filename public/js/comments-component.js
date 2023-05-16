@@ -8,13 +8,10 @@ const commentsComponent = {
     },
     props: ["imgId"],
     mounted() {
-        console.log("comments component mounted");
-        console.log("comments.js this.imgId: ", this.imgId);
-
         fetch(`/comments/${this.imgId}`)
             .then((res) => res.json())
             .then((fetchedData) => {
-                console.log("FETCHED DATA", fetchedData);
+                console.log("FETCHED DATA: ", fetchedData);
                 this.comments = fetchedData;
             })
             .catch((err) => {
@@ -24,7 +21,6 @@ const commentsComponent = {
     methods: {
         handleCommentSubmit(e) {
             e.preventDefault();
-            console.log("HANDLED COMMENT SUBMIT");
 
             fetch("/comment", {
                 method: "POST",
@@ -38,6 +34,8 @@ const commentsComponent = {
                 .then((res) => res.json())
                 .then((data) => {
                     this.comments.unshift(data.payload);
+                    this.username = "";
+                    this.comment = "";
                 });
         },
     },

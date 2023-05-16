@@ -9,7 +9,7 @@ const db = spicedPg(
 );
 
 module.exports.getImages = () => {
-    return db.query(`SELECT * FROM images ORDER BY id ASC
+    return db.query(`SELECT * FROM images ORDER BY id DESC
   LIMIT 6`);
 };
 
@@ -41,9 +41,8 @@ module.exports.addCommentToImg = (comment, username, image_id) => {
     return db.query(q, param);
 };
 
-module.exports.getMorePhotos = (id) => {
-    return db.query(
-        `SELECT url, title, id, (
+module.exports.getMorePhotos = (lastOnScreenId) => {
+    const q = `SELECT url, title, id, (
             SELECT id FROM images
             ORDER BY id ASC
             LIMIT 1
@@ -51,7 +50,7 @@ module.exports.getMorePhotos = (id) => {
         FROM images
         WHERE id < $1
         ORDER BY id DESC
-        LIMIT 6`,
-        [id]
-    );
+        LIMIT 30`;
+    const param = [lastOnScreenId];
+    return db.query(q, param);
 };

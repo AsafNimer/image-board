@@ -15,18 +15,18 @@ Vue.createApp({
         };
     },
     mounted() {
-        window.addEventListener("popstate", (e) => {
-            console.log(location.pathname, e.state);
-            // You will also want to open and close the modal appropriately when the user
-            // uses the browser's history navigation buttons to move forward or back in the history.
-            //  To detect that this is happening, you should start listening for the popstate
-            //   event when you initialize your app. In the event handler you can set the
-            //   reactive property you are using to keep track of the id of the image
-            //   displayed in the modal to the correct value for the new url.
+        // window.addEventListener("popstate", (e) => {
+        //     console.log(location.pathname, e.state);
+        //     // You will also want to open and close the modal appropriately when the user
+        //     // uses the browser's history navigation buttons to move forward or back in the history.
+        //     //  To detect that this is happening, you should start listening for the popstate
+        //     //   event when you initialize your app. In the event handler you can set the
+        //     //   reactive property you are using to keep track of the id of the image
+        //     //   displayed in the modal to the correct value for the new url.
 
-            // show whatever is appropriate for the new url
-            // if you need it, e.state has the data you passed to `pushState`
-        });
+        //     // show whatever is appropriate for the new url
+        //     // if you need it, e.state has the data you passed to `pushState`
+        // });
         fetch("/image_board")
             .then((res) => res.json())
             .then((fetchedData) => {
@@ -68,19 +68,21 @@ Vue.createApp({
                 });
         },
         getMoreImages() {
-            let smallestId = this.images[this.images.length - 1].id;
-            console.log("SMALLEST ID: ", smallestId);
-
-            fetch(`/moreImages/${smallestId}`)
+            let lowestIdOnScreen = this.images[this.images.length - 1].id;
+            fetch(`/moreImages/${lowestIdOnScreen}`)
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log("DATA.PAYLOAD: ", data.payload);
-                    this.images.push(data.payload);
+                    this.images = [...this.images, ...data.payload];
 
-                    const lowestImg = this.images[this.images.length - 1];
-                    console.log("lowestImg", lowestImg);
-
-                    if (lowestImg.id === lowestImg.smallestId) {
+                    const lastImg = this.images[this.images.length - 1];
+                    //"lowestId" (line 96) is a prop on the data.payload[data.payload.length - 1] obj
+                    //which represents the last image in the last batch that retrieved with 'more' button.
+                    //"lowestId" originates in my query on db.js (line 49)
+                    // NOTE: lastImg.lowestId works as well
+                    if (
+                        lastImg.id ===
+                        data.payload[data.payload.length - 1].lowestId
+                    ) {
                         this.moreButton = false;
                     }
                 })

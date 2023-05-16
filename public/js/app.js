@@ -93,11 +93,11 @@ Vue.createApp({
         },
         clickedImg(id) {
             this.imgClicked = id;
-            history.pushState(
-                {},
-                "",
-                `${location.pathname}/${this.imgClicked}`
-            );
+            // history.pushState(
+            //     {},
+            //     "",
+            //     `${location.pathname}/${this.imgClicked}`
+            // );
         },
         closeModalComponent() {
             this.imgClicked = null;

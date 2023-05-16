@@ -21,6 +21,19 @@ const modalComponent = {
                 console.log("ERROR: PROBLEM TO FETCH DATA: ", err);
             });
     },
+    // watch: {
+    //     selectedImg: function(smallerId, biggerId){
+    //         if(/*condition*/){
+    //             this.clickedImg = smallerId;
+    //         }
+    //         else if(/*condition*/) {
+    //           this.clickedImg = biggerId;
+    //         }
+    //         else{
+    //             this.clickedImg = /*current clicked image id*/
+    //         }
+    //     }
+    // },
     methods: {
         close() {
             this.$emit("close");
@@ -40,6 +53,14 @@ const modalComponent = {
                 <span @click="close" class=close-tag>x</span>
             </div>
             <div class="modal_img_div">
+                <div class="next_previous_img_div">
+                    <div class="previous_div">
+                        <span><</span>
+                    </div>
+                    <div class="next_div">
+                        <span>></span>
+                    </div>
+                </div>
                 <img v-bind:src="img.url" v-bind:alt="img.title" v-bind:key="img.id"/><br/>
             </div>
             <div class="user_details_div">

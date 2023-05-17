@@ -16,34 +16,35 @@ const modalComponent = {
         "comments-component": commentsComponent,
     },
     mounted() {
-        console.log("this.selectedImg: ", this.selectedImg);
-        this.rendernNextBtn = true;
-        this.renderPreviousBtn = true;
-
-        fetch(`/image_board/${this.selectedImg}`)
-            .then((res) => res.json())
-            .then((data) => {
-                this.img = data;
-                if (this.img.previousId === null) {
-                    this.renderPreviousBtn = false;
-                }
-                if (this.img.nextId === null) {
-                    this.rendernNextBtn = false;
-                }
-            })
-            .catch((err) => {
-                console.log("error: problem fetching data: ", err);
-            });
+        this.fetchData();
     },
     watch: {
         selectedImg: function () {
-            console.log("prop that gets passed to modal just updated");
-            this.previousImgIs = this.img.previousId;
-            this.nextImgIs = this.img.nextId;
-            this.imgClicked = this.nextImgIs || this.previousImgIs;
+            this.fetchData();
+            this.img.id = this.img.nextId || this.img.previousId;
         },
     },
     methods: {
+        fetchData() {
+            console.log("this.selectedImg: ", this.selectedImg);
+            this.rendernNextBtn = true;
+            this.renderPreviousBtn = true;
+
+            fetch(`/image_board/${this.selectedImg}`)
+                .then((res) => res.json())
+                .then((data) => {
+                    this.img = data;
+                    if (this.img.previousId === null) {
+                        this.renderPreviousBtn = false;
+                    }
+                    if (this.img.nextId === null) {
+                        this.rendernNextBtn = false;
+                    }
+                })
+                .catch((err) => {
+                    console.log("error: problem fetching data: ", err);
+                });
+        },
         close() {
             this.$emit("close");
         },

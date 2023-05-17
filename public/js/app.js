@@ -12,30 +12,35 @@ Vue.createApp({
             userInput: { username: "", description: "", title: "" },
             formNotValid: false,
             errorMsg: false,
+            notification: false,
+            notifications: [],
         };
     },
     mounted() {
+        history.pushState({}, "", "/home");
+
+        fetch("/image_board")
+            .then((res) => res.json())
+            .then((data) => {
+                this.images = data;
+                console.log("fetched-data: ", data);
+            });
+
+        this.sendNotifications();
+
         window.addEventListener("popstate", () => {
             let path = location.pathname.slice(1);
-            console.log("path Event Listener received", path);
             if (path != "") {
                 path = Number.parseInt(path);
-                console.log("Path Event Listener  after parseInt", path);
                 if (Number.isNaN(path)) {
                     history.replaceState({}, "", "/");
                 } else {
-                    this.imgClicked = path;
+                    this.idCard = path;
                 }
             } else {
                 this.imgClicked = "";
             }
         });
-        fetch("/image_board")
-            .then((res) => res.json())
-            .then((fetchedData) => {
-                console.log("response from /IMAGES: ", fetchedData);
-                this.images = fetchedData;
-            });
     },
     components: {
         "modal-component": modalComponent,
@@ -113,9 +118,21 @@ Vue.createApp({
             }
         },
         updateImg(newRenderedImgId) {
-            console.log("newRenderedImgId: ", newRenderedImgId);
             this.imgClicked = newRenderedImgId;
             history.pushState({}, "", `/${this.imgClicked}`);
         },
+        // sendNotifications() {
+        //     console.log("notifications was mounted");
+        //     // setInterval(() => {
+        //     fetch("/image_board")
+        //         .then((res) => res.json())
+        //         .then((data) => {
+        //             console.log(data);
+        //         })
+        //         .catch((err) => {
+        //             console.log(err);
+        //         });
+        //     // }, 5000);
+        // },
     },
 }).mount("#app_container");

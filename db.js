@@ -69,7 +69,7 @@ module.exports.getMorePhotos = (lastOnScreenId) => {
         FROM images
         WHERE id < $1
         ORDER BY id DESC
-        LIMIT 30`;
+        LIMIT 20`;
     const param = [lastOnScreenId];
     return db.query(q, param);
 };

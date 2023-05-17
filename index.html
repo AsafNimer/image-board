@@ -13,8 +13,8 @@
         </div>
     </header>
     <div id="app_container">
+        <!-- <div class="notifications" v-if="notification"></div> -->
         <modal-component v-if="imgClicked" v-bind:selected-Img="imgClicked" @update="updateImg" @close="closeModalComponent"></modal-component>
-        <!-- <main-app-view-component></main-app-view-component> -->
         <div class="err_msgs_div">
             <p v-if="formNotValid" class="form_not_valid_msg">Please fill in all fields and choose an image before submitting</p>
             <p v-if="errorMsg" class="error_msg">Something went wrong, please try again</p>

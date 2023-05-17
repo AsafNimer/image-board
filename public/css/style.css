@@ -52,6 +52,12 @@ hr {
     font-size: 5.3rem;
     color: white;
 }
+
+.header_title_div .notifications {
+    border: none;
+    background-color: rgba(255, 99, 71, 0.5);
+    border-radius: 25px;
+}
 /* -------------- MAIN CONTAINER-----------------*/
 #app_container {
     width: 100%;
@@ -1704,6 +1710,14 @@ hr {
 
     .header_title_div h1 {
         font-size: 5.5rem;
+    }
+
+    header .notifications {
+        width: 2rem;
+        height: 1.3rem;
+        border: none;
+        background-color: rgba(243, 41, 5, 0.7);
+        border-radius: 7px;
     }
 
     #app_container .more_button_div {

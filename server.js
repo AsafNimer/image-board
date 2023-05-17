@@ -36,8 +36,9 @@ app.use(express.json()); //This is a built-in middleware function in Express. It
 
 app.get("/image_board", (req, res) => {
     db.getImages()
-        .then((results) => {
-            res.json(results.rows);
+        .then((result) => {
+            res.json(result.rows);
+            console.log("check ittttttttt!!!!!!: ", result.rows);
         })
         .catch((err) => {
             console.log("error GET images", err);

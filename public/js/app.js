@@ -15,18 +15,21 @@ Vue.createApp({
         };
     },
     mounted() {
-        // window.addEventListener("popstate", (e) => {
-        //     console.log(location.pathname, e.state);
-        //     // You will also want to open and close the modal appropriately when the user
-        //     // uses the browser's history navigation buttons to move forward or back in the history.
-        //     //  To detect that this is happening, you should start listening for the popstate
-        //     //   event when you initialize your app. In the event handler you can set the
-        //     //   reactive property you are using to keep track of the id of the image
-        //     //   displayed in the modal to the correct value for the new url.
-
-        //     // show whatever is appropriate for the new url
-        //     // if you need it, e.state has the data you passed to `pushState`
-        // });
+        window.addEventListener("popstate", () => {
+            let path = location.pathname.slice(1);
+            console.log("path Event Listener received", path);
+            if (path != "") {
+                path = Number.parseInt(path);
+                console.log("Path Event Listener  after parseInt", path);
+                if (Number.isNaN(path)) {
+                    history.replaceState({}, "", "/");
+                } else {
+                    this.imgClicked = path;
+                }
+            } else {
+                this.imgClicked = "";
+            }
+        });
         fetch("/image_board")
             .then((res) => res.json())
             .then((fetchedData) => {
@@ -93,11 +96,11 @@ Vue.createApp({
         },
         clickedImg(id) {
             this.imgClicked = id;
-            // history.pushState(
-            //     {},
-            //     "",
-            //     `${location.pathname}/${this.imgClicked}`
-            // );
+            history.pushState(
+                {},
+                "",
+                `${location.pathname}/${this.imgClicked}`
+            );
         },
         closeModalComponent() {
             this.imgClicked = null;
@@ -108,6 +111,11 @@ Vue.createApp({
             if (file.value.length > 0) {
                 this.imageSelected = true;
             }
+        },
+        updateImg(newRenderedImgId) {
+            console.log("newRenderedImgId: ", newRenderedImgId);
+            this.imgClicked = newRenderedImgId;
+            history.pushState({}, "", `/${this.imgClicked}`);
         },
     },
 }).mount("#app_container");

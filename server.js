@@ -46,6 +46,7 @@ app.get("/image_board", (req, res) => {
 
 app.get("/image_board/:image", (req, res) => {
     db.getSingleImg(req.params.image).then((result) => {
+        console.log("result.rows: TEST!!!", result.rows);
         res.json(result.rows[0]);
     });
 });

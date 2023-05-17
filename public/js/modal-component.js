@@ -5,6 +5,10 @@ const modalComponent = {
         return {
             header: "modal-component",
             img: {},
+            rendernNextBtn: true,
+            renderPreviousBtn: true,
+            nextImgOnScreen: null,
+            previousImgOnScreen: null,
         };
     },
     props: ["selectedImg"],
@@ -12,40 +16,49 @@ const modalComponent = {
         "comments-component": commentsComponent,
     },
     mounted() {
+        console.log("this.selectedImg: ", this.selectedImg);
+        this.rendernNextBtn = true;
+        this.renderPreviousBtn = true;
+
         fetch(`/image_board/${this.selectedImg}`)
             .then((res) => res.json())
             .then((data) => {
                 this.img = data;
+                if (this.img.previousId === null) {
+                    this.renderPreviousBtn = false;
+                }
+                if (this.img.nextId === null) {
+                    this.rendernNextBtn = false;
+                }
             })
             .catch((err) => {
-                console.log("ERROR: PROBLEM TO FETCH DATA: ", err);
+                console.log("error: problem fetching data: ", err);
             });
     },
-    // watch: {
-    //     selectedImg: function(smallerId, biggerId){
-    //         if(/*condition*/){
-    //             this.clickedImg = smallerId;
-    //         }
-    //         else if(/*condition*/) {
-    //           this.clickedImg = biggerId;
-    //         }
-    //         else{
-    //             this.clickedImg = /*current clicked image id*/
-    //         }
-    //     }
-    // },
+    watch: {
+        selectedImg: function () {
+            console.log("prop that gets passed to modal just updated");
+            this.previousImgIs = this.img.previousId;
+            this.nextImgIs = this.img.nextId;
+            this.imgClicked = this.nextImgIs || this.previousImgIs;
+        },
+    },
     methods: {
         close() {
             this.$emit("close");
-            // Users will be able to type anything they want in a url so you should
-            // probably handle the possibility that what is in the url is not a
-            // valid image id. A simple way to do this is to have your component fire
-            //  an event to close the modal if the network request to get the image data
-            //   is not successful. In this situation, it is probably a good idea
-            //   to use replaceState to change the url so that it is not possible to
-            //   get back to the invalid url with the browser's history navigation buttons.
+        },
+        nextImgId() {
+            //this fired when i click on prev/nxt arrows
+            console.log(this.img.nextId);
+            this.$emit("update", this.img.nextId);
+        },
+        previousImgId() {
+            //this fired when i click on prev/nxt arrows
+            console.log(this.img.previousId);
+            this.$emit("update", this.img.previousId);
         },
     },
+
     template: `
     <div class="modal_wrapper_div">
         <div class="modal_component_div">
@@ -54,11 +67,11 @@ const modalComponent = {
             </div>
             <div class="modal_img_div">
                 <div class="next_previous_img_div">
-                    <div class="previous_div">
-                        <span><</span>
+                    <div v-if="renderPreviousBtn" @click="previousImgId" class="previous_div">
+                        <span>«</span>
                     </div>
-                    <div class="next_div">
-                        <span>></span>
+                    <div v-if="rendernNextBtn" @click="nextImgId" class="next_div">
+                        <span>»</span>
                     </div>
                 </div>
                 <img v-bind:src="img.url" v-bind:alt="img.title" v-bind:key="img.id"/><br/>

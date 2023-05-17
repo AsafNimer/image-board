@@ -259,10 +259,10 @@ hr {
     position: absolute;
     width: 68%;
     display: flex;
-    justify-content: space-between;
 }
 
 .modal_img_div .previous_div {
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -279,6 +279,7 @@ hr {
 }
 
 .modal_img_div .next_div {
+    cursor: pointer;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -582,8 +583,6 @@ hr {
     .modal_img_div .next_previous_img_div {
         position: absolute;
         width: 90%;
-        display: flex;
-        justify-content: space-between;
     }
 
     .modal_img_div .previous_div {
@@ -603,6 +602,8 @@ hr {
     }
 
     .modal_img_div .next_div {
+        position: relative;
+        left: 82%;
         border-radius: 50%;
         display: flex;
         justify-content: center;
@@ -888,11 +889,11 @@ hr {
     .modal_img_div .next_previous_img_div {
         position: absolute;
         width: 90%;
-        display: flex;
-        justify-content: space-between;
     }
 
     .modal_img_div .previous_div {
+        position: relative;
+        right: 2%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -909,6 +910,8 @@ hr {
     }
 
     .modal_img_div .next_div {
+        position: relative;
+        left: 84%;
         border-radius: 50%;
         display: flex;
         justify-content: center;
@@ -925,7 +928,7 @@ hr {
     }
 
     .modal_img_div img {
-        object-fit: cover;
+        object-fit: contain;
     }
 
     .modal_component_div .user_details_div {
@@ -1197,11 +1200,11 @@ hr {
     .modal_img_div .next_previous_img_div {
         position: absolute;
         width: 90%;
-        display: flex;
-        justify-content: space-between;
     }
 
     .modal_img_div .previous_div {
+        position: relative;
+        right: 3%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -1218,6 +1221,8 @@ hr {
     }
 
     .modal_img_div .next_div {
+        position: relative;
+        left: 88%;
         border-radius: 50%;
         display: flex;
         justify-content: center;
@@ -1533,8 +1538,6 @@ hr {
     .modal_img_div .next_previous_img_div {
         position: absolute;
         width: 68%;
-        display: flex;
-        justify-content: space-between;
     }
 
     .modal_img_div .previous_div {
@@ -1554,6 +1557,8 @@ hr {
     }
 
     .modal_img_div .next_div {
+        position: relative;
+        left: 86%;
         border-radius: 50%;
         display: flex;
         justify-content: center;
@@ -1875,8 +1880,6 @@ hr {
     .modal_img_div .next_previous_img_div {
         position: absolute;
         width: 68%;
-        display: flex;
-        justify-content: space-between;
     }
 
     .modal_img_div .previous_div {
@@ -1896,6 +1899,10 @@ hr {
     }
 
     .modal_img_div .next_div {
+        position: relative;
+        left: 86%;
+        position: relative;
+        left: 86%;
         border-radius: 50%;
         display: flex;
         justify-content: center;

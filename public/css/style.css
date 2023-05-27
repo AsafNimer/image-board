@@ -135,6 +135,24 @@ hr {
     font-family: var(--font-family);
     cursor: pointer;
 }
+.buttons_div .select_file_div {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.select_file_div .file_path {
+    border: dashed 1.5px red;
+    width: 12rem;
+    height: 3rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    overflow: hidden;
+}
+
+.file_path .image_path_par {
+    font-size: 0.9rem;
+}
 
 .upload_form .upload_button {
     font-size: 1.1rem;
@@ -164,17 +182,61 @@ hr {
     flex-direction: column;
 }
 
-.img_title_div .img_title_par {
-    padding: 0.5rem;
+/* .single_image_container .test {
+    position: absolute;
+    height: 20rem;
+    width: 20rem;
+    background-color: rgba(255, 255, 255, 0);
+    z-index: 10;
+}
+
+.test .hover {
+    position: absolute;
+    z-index: 5;
+    height: 20rem;
+    width: 20rem;
+    background-color: rgba(128, 128, 128, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.hover .delete_par {
+    color: var(--font-color);
+    font-size: 1.5rem;
+    font-family: var(--font-family);
+    background-color: rgba(138, 43, 226, 0.7);
+    padding: 1.5rem;
+} */
+
+.single_image_container .img_title_div {
+    display: flex;
     position: absolute;
     z-index: 1;
+    background-color: rgba(86, 83, 83, 0.5);
+    height: 2.9rem;
+    width: 20rem;
+}
+
+.img_title_div .img_title_par {
     font-weight: var(--light-font);
     font-family: var(--font-family);
     font-size: 1rem;
-    background-color: rgba(86, 83, 83, 0.5);
-    height: 2.5rem;
-    width: 21rem;
     color: var(--font-color);
+}
+
+.img_title_div #delete_par {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: black;
+    width: 20%;
+    padding-top: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.5s;
+}
+
+.img_title_div #delete_par:hover {
+    background-color: rgba(233, 0, 155, 0.408);
 }
 
 .single_image_container img {
@@ -275,7 +337,7 @@ hr {
     border-radius: 50%;
     width: 3.1rem;
     height: 3rem;
-    background-color: rgba(131, 129, 132, 0.3);
+    background-color: rgba(131, 129, 132, 0.7);
 }
 
 .previous_div span {
@@ -292,7 +354,7 @@ hr {
     align-items: center;
     width: 3.1rem;
     height: 3rem;
-    background-color: rgba(131, 129, 132, 0.3);
+    background-color: rgba(131, 129, 132, 0.7);
 }
 
 .next_div span {
@@ -476,10 +538,6 @@ hr {
         font-family: var(--font-family);
     }
 
-    /* .modal_for_mobile {
-        background-color: red;
-    } */
-
     .upload_form_container .upload_form {
         display: flex;
         flex-direction: column;
@@ -510,7 +568,7 @@ hr {
         gap: 1rem;
     }
 
-    .upload_form .upload_button {
+    .buttons_div .upload_button {
         font-size: 0.7rem;
         width: 6rem;
         height: 2rem;
@@ -521,6 +579,20 @@ hr {
         border-radius: 5px;
         width: 6rem;
         height: 2rem;
+    }
+
+    .select_file_div .file_path {
+        border: dashed 1.5px red;
+        width: 6rem;
+        height: 2rem;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .file_path .image_path_par {
+        font-size: 0.7rem;
     }
 
     #app_container .img_board_grid_container {
@@ -598,7 +670,7 @@ hr {
         border-radius: 50%;
         width: 2rem;
         height: 2rem;
-        background-color: rgba(131, 129, 132, 0.3);
+        background-color: rgba(131, 129, 132, 0.7);
     }
 
     .previous_div span {
@@ -616,7 +688,7 @@ hr {
         align-items: center;
         width: 2rem;
         height: 2rem;
-        background-color: rgba(131, 129, 132, 0.3);
+        background-color: rgba(131, 129, 132, 0.7);
     }
 
     .next_div span {
@@ -726,6 +798,7 @@ hr {
     #comment_par {
         font-family: var(--font-family);
         font-size: 0.8rem;
+        overflow-wrap: break-word;
     }
 }
 
@@ -749,7 +822,7 @@ hr {
 
     #app_container .more_button_div {
         width: 100%;
-        margin: 3rem;
+        margin: 1rem;
         display: flex;
         justify-content: center;
     }
@@ -816,10 +889,16 @@ hr {
         margin-top: 1rem;
         width: fit-content;
         display: flex;
-        gap: 1.5rem;
+        flex-direction: column;
+        gap: 0.5rem;
     }
 
-    .upload_form .upload_button {
+    .buttons_div .select_file_div {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .buttons_div .upload_button {
         font-size: 0.8rem;
         width: 7rem;
         height: 2.3rem;
@@ -830,6 +909,20 @@ hr {
         font-size: 0.8rem;
         width: 7rem;
         height: 2.3rem;
+    }
+
+    .select_file_div .file_path {
+        border: dashed 1.5px red;
+        width: 6rem;
+        height: 2rem;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .file_path .image_path_par {
+        font-size: 0.7rem;
     }
 
     #app_container .img_board_grid_container {
@@ -906,7 +999,7 @@ hr {
         border-radius: 50%;
         width: 2.3rem;
         height: 2.3rem;
-        background-color: rgba(131, 129, 132, 0.3);
+        background-color: rgba(131, 129, 132, 0.7);
     }
 
     .previous_div span {
@@ -924,7 +1017,7 @@ hr {
         align-items: center;
         width: 2.3rem;
         height: 2.3rem;
-        background-color: rgba(131, 129, 132, 0.3);
+        background-color: rgba(131, 129, 132, 0.7);
     }
 
     .next_div span {
@@ -1033,6 +1126,7 @@ hr {
     #comment_par {
         font-family: var(--font-family);
         font-size: 0.9rem;
+        overflow-wrap: break-word;
     }
 }
 
@@ -1097,10 +1191,6 @@ hr {
         font-family: var(--font-family);
     }
 
-    /* .modal_for_mobile {
-        background-color: red;
-    } */
-
     .upload_form_container .upload_form {
         display: flex;
         flex-direction: column;
@@ -1130,7 +1220,12 @@ hr {
         gap: 1.5rem;
     }
 
-    .upload_form .upload_button {
+    .buttons_div .select_file_div {
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    .buttons_div .upload_button {
         font-size: 0.9rem;
         width: 8rem;
         height: 2.4rem;
@@ -1141,6 +1236,20 @@ hr {
         font-size: 0.9rem;
         width: 8rem;
         height: 2.4rem;
+    }
+
+    .select_file_div .file_path {
+        border: dashed 1.5px red;
+        width: 8rem;
+        height: 2.4rem;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .file_path .image_path_par {
+        font-size: 0.8rem;
     }
 
     #app_container .img_board_grid_container {
@@ -1217,7 +1326,7 @@ hr {
         border-radius: 50%;
         width: 2.5rem;
         height: 2.5rem;
-        background-color: rgba(131, 129, 132, 0.3);
+        background-color: rgba(131, 129, 132, 0.7);
     }
 
     .previous_div span {
@@ -1235,7 +1344,7 @@ hr {
         align-items: center;
         width: 2.5rem;
         height: 2.5rem;
-        background-color: rgba(131, 129, 132, 0.3);
+        background-color: rgba(131, 129, 132, 0.7);
     }
 
     .next_div span {
@@ -1352,6 +1461,7 @@ hr {
     #comment_par {
         font-family: var(--font-family);
         font-size: 1rem;
+        overflow-wrap: break-word;
     }
 }
 
@@ -1416,10 +1526,6 @@ hr {
         font-family: var(--font-family);
     }
 
-    /* .modal_for_mobile {
-        background-color: red;
-    } */
-
     .upload_form_container .upload_form {
         display: flex;
         flex-direction: column;
@@ -1449,10 +1555,15 @@ hr {
         gap: 2.5rem;
     }
 
-    .upload_form .upload_button {
+    .buttons_div .upload_button {
         font-size: 0.9125rem;
         width: 9rem;
         height: 2.5rem;
+    }
+
+    .buttons_div .select_file_div {
+        display: flex;
+        gap: 2.5rem;
     }
 
     .select_file_div .select_img_btn {
@@ -1460,6 +1571,20 @@ hr {
         font-size: 0.9125rem;
         width: 9rem;
         height: 2.5rem;
+    }
+
+    .select_file_div .file_path {
+        border: dashed 1.5px red;
+        width: 9rem;
+        height: 2.4rem;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .file_path .image_path_par {
+        font-size: 0.9rem;
     }
 
     #app_container .img_board_grid_container {
@@ -1489,6 +1614,7 @@ hr {
     .modal_wrapper_div {
         background-color: rgba(0, 0, 0, 0.5);
         position: fixed;
+        bottom: 0rem;
         width: 100%;
         display: flex;
         justify-content: center;
@@ -1553,7 +1679,7 @@ hr {
         border-radius: 50%;
         width: 2.8rem;
         height: 2.8rem;
-        background-color: rgba(131, 129, 132, 0.3);
+        background-color: rgba(131, 129, 132, 0.7);
     }
 
     .previous_div span {
@@ -1571,7 +1697,7 @@ hr {
         align-items: center;
         width: 2.8rem;
         height: 2.8rem;
-        background-color: rgba(131, 129, 132, 0.3);
+        background-color: rgba(131, 129, 132, 0.7);
     }
 
     .next_div span {
@@ -1691,6 +1817,7 @@ hr {
     #comment_par {
         font-family: var(--font-family);
         font-size: 0.9rem;
+        overflow-wrap: break-word;
     }
 }
 
@@ -1764,10 +1891,6 @@ hr {
         font-family: var(--font-family);
     }
 
-    /* .modal_for_mobile {
-        background-color: red;
-    } */
-
     .upload_form_container .upload_form {
         display: flex;
         flex-direction: column;
@@ -1797,16 +1920,35 @@ hr {
         gap: 2.5rem;
     }
 
-    .upload_form .upload_button {
+    .buttons_div .upload_button {
         font-size: 1rem;
         width: 12rem;
         height: 3rem;
+    }
+
+    .buttons_div .select_file_div {
+        display: flex;
+        gap: 2.5rem;
     }
 
     .select_file_div .select_img_btn {
         font-size: 1rem;
         width: 12rem;
         height: 3rem;
+    }
+
+    .select_file_div .file_path {
+        border: dashed 1.5px red;
+        width: 12rem;
+        height: 3rem;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .file_path .image_path_par {
+        font-size: 0.9rem;
     }
 
     #app_container .img_board_grid_container {
@@ -1903,7 +2045,7 @@ hr {
         border-radius: 50%;
         width: 3.1rem;
         height: 3rem;
-        background-color: rgba(131, 129, 132, 0.3);
+        background-color: rgba(131, 129, 132, 0.7);
     }
 
     .previous_div span {
@@ -1923,7 +2065,7 @@ hr {
         align-items: center;
         width: 3.1rem;
         height: 3rem;
-        background-color: rgba(131, 129, 132, 0.3);
+        background-color: rgba(131, 129, 132, 0.7);
     }
 
     .next_div span {
@@ -2142,5 +2284,6 @@ hr {
     #comment_par {
         font-family: var(--font-family);
         font-size: 0.9rem;
+        overflow-wrap: break-word;
     }
 }

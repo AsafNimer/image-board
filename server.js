@@ -119,6 +119,26 @@ app.post("/upload", uploader.single("image"), s3.upload, (req, res) => {
         });
 });
 
+app.get("/delete/:id", (req, res) => {
+    db.deleteComment(req.params.id)
+        .then(() => {
+            console.log(
+                "REMOVE BUTTON PRESSED! deleteComment executed - req.params.id:",
+                req.params.id
+            );
+            db.deleteImage(req.params.id).then((result) => {
+                console.log(
+                    "deleteImage executed - req.params.id:",
+                    req.params.id
+                );
+                res.json({ success: true, payload: result.rows });
+            });
+        })
+        .catch((err) => {
+            console.log("error by deleting: ", err);
+        });
+});
+
 app.get("*", (req, res) => {
     res.sendFile(`${__dirname}/index.html`);
 });

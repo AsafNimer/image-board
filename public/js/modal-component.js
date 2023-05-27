@@ -61,7 +61,7 @@ const modalComponent = {
     },
 
     template: `
-    <div class="modal_wrapper_div">
+    <div @click="close" class="modal_wrapper_div">
         <div class="modal_component_div">
             <div class="span_x_div">
                 <span @click="close" class=close-tag>x</span>

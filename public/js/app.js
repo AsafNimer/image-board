@@ -7,17 +7,20 @@ Vue.createApp({
             name: "images",
             images: [],
             imgClicked: "",
+            imagePath: "",
             moreButton: true,
             imageSelected: false,
             userInput: { username: "", description: "", title: "" },
             formNotValid: false,
             errorMsg: false,
-            notification: false,
-            notifications: [],
+            // notification: false,
+            // notifications: [],
         };
     },
     mounted() {
         history.pushState({}, "", "/home");
+        this.imagePath = "";
+        this.imageRemoved = false;
 
         fetch("/image_board")
             .then((res) => res.json())
@@ -26,7 +29,7 @@ Vue.createApp({
                 console.log("fetched-data: ", data);
             });
 
-        this.sendNotifications();
+        // this.sendNotifications();
 
         window.addEventListener("popstate", () => {
             let path = location.pathname.slice(1);
@@ -115,6 +118,7 @@ Vue.createApp({
             const file = document.getElementById("choose_file");
             if (file.value.length > 0) {
                 this.imageSelected = true;
+                this.imagePath = file.value;
             }
         },
         updateImg(newRenderedImgId) {
@@ -123,16 +127,25 @@ Vue.createApp({
         },
         // sendNotifications() {
         //     console.log("notifications was mounted");
-        //     // setInterval(() => {
+        //     setInterval(() => {
         //     fetch("/image_board")
         //         .then((res) => res.json())
         //         .then((data) => {
-        //             console.log(data);
+        //             console.log("this.images[0].id: ", this.images[0].id);
+
+        //             console.log("data: ", data[0].id);
         //         })
         //         .catch((err) => {
         //             console.log(err);
         //         });
-        //     // }, 5000);
+        //     }, 5000);
         // },
+        removeImg(imgId) {
+            // console.log("imageID: ", imgId);
+            // console.log("this.images before filter: ", this.images);
+            const filterResults = this.images.filter((img) => img.id != imgId);
+            console.log("this.images after filter: ", filterResults);
+            this.images = filterResults;
+        },
     },
 }).mount("#app_container");

@@ -30,6 +30,9 @@
                     <div class="select_file_div">
                         <input v-on:change="checkIfUserSelectedImg" class="upload_input" id="choose_file" name="image" type="file" accept="image/*" hidden>
                         <label class="select_img_btn" for="choose_file">Select Image</label>
+                        <div v-if="imageSelected" v-bind:image-path="imagePath" class="file_path">
+                            <p class="image_path_par">{{imagePath}}</p>
+                        </div>
                     </div>
                     <button class="upload_button" type="submit">Upload</button>
                 </div>
@@ -37,9 +40,15 @@
         </div>
         <hr>
         <div class="img_board_grid_container">
-            <div class="single_image_container" v-if="images.length" v-for="image in images" >       
+            <div class="single_image_container" v-if="images.length" v-for="image in images" >
+                <!-- <div class="test">
+                    <div @mouseover="mouseOver = true" @mouseleave=" mouseOver = false" :class="{hover: mouseOver}">
+                        <p class="delete_par">Delete</p>   
+                    </div>      
+                </div> -->
                 <div class="img_title_div">
                     <p class="img_title_par">{{image.title}}</p>
+                    <p @click="removeImg(image.id)" class="img_title_par" id="delete_par">Remove</p>
                 </div>
                 <img v-bind:src=image.url v-bind:key=image.id @click="clickedImg(image.id)" alt="image.title" >
             </div>

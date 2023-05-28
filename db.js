@@ -23,16 +23,6 @@ module.exports.storeToImages = (url, title, description, username) => {
 //     return db.query(`SELECT * FROM images WHERE id = $1`, [id]);
 // };
 
-module.exports.deleteImage = (image_id) => {
-    const q = `SELECT * ,
-    (DELETE FROM images WHERE images.images_id = $1), 
-    FROM images ORDER BY id DESC
-    LIMIT 6`;
-
-    const param = [image_id];
-    return db.query(q, param);
-};
-
 exports.getSingleImg = (id) => {
     return db.query(
         `SELECT *, (
@@ -70,15 +60,15 @@ module.exports.addCommentToImg = (comment, username, image_id) => {
     return db.query(q, param);
 };
 
-// module.exports.deleteImage = (image_id) => {
-//     const q = `DELETE FROM images WHERE images.images_id = $1`;
-//     const param = [image_id];
+module.exports.deleteImage = (image_id) => {
+    const q = `DELETE FROM images WHERE id = $1`;
+    const param = [image_id];
 
-//     return db.query(q, param);
-// };
+    return db.query(q, param);
+};
 
 module.exports.deleteComment = (image_id) => {
-    const q = `DELETE FROM comments WHERE comments.images_id = $1`;
+    const q = `DELETE FROM comments WHERE image_id = $1`;
     const param = [image_id];
 
     return db.query(q, param);

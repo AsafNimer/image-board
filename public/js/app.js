@@ -145,7 +145,33 @@ Vue.createApp({
             // console.log("this.images before filter: ", this.images);
             const filterResults = this.images.filter((img) => img.id != imgId);
             console.log("this.images after filter: ", filterResults);
-            this.images = filterResults;
+
+            fetch("/remove/:id")
+                .then((res) => {
+                    if (res.status === 204) {
+                        console.log("status is 204!");
+                        this.images = filterResults;
+                    } else {
+                        console.log("sth went wrong");
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+
+            // fetch("/remove/:id")
+            //     .then((res) => res.json())
+            //     .then((data) => {
+            //         if (data.success) {
+            //             console.log("status is 204!");
+            //             this.images = filterResults;
+            //         } else {
+            //             console.log("sth went wrong");
+            //         }
+            //     })
+            //     .catch((err) => {
+            //         console.log(err);
+            //     });
         },
     },
 }).mount("#app_container");

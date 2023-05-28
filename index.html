@@ -41,11 +41,6 @@
         <hr>
         <div class="img_board_grid_container">
             <div class="single_image_container" v-if="images.length" v-for="image in images" >
-                <!-- <div class="test">
-                    <div @mouseover="mouseOver = true" @mouseleave=" mouseOver = false" :class="{hover: mouseOver}">
-                        <p class="delete_par">Delete</p>   
-                    </div>      
-                </div> -->
                 <div class="img_title_div">
                     <p class="img_title_par">{{image.title}}</p>
                     <p @click="removeImg(image.id)" class="img_title_par" id="delete_par">Remove</p>

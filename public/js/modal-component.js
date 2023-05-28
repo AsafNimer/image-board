@@ -49,19 +49,19 @@ const modalComponent = {
             this.$emit("close");
         },
         nextImgId() {
-            //this fired when i click on prev/nxt arrows
+            //this fired when i click on nxt arrow
             console.log(this.img.nextId);
             this.$emit("update", this.img.nextId);
         },
         previousImgId() {
-            //this fired when i click on prev/nxt arrows
+            //this fired when i click on prev arrow
             console.log(this.img.previousId);
             this.$emit("update", this.img.previousId);
         },
     },
 
     template: `
-    <div @click="close" class="modal_wrapper_div">
+    <div class="modal_wrapper_div">
         <div class="modal_component_div">
             <div class="span_x_div">
                 <span @click="close" class=close-tag>x</span>

@@ -44,12 +44,21 @@ exports.getSingleImg = (id) => {
 
 module.exports.getAllComments = (image_id) => {
     return db.query(
-        `SELECT comments.comment, comments.username, comments.created_at
+        `SELECT *
         FROM comments
         WHERE comments.image_id = $1`,
         [image_id]
     );
 };
+
+// module.exports.getAllComments = (image_id) => {
+//     return db.query(
+//         `SELECT comments.comment, comments.username, comments.created_at
+//         FROM comments
+//         WHERE comments.image_id = $1`,
+//         [image_id]
+//     );
+// };
 
 module.exports.addCommentToImg = (comment, username, image_id) => {
     const q = `INSERT INTO comments(comment, username, image_id)
@@ -67,7 +76,7 @@ module.exports.deleteImage = (image_id) => {
     return db.query(q, param);
 };
 
-module.exports.deleteComment = (image_id) => {
+module.exports.deleteComments = (image_id) => {
     const q = `DELETE FROM comments WHERE image_id = $1`;
     const param = [image_id];
 

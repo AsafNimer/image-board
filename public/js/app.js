@@ -146,32 +146,20 @@ Vue.createApp({
             const filterResults = this.images.filter((img) => img.id != imgId);
             console.log("this.images after filter: ", filterResults);
 
-            fetch("/remove/:id")
+            fetch("/removeImgAndComments/:id", { method: "DELETE" })
                 .then((res) => {
                     if (res.status === 204) {
-                        console.log("status is 204!");
+                        console.log(
+                            "status is 204!, img and its comments removed"
+                        );
                         this.images = filterResults;
                     } else {
                         console.log("sth went wrong");
                     }
                 })
                 .catch((err) => {
-                    console.log(err);
+                    console.log("Fetch went wrong: ", err);
                 });
-
-            // fetch("/remove/:id")
-            //     .then((res) => res.json())
-            //     .then((data) => {
-            //         if (data.success) {
-            //             console.log("status is 204!");
-            //             this.images = filterResults;
-            //         } else {
-            //             console.log("sth went wrong");
-            //         }
-            //     })
-            //     .catch((err) => {
-            //         console.log(err);
-            //     });
         },
     },
 }).mount("#app_container");

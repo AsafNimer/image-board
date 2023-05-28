@@ -119,28 +119,28 @@ app.post("/upload", uploader.single("image"), s3.upload, (req, res) => {
         });
 });
 
-app.delete("/remove/:id", (req, res) => {
-    db.deleteComment(req.params.id)
+app.delete("/removeImgAndComments/:id", (req, res) => {
+    // let strToInt = Number(req.params.id);
+    db.deleteComments(req.params.id) //should give image-id as the parametes in the function's ()
         .then(() => {
-            console.log(
-                "REMOVE BUTTON PRESSED! deleteComment executed - req.params.id:",
-                req.params.id
-            );
+            console.log("Comments removed", req.params.id);
+            res.status(204).send("comments removed");
+        })
+        .catch((err) => {
+            console.log("Error with deleteComments", err);
+        })
+        .then(() => {
             db.deleteImage(req.params.id)
                 .then(() => {
-                    console.log(
-                        "deleteImage executed - req.params.id:",
-                        req.params.id
-                    );
-                    res.status(204).send("status sent");
-                    // res.json({ success: true });
+                    console.log("Image removed", req.params.id);
+                    res.status(204).send("image removed");
                 })
                 .catch((err) => {
                     console.log("error by deleting image: ", err);
                 });
         })
         .catch((err) => {
-            console.log("error by deleting comment: ", err);
+            console.log("error by deleting image: ", err);
         });
 });
 

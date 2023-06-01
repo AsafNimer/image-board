@@ -76,10 +76,12 @@ const modalComponent = {
                 <img v-bind:src="img.url" v-bind:alt="img.title" v-bind:key="img.id"/><br/>
             </div>
             <div class="user_details_div">
-                <h1>{{img.title}}</h1>
-                <div class="upload_details_div">
-                   <p class="uploaded_by_par">Uploaded By:<br>{{img.username}}</p><br>
-                    <p class="decription_par">Description:<br>{{img.description}}</p>
+                <div class="user_details_container">
+                    <h3>{{img.title}}</h3>
+                    <div class="user_details_par_container">
+                        <p class="uploaded_by_par">Uploaded By:<br>{{img.username}}</p><br>
+                        <p class="decription_par">Description:<br>{{img.description}}</p>
+                    </div>
                 </div>
                 <comments-component v-bind:img-id="selectedImg"></comments-component>
             </div>

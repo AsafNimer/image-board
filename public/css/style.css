@@ -52,14 +52,9 @@ hr {
     font-size: 5.3rem;
     color: white;
 }
-
-.header_title_div .notifications {
-    border: none;
-    background-color: rgba(255, 99, 71, 0.5);
-    border-radius: 25px;
-}
 /* -------------- MAIN CONTAINER-----------------*/
 #app_container {
+    margin-top: 0rem;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -108,25 +103,32 @@ hr {
 }
 
 .input_fields_div .upload_input {
-    width: 15rem;
-    height: 1.8rem;
-    padding: 0.5rem;
+    width: 18rem;
+    height: 2rem;
+    padding: 0.7rem;
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 5px;
 }
 
 .upload_form .buttons_div {
+    width: fit-content;
     display: flex;
     align-self: center;
     justify-content: center;
-    gap: 2rem;
+    gap: 2.5rem;
+}
+
+.buttons_div .upload_button {
+    font-size: 1rem;
+    width: 12rem;
+    height: 3rem;
 }
 
 .select_file_div .select_img_btn {
-    font-size: 1.1rem;
+    font-size: 1rem;
     border-radius: 5px;
     width: 12rem;
-    height: 2.8rem;
+    height: 3rem;
     background-color: rgba(138, 43, 226, 0.3);
     display: flex;
     justify-content: center;
@@ -135,6 +137,7 @@ hr {
     font-family: var(--font-family);
     cursor: pointer;
 }
+
 .buttons_div .select_file_div {
     display: flex;
     gap: 2.5rem;
@@ -167,56 +170,29 @@ hr {
 }
 
 .img_board_grid_container {
+    width: 84%;
+    grid-template-columns: repeat(auto-fit, 30rem);
+    gap: 0.2rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(10rem, 22rem));
-    width: 80%;
     justify-content: center;
     align-items: center;
-    gap: 0.1rem 0.1rem;
+    margin-top: 3rem;
     margin-bottom: 2rem;
 }
 
 .img_board_grid_container .single_image_container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-/* .single_image_container .test {
-    position: absolute;
-    height: 20rem;
-    width: 20rem;
-    background-color: rgba(255, 255, 255, 0);
-    z-index: 10;
-}
-
-.test .hover {
-    position: absolute;
-    z-index: 5;
-    height: 20rem;
-    width: 20rem;
-    background-color: rgba(128, 128, 128, 0.5);
     display: flex;
     justify-content: center;
-    align-items: center;
-    cursor: pointer;
+    width: fit-content;
 }
-
-.hover .delete_par {
-    color: var(--font-color);
-    font-size: 1.5rem;
-    font-family: var(--font-family);
-    background-color: rgba(138, 43, 226, 0.7);
-    padding: 1.5rem;
-} */
 
 .single_image_container .img_title_div {
     display: flex;
     position: absolute;
     z-index: 1;
     background-color: rgba(86, 83, 83, 0.5);
-    height: 2.9rem;
-    width: 20rem;
+    height: 3.5rem;
+    width: 30rem;
 }
 
 .img_title_div .img_title_par {
@@ -224,13 +200,20 @@ hr {
     font-family: var(--font-family);
     font-size: 1rem;
     color: var(--font-color);
+    padding: 0.8rem;
+    font-size: 1.2rem;
+    height: 2rem;
+    width: 19.2rem;
 }
 
 .img_title_div #delete_par {
+    font-size: 1.2rem;
+    width: 23.5%;
+    height: 1.7rem;
+    padding-left: 3.2rem;
+    padding-top: 1rem;
     background-color: rgba(255, 255, 255, 0.3);
     color: black;
-    width: 20%;
-    padding-top: 0.5rem;
     cursor: pointer;
     transition: background-color 0.5s;
 }
@@ -240,8 +223,8 @@ hr {
 }
 
 .single_image_container img {
-    width: 22rem;
-    height: 22rem;
+    width: 30rem;
+    height: 30rem;
     object-fit: cover;
     cursor: pointer;
     display: block;
@@ -277,6 +260,7 @@ hr {
     z-index: 2;
     overflow: auto;
 }
+
 .modal_component_div {
     border: none;
     position: fixed;
@@ -414,6 +398,7 @@ hr {
     overflow: scroll;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .comments_form_div {
@@ -430,7 +415,7 @@ hr {
 }
 
 .comments_form .username_input {
-    width: 18.4rem;
+    width: 14rem;
     height: 1.5rem;
     padding: 0.5rem;
     border: 1px solid rgba(0, 0, 0, 0.3);
@@ -438,9 +423,9 @@ hr {
 }
 
 .comments_form .comment_input {
-    width: 18rem;
-    height: 4rem;
-    padding: 0.8rem;
+    width: 14rem;
+    height: 3rem;
+    padding: 0.5rem;
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 20px;
     overflow: auto;
@@ -460,22 +445,23 @@ hr {
 
 .comments_component_div .single_comment_box {
     position: relative;
-    left: 2.2rem;
-    padding: 1rem;
+    left: 0rem;
+    padding: 0.5rem;
     margin: 0.5rem;
     background-color: whitesmoke;
     border-radius: 5px;
-    width: 18rem;
+    width: 14rem;
 }
 
 #username_par {
     font-family: var(--font-family);
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 #comment_par {
     font-family: var(--font-family);
-    font-size: 1rem;
+    font-size: 0.9rem;
+    overflow-wrap: break-word;
 }
 
 @media only screen and (max-width: 480px) and (orientation: portrait) {
@@ -551,7 +537,7 @@ hr {
     .upload_form .input_fields_div {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
+        gap: 2rem;
     }
 
     .input_fields_div .upload_input {
@@ -597,7 +583,7 @@ hr {
 
     #app_container .img_board_grid_container {
         width: 80%;
-        grid-template-columns: repeat(auto-fit, 6rem);
+        grid-template-columns: repeat(auto-fit, 8rem);
         gap: 0.2rem;
     }
 
@@ -607,16 +593,32 @@ hr {
         width: fit-content;
     }
 
+    .single_image_container .img_title_div {
+        display: flex;
+        position: absolute;
+        height: 1.5rem;
+        width: 8rem;
+    }
+
     .img_title_div .img_title_par {
-        padding: 0.2rem;
+        padding: 0.5rem;
+        font-size: 1.2rem;
+        height: 2rem;
+        width: 8rem;
         font-size: 0.7rem;
-        height: 1rem;
-        width: 5.6rem;
+    }
+
+    .img_title_div #delete_par {
+        width: 25%;
+        height: 0.2rem;
+        font-size: 0.7rem;
+        padding-right: 1rem;
+        padding-bottom: 0.8rem;
     }
 
     .single_image_container img {
-        width: 6rem;
-        height: 6rem;
+        width: 8rem;
+        height: 8rem;
     }
     /* ----------------------MODAL COMPONENT-------------------------*/
     .modal_wrapper_div {
@@ -626,6 +628,7 @@ hr {
         overflow: visible;
         background-color: rgb(214, 209, 209);
     }
+
     .modal_component_div {
         position: relative;
         bottom: 4.6rem;
@@ -937,11 +940,22 @@ hr {
         width: fit-content;
     }
 
+    .single_image_container .img_title_div {
+        height: 2rem;
+        width: 8rem;
+    }
+
     .img_title_div .img_title_par {
-        padding: 0.3rem;
+        padding: 0.4rem;
         font-size: 0.8rem;
-        height: 1.1rem;
-        width: 7.4rem;
+    }
+
+    .img_title_div #delete_par {
+        height: 1rem;
+        padding-left: 0.2rem;
+        padding-top: 0.5rem;
+        font-size: 0.8rem;
+        width: 30%;
     }
 
     .single_image_container img {
@@ -955,6 +969,7 @@ hr {
         overflow: visible;
         background-color: rgb(214, 209, 209);
     }
+
     .modal_component_div {
         position: relative;
         bottom: 4.6rem;
@@ -1147,42 +1162,9 @@ hr {
     .header_title_div h1 {
         font-size: 4rem;
     }
-
-    #app_container .more_button_div {
-        width: 100%;
-        margin: 3rem;
-        display: flex;
-        justify-content: center;
-    }
-
-    .more_button_div .more_button {
-        font-size: 0.9rem;
-        width: 8rem;
-        height: 2.4rem;
-        font-family: var(--font-family);
-        background-color: var(--button-color);
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
     /* -------------- MAIN CONTAINER-----------------*/
-    #app_container {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    #app_container .err_msgs_div {
-        margin-top: 2rem;
-    }
-
     .err_msgs_div .error_msg {
-        color: red;
         font-size: 1.1rem;
-        font-family: var(--font-family);
     }
 
     .err_msgs_div .form_not_valid_msg {
@@ -1192,18 +1174,37 @@ hr {
     }
 
     .upload_form_container .upload_form {
-        display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-        width: 100%;
+        gap: 2rem;
         height: 100%;
     }
 
-    .upload_form .input_fields_div {
-        display: flex;
-        gap: 1rem;
+    #app_container .img_board_grid_container {
+        width: 80%;
+        grid-template-columns: repeat(auto-fit, 18rem);
+        gap: 0.2rem;
+    }
+
+    .single_image_container img {
+        width: 18rem;
+        height: 18rem;
+    }
+
+    .single_image_container .img_title_div {
+        height: 2.5rem;
+        width: 13rem;
+    }
+
+    .img_title_div .img_title_par {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .img_title_div #delete_par {
+        height: 1.4rem;
+        padding-left: 0.5rem;
+        padding-top: 0.6rem;
+        font-size: 0.9rem;
     }
 
     .input_fields_div .upload_input {
@@ -1213,15 +1214,10 @@ hr {
     }
 
     .upload_form .buttons_div {
-        width: fit-content;
-        display: flex;
-        align-self: center;
-        justify-content: center;
-        gap: 1.5rem;
+        gap: 2.5rem;
     }
 
     .buttons_div .select_file_div {
-        display: flex;
         gap: 1.5rem;
     }
 
@@ -1239,13 +1235,8 @@ hr {
     }
 
     .select_file_div .file_path {
-        border: dashed 1.5px red;
         width: 8rem;
         height: 2.4rem;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        overflow: hidden;
     }
 
     .file_path .image_path_par {
@@ -1253,236 +1244,119 @@ hr {
     }
 
     #app_container .img_board_grid_container {
-        width: 80%;
-        grid-template-columns: repeat(auto-fit, 10rem);
-        gap: 0.2rem;
-    }
-
-    .img_board_grid_container .single_image_container {
-        flex-direction: row;
-        justify-content: center;
-        width: fit-content;
-    }
-
-    .img_title_div .img_title_par {
-        padding: 0.3125rem;
-        font-size: 0.9rem;
-        height: 1.2rem;
-        width: 9.4rem;
+        grid-template-columns: repeat(auto-fit, 13rem);
     }
 
     .single_image_container img {
-        width: 10rem;
-        height: 10rem;
-    }
-    /* ----------------------MODAL COMPONENT-------------------------*/
-    .modal_wrapper_div {
-        position: relative;
-        z-index: 2;
-        overflow: visible;
-        background-color: rgb(214, 209, 209);
-    }
-    .modal_component_div {
-        position: relative;
-        bottom: 5.5rem;
-        height: fit-content;
-        display: flex;
-        flex-direction: column;
+        width: 13rem;
+        height: 13rem;
     }
 
-    .modal_component_div .span_x_div {
-        background-color: rgba(128, 128, 128, 0.5);
-        align-self: flex-start;
-        width: 1.5rem;
-        height: 1.5rem;
-        margin: 0.9rem;
+    #app_container .more_button_div {
+        margin: 3rem;
     }
 
-    .span_x_div span {
-        position: relative;
-        bottom: 0.1rem;
-        font-size: 1.2rem;
-    }
-
-    .modal_img_div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: black;
-        height: 100vh;
-    }
-
-    .modal_img_div .next_previous_img_div {
-        position: absolute;
-        width: 90%;
-    }
-
-    .modal_img_div .previous_div {
-        position: relative;
-        right: 3%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;
-        width: 2.5rem;
-        height: 2.5rem;
-        background-color: rgba(131, 129, 132, 0.7);
-    }
-
-    .previous_div span {
-        font-size: 1.2rem;
-        color: white;
-        font-weight: lighter;
-    }
-
-    .modal_img_div .next_div {
-        position: relative;
-        left: 88%;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 2.5rem;
-        height: 2.5rem;
-        background-color: rgba(131, 129, 132, 0.7);
-    }
-
-    .next_div span {
-        font-size: 1.2rem;
-        font-weight: lighter;
-        color: white;
-    }
-
-    .modal_img_div img {
-        object-fit: cover;
-    }
-
-    .modal_component_div .user_details_div {
-        width: 95%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    /* .modal_component_div .user_details_div {
-        width: 95%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    } */
-
-    .user_details_div h1 {
-        font-size: 1.2rem;
-        margin-bottom: 0.1rem;
-    }
-
-    .user_details_div .upload_details_div {
-        width: fit-content;
-        margin-top: 1rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0rem;
-    }
-
-    .user_details_div .uploaded_by_par {
-        font-size: 1rem;
-        width: fit-content;
-    }
-
-    .user_details_div .decription_par {
-        font-size: 1rem;
-        width: fit-content;
-    }
-    /* ----------------COMMENTS COMPONENT-----------------*/
-    .comments_component_div {
-        width: fit-content;
-        overflow: scroll;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .comments_form_div {
-        width: fit-content;
-        margin-top: 1rem;
-        padding: 0.5rem;
-    }
-
-    .comments_form_div .comments_form {
-        width: fit-content;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 0.8rem;
-    }
-
-    .comments_form .username_input {
-        width: 20rem;
-        height: 1.8rem;
-        padding: 0.5rem;
-        border: 1px solid rgba(0, 0, 0, 0.3);
-        border-radius: 5px;
-    }
-
-    .comments_form .comment_input {
-        width: 20rem;
-        height: 4;
-        padding: 0.5rem;
-        border: 1px solid rgba(0, 0, 0, 0.3);
-        border-radius: 20px;
-        overflow: auto;
-        outline: none;
-        resize: none;
-    }
-
-    .comments_form .comments_button {
-        border-radius: 5px;
+    .more_button_div .more_button {
         font-size: 0.9rem;
         width: 8rem;
         height: 2.4rem;
     }
+    /* ----------------------MODAL COMPONENT-------------------------*/
+    .modal_wrapper_div {
+        bottom: 0rem;
+    }
+
+    .modal_component_div {
+        position: absolute;
+        top: 15rem;
+        width: 47rem;
+        height: 35rem;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(auto-fit, 1fr);
+    }
+
+    .modal_img_div img {
+        object-fit: contain;
+        width: 100%;
+        height: 30rem;
+    }
+
+    .modal_img_div .next_previous_img_div {
+        width: 65%;
+    }
+
+    .modal_img_div .previous_div {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .previous_div span {
+        font-size: 1.5rem;
+    }
+
+    .modal_img_div .next_div {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .next_div span {
+        font-size: 1.5rem;
+    }
+
+    .modal_img_div .next_div {
+        position: relative;
+        left: 86%;
+    }
+    /* ----------------------COMMENTS-------------------------*/
+    .comments_form .username_input {
+        width: 9rem;
+        height: 1.2rem;
+        font-size: 0.8rem;
+    }
+
+    .comments_form .comment_input {
+        width: 9rem;
+        height: 2.8rem;
+        font-size: 0.8rem;
+    }
+
+    .comments_form .comments_button {
+        width: 7rem;
+        height: 2rem;
+        font-size: 0.8rem;
+        border-radius: 5px;
+    }
 
     .comments_component_div .single_comment_box {
-        padding: 0.7rem;
-        margin: 0.4rem;
-        width: 20rem;
-        height: auto;
-        left: 0rem;
+        padding: 0.5rem;
+        width: 9rem;
+    }
+
+    .comments_component_div {
+        position: relative;
+        left: 0.8rem;
+    }
+
+    .comments_form .comments_button {
+        border-radius: 5px;
+        font-size: 0.7rem;
+        width: 6rem;
+        height: 2rem;
     }
 
     #username_par {
         font-family: var(--font-family);
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 
     #comment_par {
         font-family: var(--font-family);
-        font-size: 1rem;
+        font-size: 0.8rem;
         overflow-wrap: break-word;
     }
 }
 
 @media only screen and (min-width: 1025px) and (max-width: 1200px) {
-    header {
-        height: 6.5rem;
-        width: 100%;
-    }
-
-    header .header_title_div {
-        padding-top: 1.1rem;
-    }
-
-    hr {
-        margin-bottom: 4rem;
-    }
-
-    .header_title_div h1 {
-        font-size: 5rem;
-    }
-
     #app_container .more_button_div {
         width: 100%;
         margin: 3rem;
@@ -1490,363 +1364,110 @@ hr {
         justify-content: center;
     }
 
-    .more_button_div .more_button {
-        font-size: 0.9125rem;
-        width: 9rem;
-        height: 2.5rem;
-        font-family: var(--font-family);
-        background-color: var(--button-color);
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    /* -------------- MAIN CONTAINER-----------------*/
-    #app_container {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    #app_container .err_msgs_div {
-        margin-top: 2rem;
-    }
-
-    .err_msgs_div .error_msg {
-        color: red;
-        font-size: 1.2rem;
-        font-family: var(--font-family);
-    }
-
-    .err_msgs_div .form_not_valid_msg {
-        color: red;
-        font-size: 1.2rem;
-        font-family: var(--font-family);
-    }
-
     .upload_form_container .upload_form {
-        display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
         gap: 2rem;
-        width: 100%;
         height: 100%;
-    }
-
-    .upload_form .input_fields_div {
-        display: flex;
-        gap: 2rem;
-    }
-
-    .input_fields_div .upload_input {
-        width: 15rem;
-        height: 1.5rem;
-        padding: 0.5rem;
-    }
-
-    .upload_form .buttons_div {
-        width: fit-content;
-        display: flex;
-        align-self: center;
-        justify-content: center;
-        gap: 2.5rem;
-    }
-
-    .buttons_div .upload_button {
-        font-size: 0.9125rem;
-        width: 9rem;
-        height: 2.5rem;
-    }
-
-    .buttons_div .select_file_div {
-        display: flex;
-        gap: 2.5rem;
-    }
-
-    .select_file_div .select_img_btn {
-        border-radius: 5px;
-        font-size: 0.9125rem;
-        width: 9rem;
-        height: 2.5rem;
-    }
-
-    .select_file_div .file_path {
-        border: dashed 1.5px red;
-        width: 9rem;
-        height: 2.4rem;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        overflow: hidden;
-    }
-
-    .file_path .image_path_par {
-        font-size: 0.9rem;
     }
 
     #app_container .img_board_grid_container {
         width: 80%;
-        grid-template-columns: repeat(auto-fit, 12rem);
+        grid-template-columns: repeat(auto-fit, 18rem);
         gap: 0.2rem;
     }
 
-    .img_board_grid_container .single_image_container {
-        flex-direction: row;
-        justify-content: center;
-        width: fit-content;
+    .single_image_container img {
+        width: 18rem;
+        height: 18rem;
+    }
+
+    .single_image_container .img_title_div {
+        height: 2.7rem;
+        width: 18rem;
     }
 
     .img_title_div .img_title_par {
-        padding: 0.3125rem;
-        font-size: 0.9rem;
-        height: 1.2rem;
-        width: 11.4rem;
+        padding: 0.5rem;
+        font-size: 1.2rem;
     }
 
-    .single_image_container img {
-        width: 12rem;
-        height: 12rem;
+    .img_title_div #delete_par {
+        height: 1.6rem;
+        padding-left: 0.5rem;
+        padding-top: 0.6rem;
+        font-size: 1.1rem;
     }
     /* ----------------------MODAL COMPONENT-------------------------*/
     .modal_wrapper_div {
-        background-color: rgba(0, 0, 0, 0.5);
-        position: fixed;
         bottom: 0rem;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 2;
-        overflow: auto;
     }
+
     .modal_component_div {
-        border: none;
-        position: fixed;
+        position: absolute;
+        top: 13rem;
         width: 60rem;
         height: 40rem;
-        z-index: 3;
-        background-color: rgb(214, 209, 209);
-        border-radius: 5px;
-        overflow: scroll;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(auto-fit, 1fr);
-    }
-
-    .modal_component_div .span_x_div {
-        grid-column: 3/4;
-        grid-row: 1/2;
-        justify-self: flex-end;
-        position: absolute;
-        margin: 0.4rem;
-        border-radius: 50%;
-        width: 1.5rem;
-        height: 1.5rem;
-        background-color: rgba(0, 0, 0, 0.5);
-        display: flex;
-        justify-content: center;
-    }
-
-    .span_x_div span {
-        font-family: var(--font-family);
-        font-size: 1.2rem;
-        font-weight: var(--light-font);
-        cursor: pointer;
-        color: antiquewhite;
-    }
-
-    .modal_img_div {
-        background-color: black;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 1rem;
-        grid-column: 1/3;
-    }
-
-    .modal_img_div .next_previous_img_div {
-        position: absolute;
-        width: 68%;
-    }
-
-    .modal_img_div .previous_div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;
-        width: 2.8rem;
-        height: 2.8rem;
-        background-color: rgba(131, 129, 132, 0.7);
-    }
-
-    .previous_div span {
-        font-size: 1.4rem;
-        color: white;
-        font-weight: lighter;
-    }
-
-    .modal_img_div .next_div {
-        position: relative;
-        left: 86%;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 2.8rem;
-        height: 2.8rem;
-        background-color: rgba(131, 129, 132, 0.7);
-    }
-
-    .next_div span {
-        font-size: 1.4rem;
-        font-weight: lighter;
-        color: white;
     }
 
     .modal_img_div img {
         object-fit: contain;
         width: 100%;
-        height: 30rem;
+        height: 35rem;
     }
 
-    .modal_component_div .user_details_div {
-        grid-column: 3/4;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 0.2rem;
-        padding: 0.5rem;
-        overflow: scroll;
+    .modal_img_div .next_previous_img_div {
+        width: 65%;
     }
 
-    .user_details_div h1 {
-        font-family: var(--font-family);
+    .modal_img_div .previous_div {
+        width: 2.5rem;
+        height: 2.5rem;
     }
 
-    .user_details_div .upload_details_div {
-        width: fit-content;
-        margin-top: 1rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0rem;
+    .previous_div span {
+        font-size: 1.5rem;
     }
 
-    .user_details_div .uploaded_by_par {
-        font-family: var(--font-family);
-        font-weight: var(--light-font);
-        font-size: 1.1rem;
+    .modal_img_div .next_div {
+        width: 2.5rem;
+        height: 2.5rem;
     }
 
-    .user_details_div .decription_par {
-        font-family: var(--font-family);
-        font-weight: var(--light-font);
-        font-size: 1.1rem;
-    }
-    /* ----------------COMMENTS COMPONENT-----------------*/
-    .comments_component_div {
-        grid-column: 3/4;
-        grid-row: 2/3;
-        /* width: 100%; */
-        overflow: scroll;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    .next_div span {
+        font-size: 1.5rem;
     }
 
-    .comments_form_div {
-        margin-top: 1rem;
-        padding: 0.5rem;
+    .modal_img_div .next_div {
+        position: relative;
+        left: 86%;
     }
-
-    .comments_form_div .comments_form {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 0.8rem;
-    }
-
+    /* ----------------------COMMENTS-------------------------*/
     .comments_form .username_input {
-        width: 14rem;
+        width: 12rem;
         height: 1.5rem;
-        padding: 0.5rem;
-        border: 1px solid rgba(0, 0, 0, 0.3);
-        border-radius: 5px;
+        font-size: 0.8rem;
     }
 
     .comments_form .comment_input {
-        width: 14rem;
+        width: 12rem;
         height: 3rem;
-        padding: 0.5rem;
-        border: 1px solid rgba(0, 0, 0, 0.3);
-        border-radius: 20px;
-        overflow: auto;
-        outline: none;
-        resize: none;
+        font-size: 0.8rem;
     }
 
     .comments_form .comments_button {
-        width: 8rem;
-        height: 2.2rem;
-        background-color: rgb(86, 83, 83);
-        color: var(--font-color);
-        border: none;
-        margin-bottom: 2rem;
-        cursor: pointer;
+        width: 7rem;
+        height: 2rem;
+        font-size: 0.8rem;
+        border-radius: 5px;
     }
 
     .comments_component_div .single_comment_box {
-        position: relative;
-        left: 0rem;
         padding: 0.5rem;
-        margin: 0.5rem;
-        background-color: whitesmoke;
-        border-radius: 5px;
-        width: 14rem;
-    }
-
-    #username_par {
-        font-family: var(--font-family);
-        font-size: 0.9rem;
-    }
-
-    #comment_par {
-        font-family: var(--font-family);
-        font-size: 0.9rem;
-        overflow-wrap: break-word;
+        width: 12rem;
     }
 }
 
 @media only screen and (min-width: 1201px) and (max-width: 1600px) {
-    header {
-        height: 7rem;
-        width: 100%;
-    }
-
-    header .header_title_div {
-        padding-top: 1.1rem;
-    }
-
-    hr {
-        margin-bottom: 4rem;
-    }
-
-    .header_title_div h1 {
-        font-size: 5.5rem;
-    }
-
-    header .notifications {
-        width: 2rem;
-        height: 1.3rem;
-        border: none;
-        background-color: rgba(243, 41, 5, 0.7);
-        border-radius: 7px;
-    }
-
     #app_container .more_button_div {
         width: 100%;
         margin: 3rem;
@@ -1854,436 +1475,117 @@ hr {
         justify-content: center;
     }
 
-    .more_button_div .more_button {
-        font-size: 0.9125rem;
-        width: 9rem;
-        height: 2.5rem;
-        font-family: var(--font-family);
-        background-color: var(--button-color);
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    /* -------------- MAIN CONTAINER-----------------*/
-    #app_container {
-        margin-top: 0rem;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    #app_container .err_msgs_div {
-        margin-top: 2rem;
-    }
-
-    .err_msgs_div .error_msg {
-        color: red;
-        font-size: 1.3rem;
-        font-family: var(--font-family);
-    }
-
-    .err_msgs_div .form_not_valid_msg {
-        color: red;
-        font-size: 1.3rem;
-        font-family: var(--font-family);
-    }
-
     .upload_form_container .upload_form {
-        display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
         gap: 2rem;
-        width: 100%;
         height: 100%;
-    }
-
-    .upload_form .input_fields_div {
-        display: flex;
-        gap: 3rem;
-    }
-
-    .input_fields_div .upload_input {
-        width: 18rem;
-        height: 2rem;
-        padding: 0.7rem;
-    }
-
-    .upload_form .buttons_div {
-        width: fit-content;
-        display: flex;
-        align-self: center;
-        justify-content: center;
-        gap: 2.5rem;
-    }
-
-    .buttons_div .upload_button {
-        font-size: 1rem;
-        width: 12rem;
-        height: 3rem;
-    }
-
-    .buttons_div .select_file_div {
-        display: flex;
-        gap: 2.5rem;
-    }
-
-    .select_file_div .select_img_btn {
-        font-size: 1rem;
-        width: 12rem;
-        height: 3rem;
-    }
-
-    .select_file_div .file_path {
-        border: dashed 1.5px red;
-        width: 12rem;
-        height: 3rem;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        overflow: hidden;
-    }
-
-    .file_path .image_path_par {
-        font-size: 0.9rem;
     }
 
     #app_container .img_board_grid_container {
         width: 80%;
-        grid-template-columns: repeat(auto-fit, 20rem);
+        grid-template-columns: repeat(auto-fit, 21rem);
         gap: 0.2rem;
     }
 
-    .img_board_grid_container .single_image_container {
-        flex-direction: row;
-        justify-content: center;
-        width: fit-content;
+    .single_image_container img {
+        width: 21rem;
+        height: 21rem;
+    }
+
+    .single_image_container .img_title_div {
+        height: 3.2rem;
+        width: 21rem;
     }
 
     .img_title_div .img_title_par {
-        padding: 0.4rem;
+        padding: 0.8rem;
         font-size: 1.2rem;
-        height: 2rem;
-        width: 19.2rem;
     }
 
-    .single_image_container img {
-        width: 20rem;
-        height: 20rem;
+    .img_title_div #delete_par {
+        height: 1.6rem;
+        padding-left: 0.5rem;
+        padding-top: 0.8rem;
     }
     /* ----------------------MODAL COMPONENT-------------------------*/
     .modal_wrapper_div {
-        background-color: rgba(0, 0, 0, 0.5);
-        position: fixed;
-        bottom: 0.1rem;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 2;
-        overflow: auto;
+        bottom: 0rem;
     }
 
     .modal_component_div {
-        border: none;
         position: absolute;
-        top: 4rem;
-        width: 70rem;
-        height: 50rem;
-        z-index: 3;
-        background-color: rgb(214, 209, 209);
-        border-radius: 5px;
-        overflow: scroll;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(auto-fit, 1fr);
-    }
-
-    .modal_component_div .span_x_div {
-        grid-column: 3/4;
-        grid-row: 1/2;
-        justify-self: flex-end;
-        position: absolute;
-        margin: 0.4rem;
-        border-radius: 50%;
-        width: 2rem;
-        height: 2rem;
-        background-color: rgba(0, 0, 0, 0.5);
-        display: flex;
-        justify-content: center;
-    }
-
-    .span_x_div span {
-        font-family: var(--font-family);
-        font-size: 1.4rem;
-        font-weight: var(--light-font);
-        cursor: pointer;
-        color: antiquewhite;
-    }
-
-    .modal_img_div {
-        background-color: black;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 1rem;
-        grid-column: 1/3;
-    }
-
-    .modal_img_div .next_previous_img_div {
-        position: absolute;
-        width: 68%;
-    }
-
-    .modal_img_div .previous_div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;
-        width: 3.1rem;
-        height: 3rem;
-        background-color: rgba(131, 129, 132, 0.7);
-    }
-
-    .previous_div span {
-        font-size: 1.5rem;
-        color: white;
-        font-weight: lighter;
+        top: 13rem;
+        width: 65rem;
+        height: 45rem;
     }
 
     .modal_img_div .next_div {
         position: relative;
         left: 86%;
-        position: relative;
-        left: 86%;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 3.1rem;
+    }
+    /****************************COMMENTS************/
+    .comments_form .username_input {
+        width: 12rem;
+        height: 1.5rem;
+        font-size: 0.8rem;
+    }
+
+    .comments_form .comment_input {
+        width: 12rem;
         height: 3rem;
-        background-color: rgba(131, 129, 132, 0.7);
+        font-size: 0.8rem;
     }
 
-    .next_div span {
-        font-size: 1.5rem;
-        font-weight: lighter;
-        color: white;
+    .comments_form .comments_button {
+        width: 7rem;
+        height: 2rem;
+        font-size: 0.8rem;
+        border-radius: 5px;
     }
 
-    .modal_img_div img {
-        object-fit: contain;
-        width: 100%;
-        height: 40rem;
-    }
-
-    .modal_component_div .user_details_div {
-        grid-column: 3/4;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 0.2rem;
+    .comments_component_div .single_comment_box {
         padding: 0.5rem;
-        overflow: scroll;
+        width: 12rem;
+    }
+}
+
+@media only screen and (min-width: 1600px) {
+    #app_container .more_button_div {
+        width: 100%;
+        margin: 3rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .upload_form_container .upload_form {
+        flex-direction: column;
+        gap: 2rem;
         height: 100%;
     }
-
-    .user_details_div h1 {
-        font-family: var(--font-family);
-    }
-
-    .user_details_div .upload_details_div {
-        width: fit-content;
-        margin-top: 1rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0rem;
-    }
-
-    .user_details_div .uploaded_by_par {
-        font-family: var(--font-family);
-        font-weight: var(--light-font);
-        font-size: 1rem;
-        width: 100%;
-    }
-
-    .user_details_div .decription_par {
-        font-family: var(--font-family);
-        font-weight: var(--light-font);
-        font-size: 1rem;
-        width: 100%;
-    }
-    /* ----------------COMMENTS COMPONENT-----------------*/
+    /* ----------------------MODAL COMPONENT-------------------------*/
     .modal_wrapper_div {
-        background-color: rgba(0, 0, 0, 0.5);
-        position: fixed;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 2;
-        overflow: auto;
+        bottom: 0.1rem;
     }
+
     .modal_component_div {
-        border: none;
-        position: fixed;
-        width: 65rem;
-        height: 50rem;
-        z-index: 3;
-        background-color: rgb(214, 209, 209);
-        border-radius: 5px;
-        overflow: scroll;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(auto-fit, 1fr);
+        position: absolute;
+        top: 13rem;
+        width: 80rem;
+        height: 60rem;
     }
 
     .modal_component_div .span_x_div {
-        grid-column: 3/4;
-        grid-row: 1/2;
-        justify-self: flex-end;
-        position: absolute;
-        margin: 0.4rem;
-        border-radius: 50%;
-        width: 1.5rem;
-        height: 1.5rem;
-        background-color: rgba(0, 0, 0, 0.5);
-        display: flex;
-        justify-content: center;
-    }
-
-    .span_x_div span {
-        font-family: var(--font-family);
-        font-size: 1.2rem;
-        font-weight: var(--light-font);
-        cursor: pointer;
-        color: antiquewhite;
+        width: 2rem;
+        height: 2rem;
     }
 
     .modal_img_div {
-        background-color: black;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         padding: 1rem;
         grid-column: 1/3;
     }
 
-    .modal_img_div img {
-        object-fit: contain;
-        width: 100%;
-        height: 30rem;
-    }
-
-    .modal_component_div .user_details_div {
-        grid-column: 3/4;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 0.2rem;
-        padding: 0.5rem;
-        overflow: scroll;
-    }
-
-    .user_details_div h1 {
-        font-family: var(--font-family);
-    }
-
-    .user_details_div .upload_details_div {
-        width: fit-content;
-        margin-top: 1rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0rem;
-    }
-
-    .user_details_div .uploaded_by_par {
-        font-family: var(--font-family);
-        font-weight: var(--light-font);
-        font-size: 1.1rem;
-    }
-
-    .user_details_div .decription_par {
-        font-family: var(--font-family);
-        font-weight: var(--light-font);
-        font-size: 1.1rem;
-    }
-    /* ----------------COMMENTS COMPONENT-----------------*/
-    .comments_component_div {
-        grid-column: 3/4;
-        grid-row: 2/3;
-        /* width: 100%; */
-        overflow: scroll;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .comments_form_div {
-        margin-top: 1rem;
-        padding: 0.5rem;
-    }
-
-    .comments_form_div .comments_form {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 0.8rem;
-    }
-
-    .comments_form .username_input {
-        width: 14rem;
-        height: 1.5rem;
-        padding: 0.5rem;
-        border: 1px solid rgba(0, 0, 0, 0.3);
-        border-radius: 5px;
-    }
-
-    .comments_form .comment_input {
-        width: 14rem;
-        height: 3rem;
-        padding: 0.5rem;
-        border: 1px solid rgba(0, 0, 0, 0.3);
-        border-radius: 20px;
-        overflow: auto;
-        outline: none;
-        resize: none;
-    }
-
-    .comments_form .comments_button {
-        width: 8rem;
-        height: 2.2rem;
-        background-color: rgb(86, 83, 83);
-        color: var(--font-color);
-        border: none;
-        margin-bottom: 2rem;
-        cursor: pointer;
-    }
-
-    .comments_component_div .single_comment_box {
+    .modal_img_div .next_div {
         position: relative;
-        left: 0rem;
-        padding: 0.5rem;
-        margin: 0.5rem;
-        background-color: whitesmoke;
-        border-radius: 5px;
-        width: 14rem;
-    }
-
-    #username_par {
-        font-family: var(--font-family);
-        font-size: 0.9rem;
-    }
-
-    #comment_par {
-        font-family: var(--font-family);
-        font-size: 0.9rem;
-        overflow-wrap: break-word;
+        left: 86%;
     }
 }

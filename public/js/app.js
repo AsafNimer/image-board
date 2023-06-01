@@ -13,11 +13,10 @@ Vue.createApp({
             userInput: { username: "", description: "", title: "" },
             formNotValid: false,
             errorMsg: false,
-            // notification: false,
-            // notifications: [],
         };
     },
     mounted() {
+        console.log(window.innerWidth);
         history.pushState({}, "", "/home");
         this.imagePath = "";
         this.imageRemoved = false;
@@ -28,8 +27,6 @@ Vue.createApp({
                 this.images = data;
                 console.log("fetched-data: ", data);
             });
-
-        // this.sendNotifications();
 
         window.addEventListener("popstate", () => {
             let path = location.pathname.slice(1);
@@ -51,6 +48,7 @@ Vue.createApp({
     methods: {
         handleImgSubmit(e) {
             this.formNotValid = false;
+
             for (const prop in this.userInput) {
                 if (
                     this.userInput[prop].length === 0 ||
@@ -61,6 +59,7 @@ Vue.createApp({
                 } else {
                     setTimeout(() => {
                         this.userInput[prop] = "";
+                        this.imageSelected = false;
                     }, 1500);
                 }
             }
@@ -84,7 +83,6 @@ Vue.createApp({
                 .then((res) => res.json())
                 .then((data) => {
                     this.images = [...this.images, ...data.payload];
-
                     const lastImg = this.images[this.images.length - 1];
                     //"lowestId" (line 96) is a prop on the data.payload[data.payload.length - 1] obj
                     //which represents the last image in the last batch that retrieved with 'more' button.
@@ -125,33 +123,17 @@ Vue.createApp({
             this.imgClicked = newRenderedImgId;
             history.pushState({}, "", `/${this.imgClicked}`);
         },
-        // sendNotifications() {
-        //     console.log("notifications was mounted");
-        //     setInterval(() => {
-        //     fetch("/image_board")
-        //         .then((res) => res.json())
-        //         .then((data) => {
-        //             console.log("this.images[0].id: ", this.images[0].id);
-
-        //             console.log("data: ", data[0].id);
-        //         })
-        //         .catch((err) => {
-        //             console.log(err);
-        //         });
-        //     }, 5000);
-        // },
         removeImg(imgId) {
-            // console.log("imageID: ", imgId);
-            // console.log("this.images before filter: ", this.images);
             const filterResults = this.images.filter((img) => img.id != imgId);
             console.log("this.images after filter: ", filterResults);
 
-            fetch("/removeImgAndComments/:id", { method: "DELETE" })
+            fetch(`/removeImgAndComments/${imgId}`, {
+                method: "DELETE",
+                header: { "Content-type": "aplication/json" },
+            })
                 .then((res) => {
-                    if (res.status === 204) {
-                        console.log(
-                            "status is 204!, img and its comments removed"
-                        );
+                    if (res.ok) {
+                        console.log(`Img ${imgId} and its comments removed`);
                         this.images = filterResults;
                     } else {
                         console.log("sth went wrong");

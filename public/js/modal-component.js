@@ -49,12 +49,10 @@ const modalComponent = {
             this.$emit("close");
         },
         nextImgId() {
-            //this fired when i click on nxt arrow
             console.log(this.img.nextId);
             this.$emit("update", this.img.nextId);
         },
         previousImgId() {
-            //this fired when i click on prev arrow
             console.log(this.img.previousId);
             this.$emit("update", this.img.previousId);
         },

@@ -19,10 +19,6 @@ module.exports.storeToImages = (url, title, description, username) => {
     return db.query(q, param);
 };
 
-// module.exports.getSingleImg = (id) => {
-//     return db.query(`SELECT * FROM images WHERE id = $1`, [id]);
-// };
-
 exports.getSingleImg = (id) => {
     return db.query(
         `SELECT *, (
@@ -50,15 +46,6 @@ module.exports.getAllComments = (image_id) => {
         [image_id]
     );
 };
-
-// module.exports.getAllComments = (image_id) => {
-//     return db.query(
-//         `SELECT comments.comment, comments.username, comments.created_at
-//         FROM comments
-//         WHERE comments.image_id = $1`,
-//         [image_id]
-//     );
-// };
 
 module.exports.addCommentToImg = (comment, username, image_id) => {
     const q = `INSERT INTO comments(comment, username, image_id)
@@ -92,7 +79,7 @@ module.exports.getMorePhotos = (lastOnScreenId) => {
         FROM images
         WHERE id < $1
         ORDER BY id DESC
-        LIMIT 20`;
+        LIMIT 10`;
     const param = [lastOnScreenId];
     return db.query(q, param);
 };

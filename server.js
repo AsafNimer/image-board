@@ -120,8 +120,7 @@ app.post("/upload", uploader.single("image"), s3.upload, (req, res) => {
 });
 
 app.delete("/removeImgAndComments/:id", (req, res) => {
-    // let strToInt = Number(req.params.id);
-    db.deleteComments(req.params.id) //should give image-id as the parametes in the function's ()
+    db.deleteComments(req.params.id)
         .then(() => {
             console.log("Comments removed", req.params.id);
             res.status(204).send("comments removed");

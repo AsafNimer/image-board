@@ -361,14 +361,14 @@ hr {
     display: grid;
     grid-template-rows: 1fr 1fr;
     grid-row: 1/2;
-    height: auto;
     gap: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .user_details_container h3 {
     align-self: center;
     justify-self: flex-start;
-    margin-left: 4.5rem;
+    margin-left: 3.5rem;
     grid-row: 1/2;
     font-family: var(--font-family);
 }
@@ -381,20 +381,21 @@ hr {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    margin-left: 4.5rem;
+    margin-left: 3.5rem;
+    overflow: scroll;
 }
 
 .user_details_par_container .uploaded_by_par {
     margin-top: 1rem;
     font-family: var(--font-family);
     font-weight: var(--light-font);
-    font-size: 1rem;
+    letter-spacing: 0.1rem;
 }
 
 .user_details_par_container .decription_par {
     font-family: var(--font-family);
     font-weight: var(--light-font);
-    font-size: 1rem;
+    letter-spacing: 0.1rem;
 }
 /* ----------------COMMENTS COMPONENT-----------------*/
 .comments_component_div {
@@ -449,8 +450,6 @@ hr {
 }
 
 .comments_component_div .single_comment_box {
-    /* position: relative;
-    left: 0rem; */
     padding: 0.5rem;
     margin: 0.5rem;
     background-color: whitesmoke;
@@ -460,12 +459,12 @@ hr {
 
 #username_par {
     font-family: var(--font-family);
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 #comment_par {
     font-family: var(--font-family);
-    font-size: 1rem;
+    font-size: 0.8rem;
     overflow-wrap: break-word;
 }
 
@@ -731,13 +730,15 @@ hr {
     }
 
     .user_details_div .uploaded_by_par {
-        font-size: 0.9rem;
         width: fit-content;
     }
 
     .user_details_div .decription_par {
-        font-size: 0.9rem;
         width: fit-content;
+    }
+
+    .user_details_par_container .created_at_par {
+        /* font-size: 1rem; */
     }
     /* ----------------COMMENTS COMPONENT-----------------*/
     .comments_component_div {
@@ -847,28 +848,16 @@ hr {
         cursor: pointer;
     }
     /* -------------- MAIN CONTAINER-----------------*/
-    #app_container {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
     #app_container .err_msgs_div {
         margin-top: 2rem;
     }
 
     .err_msgs_div .error_msg {
-        color: red;
         font-size: 1rem;
-        font-family: var(--font-family);
     }
 
     .err_msgs_div .form_not_valid_msg {
-        color: red;
         font-size: 1rem;
-        font-family: var(--font-family);
     }
 
     .upload_form_container .upload_form {
@@ -876,9 +865,6 @@ hr {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 1rem;
-        width: 100%;
-        height: 100%;
     }
 
     .upload_form .input_fields_div {
@@ -894,11 +880,8 @@ hr {
     }
 
     .upload_form .buttons_div {
-        margin-top: 1rem;
-        width: fit-content;
         display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
+        gap: 1rem;
     }
 
     .buttons_div .select_file_div {
@@ -935,7 +918,7 @@ hr {
 
     #app_container .img_board_grid_container {
         width: 80%;
-        grid-template-columns: repeat(auto-fit, 8rem);
+        grid-template-columns: repeat(auto-fit, 10rem);
         gap: 0.2rem;
     }
 
@@ -947,7 +930,7 @@ hr {
 
     .single_image_container .img_title_div {
         height: 2rem;
-        width: 8rem;
+        width: 10rem;
     }
 
     .img_title_div .img_title_par {
@@ -964,11 +947,13 @@ hr {
     }
 
     .single_image_container img {
-        width: 8rem;
-        height: 8rem;
+        width: 10rem;
+        height: 10rem;
     }
     /* ----------------------MODAL COMPONENT-------------------------*/
-    .modal_wrapper_div {
+
+    /*****************OLD MODAL STYLE***********************/
+    /* .modal_wrapper_div {
         position: relative;
         z-index: 2;
         overflow: visible;
@@ -1078,9 +1063,136 @@ hr {
     .user_details_div .decription_par {
         font-size: 1rem;
         width: fit-content;
+    } */
+    /*****************END OF OLD MODAL STYLE***********************/
+    .modal_wrapper_div {
+        position: relative;
+        width: 100vw;
+        z-index: 2;
+        overflow: visible;
+        background-color: rgb(214, 209, 209);
+    }
+
+    .modal_component_div {
+        position: relative;
+        bottom: 4.6rem;
+        width: 100vw;
+        height: auto;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .modal_component_div .span_x_div {
+        background-color: rgba(128, 128, 128, 0.5);
+        align-self: flex-start;
+        width: 1.5rem;
+        height: 1.5rem;
+        margin: 0.9rem;
+    }
+
+    .span_x_div span {
+        position: relative;
+        bottom: 0.1rem;
+        font-size: 1.2rem;
+    }
+
+    .modal_img_div {
+        grid-row: 1/2;
+        background-color: black;
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .modal_img_div .next_previous_img_div {
+        position: absolute;
+        width: 90%;
+    }
+
+    .modal_img_div .previous_div {
+        position: relative;
+        right: 2%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        width: 2.3rem;
+        height: 2.3rem;
+        background-color: rgba(131, 129, 132, 0.7);
+    }
+
+    .previous_div span {
+        font-size: 1.3rem;
+        color: white;
+        font-weight: lighter;
+    }
+
+    .modal_img_div .next_div {
+        position: relative;
+        left: 84%;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 2.3rem;
+        height: 2.3rem;
+        background-color: rgba(131, 129, 132, 0.7);
+    }
+
+    .next_div span {
+        font-size: 1.3rem;
+        font-weight: lighter;
+        color: white;
+    }
+
+    .modal_img_div img {
+        object-fit: contain;
+    }
+
+    .modal_component_div .user_details_div {
+        border: 1px solid black;
+        grid-row: 2/3;
+        display: grid;
+        grid-template-rows: 30% 70%;
+        overflow: scroll;
+    }
+
+    .user_details_div .user_details_container {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-row: 1/2;
+        height: auto;
+    }
+
+    .user_details_container h3 {
+        align-self: center;
+        justify-self: flex-start;
+        margin-left: 4.5rem;
+        grid-row: 1/2;
+        font-family: var(--font-family);
+    }
+
+    .user_details_container .user_details_par_container {
+        grid-row: 2/3;
+        display: flex;
+        position: relative;
+        bottom: 2rem;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin-left: 4.5rem;
+    }
+
+    .user_details_par_container .uploaded_by_par {
+    }
+
+    .user_details_par_container .created_at_par {
+    }
+
+    .user_details_par_container .decription_par {
     }
     /* ----------------COMMENTS COMPONENT-----------------*/
     .comments_component_div {
+        grid-row: 2/3;
         width: fit-content;
         overflow: scroll;
         display: flex;
@@ -1323,21 +1435,22 @@ hr {
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        margin-left: 4.5rem;
+        margin-left: 2.5rem;
     }
 
     .user_details_container h3 {
         font-size: 1.2rem;
         margin-top: 1rem;
-        margin-left: 4.5rem;
+        margin-left: 2.5rem;
     }
 
     .user_details_par_container .uploaded_by_par {
-        font-size: 1rem;
+        font-size: 0.8rem;
+        margin-top: 1rem;
     }
 
     .user_details_par_container .decription_par {
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
     /* ----------------------COMMENTS-------------------------*/
     .comments_form .username_input {
@@ -1485,14 +1598,21 @@ hr {
     .user_details_container h3 {
         font-size: 1.5rem;
         margin-top: 0.5rem;
+        margin-left: 2.5rem;
+    }
+
+    .user_details_container .user_details_par_container {
+        margin-left: 2.5rem;
+        width: 70%;
     }
 
     .user_details_par_container .uploaded_by_par {
-        font-size: 1.1rem;
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
     }
 
     .user_details_par_container .decription_par {
-        font-size: 1.1rem;
+        font-size: 0.9rem;
     }
     /* ----------------------COMMENTS-------------------------*/
     .comments_form .username_input {
@@ -1586,15 +1706,22 @@ hr {
     }
 
     .user_details_container h3 {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
+        margin-left: 3.2rem;
+    }
+
+    .user_details_container .user_details_par_container {
+        margin-left: 3.2rem;
+        width: 78%;
     }
 
     .user_details_par_container .uploaded_by_par {
-        font-size: 1.2rem;
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
     }
 
     .user_details_par_container .decription_par {
-        font-size: 1.2rem;
+        font-size: 0.9rem;
     }
     /****************************COMMENTS************/
     .comments_form .username_input {
@@ -1622,11 +1749,11 @@ hr {
     }
 
     .list_item #username_par {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 
     .list_item .comment_par {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
 }
 
@@ -1674,14 +1801,21 @@ hr {
     }
 
     .user_details_container h3 {
-        font-size: 2.2rem;
+        font-size: 2rem;
+        margin-left: 3.5rem;
+    }
+
+    .user_details_container .user_details_par_container {
+        margin-left: 3.5rem;
+        width: 80%;
     }
 
     .user_details_par_container .uploaded_by_par {
-        font-size: 1.5rem;
+        font-size: 1rem;
+        margin-top: 0.5rem;
     }
 
     .user_details_par_container .decription_par {
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
 }

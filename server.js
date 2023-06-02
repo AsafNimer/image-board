@@ -5,6 +5,7 @@ const multer = require("multer"); //NPM package. Multer is a node.js middleware 
 const uidSafe = require("uid-safe"); //NPM package. Create cryptographically secure UIDs safe for both cookie and URL usage. Asynchronously create a UID with a specific byte length and return a Promise.
 const path = require("path");
 const s3 = require("./s3");
+const moment = require("moment");
 
 //********************** Multer Config ****************************/
 const storage = multer.diskStorage({
@@ -48,6 +49,10 @@ app.get("/image_board", (req, res) => {
 app.get("/image_board/:image", (req, res) => {
     db.getSingleImg(req.params.image).then((result) => {
         console.log("result.rows: TEST!!!", result.rows);
+        result.rows[0].created_at = moment(result.rows[0].created_at).format(
+            "MMM Do YY"
+        );
+        console.log("result.rows[0].created_at", result.rows[0].created_at);
         res.json(result.rows[0]);
     });
 });

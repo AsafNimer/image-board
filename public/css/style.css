@@ -1,0 +1,1821 @@
+:root {
+    --button-color: rgb(86, 83, 83);
+    --font-color: rgb(255, 255, 255);
+    --light-font: lighter;
+    --font-family: "Gill Sans", "Gill Sans MT", "Calibri", "Trebuchet MS";
+}
+
+* {
+    margin: 0px;
+}
+
+html {
+    font-size: 15px;
+}
+
+.body {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    background-color: rgba(138, 43, 226, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 7rem;
+    box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.3);
+}
+
+header .header_title_div {
+    padding-top: 1.2rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+hr {
+    color: black;
+    width: 100%;
+    opacity: 0.5;
+    margin-bottom: 0.5rem;
+}
+
+.header_title_div h1 {
+    font-family: QuiteMagical-Regular;
+    font-weight: var(--light-font);
+    font-size: 6rem;
+    color: white;
+}
+/* -------------- MAIN CONTAINER-----------------*/
+#app_container {
+    margin-top: 0rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#app_container .err_msgs_div {
+    margin-top: 2rem;
+}
+
+.err_msgs_div .error_msg {
+    color: red;
+    font-size: 1.3rem;
+
+    font-family: var(--font-family);
+}
+
+.err_msgs_div .form_not_valid_msg {
+    color: red;
+    font-size: 1.3rem;
+    font-family: var(--font-family);
+}
+
+#app_container .upload_form_container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.upload_form_container .upload_form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 3rem;
+    height: 100%;
+}
+
+.upload_form .input_fields_div {
+    display: flex;
+    gap: 2rem;
+}
+
+.input_fields_div .upload_input {
+    width: 18rem;
+    height: 2rem;
+    padding: 0.7rem;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+
+.upload_form .buttons_div {
+    width: fit-content;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    gap: 2.5rem;
+}
+
+.buttons_div .upload_button {
+    font-size: 1rem;
+    width: 12rem;
+    height: 3rem;
+}
+
+.select_file_div .select_img_btn {
+    font-size: 1rem;
+    border-radius: 5px;
+    width: 12rem;
+    height: 3rem;
+    background-color: rgba(138, 43, 226, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--font-color);
+    font-family: var(--font-family);
+    cursor: pointer;
+}
+
+.buttons_div .select_file_div {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.select_file_div .file_path {
+    border: dashed 1.5px red;
+    width: 12rem;
+    height: 3rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    overflow: hidden;
+}
+
+.file_path .image_path_par {
+    font-size: 0.9rem;
+}
+
+.upload_form .upload_button {
+    font-size: 1.1rem;
+    font-family: var(--font-family);
+    width: 12rem;
+    height: 2.8rem;
+    background-color: var(--button-color);
+    color: var(--font-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.img_board_grid_container {
+    width: 84%;
+    grid-template-columns: repeat(auto-fit, 30rem);
+    gap: 0.2rem;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.img_board_grid_container .single_image_container {
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+}
+
+.single_image_container .img_title_div {
+    display: flex;
+    position: absolute;
+    z-index: 1;
+    background-color: rgba(86, 83, 83, 0.5);
+    height: 3.5rem;
+    width: 30rem;
+}
+
+.img_title_div .img_title_par {
+    font-weight: var(--light-font);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    color: var(--font-color);
+    padding: 0.8rem;
+    font-size: 1.2rem;
+    height: 2rem;
+    width: 19.2rem;
+}
+
+.img_title_div #delete_par {
+    font-size: 1.2rem;
+    width: 23.5%;
+    height: 1.7rem;
+    padding-left: 3.2rem;
+    padding-top: 1rem;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.5s;
+}
+
+.img_title_div #delete_par:hover {
+    background-color: rgba(233, 0, 155, 0.408);
+}
+
+.single_image_container img {
+    width: 30rem;
+    height: 30rem;
+    object-fit: cover;
+    cursor: pointer;
+    display: block;
+}
+
+#app_container .more_button_div {
+    width: 100%;
+    margin: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+.more_button_div .more_button {
+    font-size: 1rem;
+    width: 10rem;
+    height: 2.7rem;
+    font-family: var(--font-family);
+    background-color: var(--button-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* ----------------------MODAL COMPONENT-------------------------*/
+.modal_wrapper_div {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    width: 100%;
+    height: 110%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    overflow: auto;
+}
+
+.modal_component_div {
+    border: none;
+    position: fixed;
+    width: 80rem;
+    height: 53.3rem;
+    z-index: 3;
+    background-color: rgb(214, 209, 209);
+    border-radius: 5px;
+    overflow: scroll;
+    display: grid;
+    grid-template-columns: 70% 20%;
+}
+
+.modal_component_div .span_x_div {
+    justify-self: flex-end;
+    position: absolute;
+    margin: 0.4rem;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+}
+
+.span_x_div span {
+    font-family: var(--font-family);
+    font-size: 1.4rem;
+    font-weight: var(--light-font);
+    cursor: pointer;
+    color: antiquewhite;
+}
+
+.modal_img_div {
+    grid-column: 1/2;
+    background-color: black;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal_img_div .next_previous_img_div {
+    position: absolute;
+    width: 60%;
+    display: flex;
+}
+
+.modal_img_div .previous_div {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 3.1rem;
+    height: 3rem;
+    background-color: rgba(131, 129, 132, 0.7);
+}
+
+.previous_div span {
+    font-size: 1.5rem;
+    color: white;
+    font-weight: lighter;
+}
+
+.modal_img_div .next_div {
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.1rem;
+    height: 3rem;
+    background-color: rgba(131, 129, 132, 0.7);
+}
+
+.next_div span {
+    font-size: 1.5rem;
+    font-weight: lighter;
+    color: white;
+}
+
+.modal_img_div img {
+    object-fit: contain;
+    width: 100%;
+    height: 40rem;
+}
+
+.modal_component_div .user_details_div {
+    grid-column: 2/3;
+    display: grid;
+    grid-template-rows: 30% 70%;
+    width: 149%;
+    overflow: scroll;
+}
+
+.user_details_div .user_details_container {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-row: 1/2;
+    gap: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.user_details_container h3 {
+    align-self: center;
+    justify-self: flex-start;
+    margin-left: 3.5rem;
+    grid-row: 1/2;
+    font-family: var(--font-family);
+}
+
+.user_details_container .user_details_par_container {
+    grid-row: 2/3;
+    display: flex;
+    position: relative;
+    bottom: 2rem;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-left: 3.5rem;
+    overflow: scroll;
+}
+
+.user_details_par_container .uploaded_by_par {
+    margin-top: 1rem;
+    font-family: var(--font-family);
+    font-weight: var(--light-font);
+    letter-spacing: 0.1rem;
+}
+
+.user_details_par_container .decription_par {
+    font-family: var(--font-family);
+    font-weight: var(--light-font);
+    letter-spacing: 0.1rem;
+}
+/* ----------------COMMENTS COMPONENT-----------------*/
+.comments_component_div {
+    grid-row: 2/3;
+    width: 100%;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.comments_form_div {
+    margin-top: 1rem;
+    padding: 0.5rem;
+}
+
+.comments_form_div .comments_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.comments_form .username_input {
+    width: 16rem;
+    height: 2rem;
+    padding: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+
+.comments_form .comment_input {
+    width: 16rem;
+    height: 4.5rem;
+    padding: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    overflow: auto;
+    outline: none;
+    resize: none;
+}
+
+.comments_form .comments_button {
+    width: 8rem;
+    height: 2.2rem;
+    background-color: rgb(86, 83, 83);
+    color: var(--font-color);
+    border: none;
+    margin-bottom: 2rem;
+    cursor: pointer;
+}
+
+.comments_component_div .single_comment_box {
+    padding: 0.5rem;
+    margin: 0.5rem;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    width: 16rem;
+}
+
+#username_par {
+    font-family: var(--font-family);
+    font-size: 0.9rem;
+}
+
+#comment_par {
+    font-family: var(--font-family);
+    font-size: 0.8rem;
+    overflow-wrap: break-word;
+}
+
+@media only screen and (max-width: 480px) and (orientation: portrait) {
+    header {
+        height: 4rem;
+    }
+
+    header .header_title_div {
+        padding-top: 1.1rem;
+    }
+
+    hr {
+        display: none;
+    }
+
+    .header_title_div h1 {
+        font-size: 2.5rem;
+    }
+
+    #app_container .more_button_div {
+        width: 100%;
+        margin: 3rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .more_button_div .more_button {
+        font-size: 0.7rem;
+        width: 6rem;
+        height: 2rem;
+        font-family: var(--font-family);
+        background-color: var(--button-color);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    /* -------------- MAIN CONTAINER-----------------*/
+    #app_container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #app_container .err_msgs_div {
+        margin-top: 2rem;
+    }
+
+    .err_msgs_div .error_msg {
+        color: red;
+        font-size: 1rem;
+        font-family: var(--font-family);
+    }
+
+    .err_msgs_div .form_not_valid_msg {
+        color: red;
+        font-size: 1rem;
+        font-family: var(--font-family);
+    }
+
+    .upload_form_container .upload_form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+        height: 100%;
+    }
+
+    .upload_form .input_fields_div {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .input_fields_div .upload_input {
+        width: 12rem;
+        height: 1rem;
+        padding: 0.5rem;
+    }
+
+    .upload_form .buttons_div {
+        margin-top: 0.5rem;
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .buttons_div .upload_button {
+        font-size: 0.7rem;
+        width: 6rem;
+        height: 2rem;
+    }
+
+    .select_file_div .select_img_btn {
+        font-size: 0.7rem;
+        border-radius: 5px;
+        width: 6rem;
+        height: 2rem;
+    }
+
+    .select_file_div .file_path {
+        border: dashed 1.5px red;
+        width: 6rem;
+        height: 2rem;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .file_path .image_path_par {
+        font-size: 0.7rem;
+    }
+
+    #app_container .img_board_grid_container {
+        width: 80%;
+        grid-template-columns: repeat(auto-fit, 8rem);
+        gap: 0.2rem;
+    }
+
+    .img_board_grid_container .single_image_container {
+        flex-direction: row;
+        justify-content: center;
+        width: fit-content;
+    }
+
+    .single_image_container .img_title_div {
+        display: flex;
+        position: absolute;
+        height: 1.5rem;
+        width: 8rem;
+    }
+
+    .img_title_div .img_title_par {
+        padding: 0.5rem;
+        font-size: 1.2rem;
+        height: 2rem;
+        width: 8rem;
+        font-size: 0.7rem;
+    }
+
+    .img_title_div #delete_par {
+        width: 25%;
+        height: 0.2rem;
+        font-size: 0.7rem;
+        padding-right: 1rem;
+        padding-bottom: 0.8rem;
+    }
+
+    .single_image_container img {
+        width: 8rem;
+        height: 8rem;
+    }
+    /* ----------------------MODAL COMPONENT-------------------------*/
+    .modal_wrapper_div {
+        position: relative;
+        width: fit-content;
+        z-index: 2;
+        overflow: visible;
+        background-color: rgb(214, 209, 209);
+    }
+
+    .modal_component_div {
+        position: relative;
+        bottom: 4.6rem;
+        width: fit-content;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .modal_component_div .span_x_div {
+        background-color: rgba(128, 128, 128, 0.5);
+        align-self: flex-start;
+        width: 1rem;
+        height: 1rem;
+        margin: 0.8rem;
+    }
+
+    .span_x_div span {
+        position: relative;
+        bottom: 0.1rem;
+        font-size: 1rem;
+    }
+
+    .modal_img_div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        width: fit-content;
+        height: 100vh;
+    }
+
+    .modal_img_div .next_previous_img_div {
+        position: absolute;
+        width: 90%;
+    }
+
+    .modal_img_div .previous_div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        width: 2rem;
+        height: 2rem;
+        background-color: rgba(131, 129, 132, 0.7);
+    }
+
+    .previous_div span {
+        font-size: 1rem;
+        color: white;
+        font-weight: lighter;
+    }
+
+    .modal_img_div .next_div {
+        position: relative;
+        left: 82%;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 2rem;
+        height: 2rem;
+        background-color: rgba(131, 129, 132, 0.7);
+    }
+
+    .next_div span {
+        font-size: 1rem;
+        font-weight: lighter;
+        color: white;
+    }
+
+    .modal_img_div img {
+        object-fit: cover;
+        width: 100%;
+    }
+
+    .modal_component_div .user_details_div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .user_details_div h1 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .user_details_div .upload_details_div {
+        width: fit-content;
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .user_details_div .uploaded_by_par {
+        width: fit-content;
+    }
+
+    .user_details_div .decription_par {
+        width: fit-content;
+    }
+
+    .user_details_par_container .created_at_par {
+        /* font-size: 1rem; */
+    }
+    /* ----------------COMMENTS COMPONENT-----------------*/
+    .comments_component_div {
+        width: fit-content;
+        overflow: scroll;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .comments_form_div {
+        width: fit-content;
+        margin-top: 1rem;
+        padding: 0.5rem;
+    }
+
+    .comments_form_div .comments_form {
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.8rem;
+    }
+
+    .comments_form .username_input {
+        width: 14.5rem;
+        height: 1.2rem;
+        padding: 0.2rem;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+    }
+
+    .comments_form .comment_input {
+        width: 14rem;
+        height: 2.5;
+        padding: 0.5rem;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        border-radius: 20px;
+        overflow: auto;
+        outline: none;
+        resize: none;
+    }
+
+    .comments_form .comments_button {
+        font-size: 0.7rem;
+        border-radius: 5px;
+        width: 6rem;
+        height: 2rem;
+    }
+
+    .comments_component_div .single_comment_box {
+        padding: 0.5rem;
+        margin: 0.3rem;
+        width: 13rem;
+        height: auto;
+        left: 0rem;
+    }
+
+    #username_par {
+        font-family: var(--font-family);
+        font-size: 0.8rem;
+    }
+
+    #comment_par {
+        font-family: var(--font-family);
+        font-size: 0.8rem;
+        overflow-wrap: break-word;
+    }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    header {
+        height: 4.5rem;
+        width: 100%;
+    }
+
+    header .header_title_div {
+        padding-top: 1.1rem;
+    }
+
+    hr {
+        display: none;
+    }
+
+    .header_title_div h1 {
+        font-size: 3rem;
+    }
+
+    #app_container .more_button_div {
+        width: 100%;
+        margin: 1rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .more_button_div .more_button {
+        font-size: 0.8rem;
+        width: 7rem;
+        height: 2.3rem;
+        font-family: var(--font-family);
+        background-color: var(--button-color);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    /* -------------- MAIN CONTAINER-----------------*/
+    #app_container .err_msgs_div {
+        margin-top: 2rem;
+    }
+
+    .err_msgs_div .error_msg {
+        font-size: 1rem;
+    }
+
+    .err_msgs_div .form_not_valid_msg {
+        font-size: 1rem;
+    }
+
+    .upload_form_container .upload_form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .upload_form .input_fields_div {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .input_fields_div .upload_input {
+        width: 12rem;
+        height: 1rem;
+        padding: 0.5rem;
+    }
+
+    .upload_form .buttons_div {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .buttons_div .select_file_div {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .buttons_div .upload_button {
+        font-size: 0.8rem;
+        width: 7rem;
+        height: 2.3rem;
+    }
+
+    .select_file_div .select_img_btn {
+        border-radius: 5px;
+        font-size: 0.8rem;
+        width: 7rem;
+        height: 2.3rem;
+    }
+
+    .select_file_div .file_path {
+        border: dashed 1.5px red;
+        width: 6rem;
+        height: 2rem;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .file_path .image_path_par {
+        font-size: 0.7rem;
+    }
+
+    #app_container .img_board_grid_container {
+        width: 80%;
+        grid-template-columns: repeat(auto-fit, 10rem);
+        gap: 0.2rem;
+    }
+
+    .img_board_grid_container .single_image_container {
+        flex-direction: row;
+        justify-content: center;
+        width: fit-content;
+    }
+
+    .single_image_container .img_title_div {
+        height: 2rem;
+        width: 10rem;
+    }
+
+    .img_title_div .img_title_par {
+        padding: 0.4rem;
+        font-size: 0.8rem;
+    }
+
+    .img_title_div #delete_par {
+        height: 1rem;
+        padding-left: 0.2rem;
+        padding-top: 0.5rem;
+        font-size: 0.8rem;
+        width: 30%;
+    }
+
+    .single_image_container img {
+        width: 10rem;
+        height: 10rem;
+    }
+    /* ----------------------MODAL COMPONENT-------------------------*/
+
+    /*****************OLD MODAL STYLE***********************/
+    /* .modal_wrapper_div {
+        position: relative;
+        z-index: 2;
+        overflow: visible;
+        background-color: rgb(214, 209, 209);
+    }
+
+    .modal_component_div {
+        position: relative;
+        bottom: 4.6rem;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .modal_component_div .span_x_div {
+        background-color: rgba(128, 128, 128, 0.5);
+        align-self: flex-start;
+        width: 1.5rem;
+        height: 1.5rem;
+        margin: 0.9rem;
+    }
+
+    .span_x_div span {
+        position: relative;
+        bottom: 0.1rem;
+        font-size: 1.2rem;
+    }
+
+    .modal_img_div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        height: 100vh;
+    }
+
+    .modal_img_div .next_previous_img_div {
+        position: absolute;
+        width: 90%;
+    }
+
+    .modal_img_div .previous_div {
+        position: relative;
+        right: 2%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        width: 2.3rem;
+        height: 2.3rem;
+        background-color: rgba(131, 129, 132, 0.7);
+    }
+
+    .previous_div span {
+        font-size: 1.3rem;
+        color: white;
+        font-weight: lighter;
+    }
+
+    .modal_img_div .next_div {
+        position: relative;
+        left: 84%;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 2.3rem;
+        height: 2.3rem;
+        background-color: rgba(131, 129, 132, 0.7);
+    }
+
+    .next_div span {
+        font-size: 1.3rem;
+        font-weight: lighter;
+        color: white;
+    }
+
+    .modal_img_div img {
+        object-fit: contain;
+    }
+
+    .modal_component_div .user_details_div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .user_details_div h1 {
+        font-size: 1.2rem;
+        margin-bottom: 0.1rem;
+    }
+
+    .user_details_div .upload_details_div {
+        width: fit-content;
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0rem;
+    }
+
+    .user_details_div .uploaded_by_par {
+        font-size: 1rem;
+        width: fit-content;
+    }
+
+    .user_details_div .decription_par {
+        font-size: 1rem;
+        width: fit-content;
+    } */
+    /*****************END OF OLD MODAL STYLE***********************/
+    .modal_wrapper_div {
+        position: relative;
+        width: 100vw;
+        z-index: 2;
+        overflow: visible;
+        background-color: rgb(214, 209, 209);
+    }
+
+    .modal_component_div {
+        position: relative;
+        bottom: 4.6rem;
+        width: 100vw;
+        height: auto;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .modal_component_div .span_x_div {
+        background-color: rgba(128, 128, 128, 0.5);
+        align-self: flex-start;
+        width: 1.5rem;
+        height: 1.5rem;
+        margin: 0.9rem;
+    }
+
+    .span_x_div span {
+        position: relative;
+        bottom: 0.1rem;
+        font-size: 1.2rem;
+    }
+
+    .modal_img_div {
+        grid-row: 1/2;
+        background-color: black;
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .modal_img_div .next_previous_img_div {
+        position: absolute;
+        width: 90%;
+    }
+
+    .modal_img_div .previous_div {
+        position: relative;
+        right: 2%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        width: 2.3rem;
+        height: 2.3rem;
+        background-color: rgba(131, 129, 132, 0.7);
+    }
+
+    .previous_div span {
+        font-size: 1.3rem;
+        color: white;
+        font-weight: lighter;
+    }
+
+    .modal_img_div .next_div {
+        position: relative;
+        left: 84%;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 2.3rem;
+        height: 2.3rem;
+        background-color: rgba(131, 129, 132, 0.7);
+    }
+
+    .next_div span {
+        font-size: 1.3rem;
+        font-weight: lighter;
+        color: white;
+    }
+
+    .modal_img_div img {
+        object-fit: contain;
+    }
+
+    .modal_component_div .user_details_div {
+        border: 1px solid black;
+        grid-row: 2/3;
+        display: grid;
+        grid-template-rows: 30% 70%;
+        overflow: scroll;
+    }
+
+    .user_details_div .user_details_container {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-row: 1/2;
+        height: auto;
+    }
+
+    .user_details_container h3 {
+        align-self: center;
+        justify-self: flex-start;
+        margin-left: 4.5rem;
+        grid-row: 1/2;
+        font-family: var(--font-family);
+    }
+
+    .user_details_container .user_details_par_container {
+        grid-row: 2/3;
+        display: flex;
+        position: relative;
+        bottom: 2rem;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin-left: 4.5rem;
+    }
+
+    .user_details_par_container .uploaded_by_par {
+    }
+
+    .user_details_par_container .created_at_par {
+    }
+
+    .user_details_par_container .decription_par {
+    }
+    /* ----------------COMMENTS COMPONENT-----------------*/
+    .comments_component_div {
+        grid-row: 2/3;
+        width: fit-content;
+        overflow: scroll;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .comments_form_div {
+        width: fit-content;
+        margin-top: 1rem;
+        padding: 0.5rem;
+    }
+
+    .comments_form_div .comments_form {
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.8rem;
+    }
+
+    .comments_form .username_input {
+        width: 18rem;
+        height: 1.3rem;
+        padding: 0.3rem;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+    }
+
+    .comments_form .comment_input {
+        width: 18rem;
+        height: 3;
+        padding: 0.5rem;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        border-radius: 20px;
+        overflow: auto;
+        outline: none;
+        resize: none;
+    }
+
+    .comments_form .comments_button {
+        border-radius: 5px;
+        font-size: 0.8rem;
+        width: 7rem;
+        height: 2.3rem;
+    }
+
+    .comments_component_div .single_comment_box {
+        padding: 0.7rem;
+        margin: 0.3rem;
+        width: 18rem;
+        height: auto;
+        left: 0rem;
+    }
+
+    #username_par {
+        font-family: var(--font-family);
+        font-size: 0.9rem;
+    }
+
+    #comment_par {
+        font-family: var(--font-family);
+        font-size: 0.9rem;
+        overflow-wrap: break-word;
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    header {
+        height: 5.5rem;
+        width: 100%;
+    }
+
+    header .header_title_div {
+        padding-top: 1.1rem;
+    }
+
+    hr {
+        margin-bottom: 3rem;
+    }
+
+    .header_title_div h1 {
+        font-size: 4rem;
+    }
+    /* -------------- MAIN CONTAINER-----------------*/
+    .err_msgs_div .error_msg {
+        font-size: 1.1rem;
+    }
+
+    .err_msgs_div .form_not_valid_msg {
+        color: red;
+        font-size: 1.1rem;
+        font-family: var(--font-family);
+    }
+
+    .upload_form_container .upload_form {
+        flex-direction: column;
+        gap: 2rem;
+        height: 100%;
+    }
+
+    #app_container .img_board_grid_container {
+        width: 80%;
+        grid-template-columns: repeat(auto-fit, 18rem);
+        gap: 0.2rem;
+    }
+
+    .single_image_container img {
+        width: 18rem;
+        height: 18rem;
+    }
+
+    .single_image_container .img_title_div {
+        height: 2.5rem;
+        width: 13rem;
+    }
+
+    .img_title_div .img_title_par {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .img_title_div #delete_par {
+        height: 1.4rem;
+        padding-left: 0.5rem;
+        padding-top: 0.6rem;
+        font-size: 0.9rem;
+    }
+
+    .input_fields_div .upload_input {
+        width: 12rem;
+        height: 1rem;
+        padding: 0.5rem;
+    }
+
+    .upload_form .buttons_div {
+        gap: 2.5rem;
+    }
+
+    .buttons_div .select_file_div {
+        gap: 1.5rem;
+    }
+
+    .buttons_div .upload_button {
+        font-size: 0.9rem;
+        width: 8rem;
+        height: 2.4rem;
+    }
+
+    .select_file_div .select_img_btn {
+        border-radius: 5px;
+        font-size: 0.9rem;
+        width: 8rem;
+        height: 2.4rem;
+    }
+
+    .select_file_div .file_path {
+        width: 8rem;
+        height: 2.4rem;
+    }
+
+    .file_path .image_path_par {
+        font-size: 0.8rem;
+    }
+
+    #app_container .img_board_grid_container {
+        grid-template-columns: repeat(auto-fit, 13rem);
+    }
+
+    .single_image_container img {
+        width: 13rem;
+        height: 13rem;
+    }
+
+    #app_container .more_button_div {
+        margin: 3rem;
+    }
+
+    .more_button_div .more_button {
+        font-size: 0.9rem;
+        width: 8rem;
+        height: 2.4rem;
+    }
+    /* ----------------------MODAL COMPONENT-------------------------*/
+    .modal_wrapper_div {
+        bottom: 0rem;
+    }
+
+    .modal_component_div {
+        position: absolute;
+        top: 15rem;
+        width: 47rem;
+        height: 35rem;
+    }
+
+    .modal_img_div img {
+        object-fit: contain;
+        width: 100%;
+        height: 30rem;
+    }
+
+    .modal_img_div .next_previous_img_div {
+        width: 62%;
+    }
+
+    .modal_img_div .previous_div {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .previous_div span {
+        font-size: 1.5rem;
+    }
+
+    .modal_img_div .next_div {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .next_div span {
+        font-size: 1.5rem;
+    }
+
+    .modal_img_div .next_div {
+        position: relative;
+        left: 86%;
+    }
+
+    .modal_component_div .user_details_div {
+        overflow-x: hidden;
+    }
+
+    .user_details_container .user_details_par_container {
+        grid-row: 2/3;
+        display: flex;
+        position: relative;
+        bottom: 2rem;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin-left: 2.5rem;
+    }
+
+    .user_details_container h3 {
+        font-size: 1.2rem;
+        margin-top: 1rem;
+        margin-left: 2.5rem;
+    }
+
+    .user_details_par_container .uploaded_by_par {
+        font-size: 0.8rem;
+        margin-top: 1rem;
+    }
+
+    .user_details_par_container .decription_par {
+        font-size: 0.8rem;
+    }
+    /* ----------------------COMMENTS-------------------------*/
+    .comments_form .username_input {
+        position: relative;
+        right: 0.5rem;
+        width: 9rem;
+        height: 1.2rem;
+        font-size: 0.8rem;
+    }
+
+    .comments_form .comment_input {
+        position: relative;
+        right: 0.5rem;
+        width: 9rem;
+        height: 2.8rem;
+        font-size: 0.8rem;
+    }
+
+    .comments_form .comments_button {
+        position: relative;
+        right: 0.5rem;
+        width: 7rem;
+        height: 2rem;
+        font-size: 0.8rem;
+        border-radius: 5px;
+    }
+
+    .comments_component_div .single_comment_box {
+        position: relative;
+        right: 0.5rem;
+        padding: 0.5rem;
+        width: 9rem;
+    }
+
+    .comments_component_div {
+        position: relative;
+        left: 0.8rem;
+    }
+
+    .comments_form .comments_button {
+        border-radius: 5px;
+        font-size: 0.7rem;
+        width: 6rem;
+        height: 2rem;
+    }
+
+    .list_item #username_par {
+        font-family: var(--font-family);
+        font-size: 0.8rem;
+    }
+
+    .list_item #comment_par {
+        font-family: var(--font-family);
+        font-size: 0.8rem;
+        overflow-wrap: break-word;
+    }
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+    #app_container .more_button_div {
+        width: 100%;
+        margin: 3rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .upload_form_container .upload_form {
+        flex-direction: column;
+        gap: 2rem;
+        height: 100%;
+    }
+
+    #app_container .img_board_grid_container {
+        width: 80%;
+        grid-template-columns: repeat(auto-fit, 18rem);
+        gap: 0.2rem;
+    }
+
+    .single_image_container img {
+        width: 18rem;
+        height: 18rem;
+    }
+
+    .single_image_container .img_title_div {
+        height: 2.7rem;
+        width: 18rem;
+    }
+
+    .img_title_div .img_title_par {
+        padding: 0.5rem;
+        font-size: 1.2rem;
+    }
+
+    .img_title_div #delete_par {
+        height: 1.6rem;
+        padding-left: 0.5rem;
+        padding-top: 0.6rem;
+        font-size: 1.1rem;
+    }
+    /* ----------------------MODAL COMPONENT-------------------------*/
+    .modal_wrapper_div {
+        bottom: 0rem;
+    }
+
+    .modal_component_div {
+        position: absolute;
+        top: 13rem;
+        width: 60rem;
+        height: 40rem;
+    }
+
+    .modal_img_div img {
+        object-fit: contain;
+        width: 100%;
+        height: 35rem;
+    }
+
+    .modal_img_div .next_previous_img_div {
+        width: 65%;
+    }
+
+    .modal_img_div .previous_div {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .previous_div span {
+        font-size: 1.5rem;
+    }
+
+    .modal_img_div .next_div {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .next_div span {
+        font-size: 1.5rem;
+    }
+
+    .modal_img_div .next_div {
+        position: relative;
+        left: 86%;
+    }
+
+    .user_details_container h3 {
+        font-size: 1.5rem;
+        margin-top: 0.5rem;
+        margin-left: 2.5rem;
+    }
+
+    .user_details_container .user_details_par_container {
+        margin-left: 2.5rem;
+        width: 70%;
+    }
+
+    .user_details_par_container .uploaded_by_par {
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+    }
+
+    .user_details_par_container .decription_par {
+        font-size: 0.9rem;
+    }
+    /* ----------------------COMMENTS-------------------------*/
+    .comments_form .username_input {
+        width: 12rem;
+        height: 1.5rem;
+        font-size: 0.8rem;
+    }
+
+    .comments_form .comment_input {
+        width: 12rem;
+        height: 3rem;
+        font-size: 0.8rem;
+    }
+
+    .comments_form .comments_button {
+        width: 7rem;
+        height: 2rem;
+        font-size: 0.8rem;
+        border-radius: 5px;
+    }
+
+    .comments_component_div .single_comment_box {
+        padding: 0.5rem;
+        width: 12rem;
+    }
+
+    .list_item #username_par {
+        font-size: 0.9rem;
+    }
+
+    .list_item .comment_par {
+        font-size: 0.8rem;
+    }
+}
+
+@media only screen and (min-width: 1201px) and (max-width: 1600px) {
+    #app_container .more_button_div {
+        width: 100%;
+        margin: 3rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .upload_form_container .upload_form {
+        flex-direction: column;
+        gap: 2rem;
+        height: 100%;
+    }
+
+    #app_container .img_board_grid_container {
+        width: 80%;
+        grid-template-columns: repeat(auto-fit, 21rem);
+        gap: 0.2rem;
+    }
+
+    .single_image_container img {
+        width: 21rem;
+        height: 21rem;
+    }
+
+    .single_image_container .img_title_div {
+        height: 3.2rem;
+        width: 21rem;
+    }
+
+    .img_title_div .img_title_par {
+        padding: 0.8rem;
+        font-size: 1.2rem;
+    }
+
+    .img_title_div #delete_par {
+        height: 1.6rem;
+        padding-left: 0.5rem;
+        padding-top: 0.8rem;
+    }
+    /* ----------------------MODAL COMPONENT-------------------------*/
+    .modal_wrapper_div {
+        bottom: 0rem;
+    }
+
+    .modal_component_div {
+        position: absolute;
+        top: 13rem;
+        width: 65rem;
+        height: 45rem;
+    }
+
+    .modal_img_div .next_div {
+        position: relative;
+        left: 86%;
+    }
+
+    .user_details_container h3 {
+        font-size: 1.5rem;
+        margin-left: 3.2rem;
+    }
+
+    .user_details_container .user_details_par_container {
+        margin-left: 3.2rem;
+        width: 78%;
+    }
+
+    .user_details_par_container .uploaded_by_par {
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+    }
+
+    .user_details_par_container .decription_par {
+        font-size: 0.9rem;
+    }
+    /****************************COMMENTS************/
+    .comments_form .username_input {
+        width: 12rem;
+        height: 1.5rem;
+        font-size: 0.8rem;
+    }
+
+    .comments_form .comment_input {
+        width: 12rem;
+        height: 3rem;
+        font-size: 0.8rem;
+    }
+
+    .comments_form .comments_button {
+        width: 7rem;
+        height: 2rem;
+        font-size: 0.8rem;
+        border-radius: 5px;
+    }
+
+    .comments_component_div .single_comment_box {
+        padding: 0.5rem;
+        width: 12rem;
+    }
+
+    .list_item #username_par {
+        font-size: 0.9rem;
+    }
+
+    .list_item .comment_par {
+        font-size: 0.8rem;
+    }
+}
+
+@media only screen and (min-width: 1600px) {
+    #app_container .more_button_div {
+        width: 100%;
+        margin: 3rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .upload_form_container .upload_form {
+        flex-direction: column;
+        gap: 2rem;
+        height: 100%;
+    }
+    /* ----------------------MODAL COMPONENT-------------------------*/
+    .modal_wrapper_div {
+        bottom: 0.1rem;
+    }
+
+    .modal_component_div {
+        position: absolute;
+        top: 13rem;
+        width: 80rem;
+        height: 60rem;
+    }
+
+    .modal_component_div .span_x_div {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .modal_img_div {
+        padding: 1rem;
+        grid-column: 1/2;
+    }
+    .modal_img_div .next_previous_img_div {
+        width: 65%;
+    }
+
+    .modal_img_div .next_div {
+        position: relative;
+        left: 86%;
+    }
+
+    .user_details_container h3 {
+        font-size: 2rem;
+        margin-left: 3.5rem;
+    }
+
+    .user_details_container .user_details_par_container {
+        margin-left: 3.5rem;
+        width: 80%;
+    }
+
+    .user_details_par_container .uploaded_by_par {
+        font-size: 1rem;
+        margin-top: 0.5rem;
+    }
+
+    .user_details_par_container .decription_par {
+        font-size: 1rem;
+    }
+}

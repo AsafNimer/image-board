@@ -737,9 +737,9 @@ hr {
         width: fit-content;
     }
 
-    .user_details_par_container .created_at_par {
-        /* font-size: 1rem; */
-    }
+    /* .user_details_par_container .created_at_par {
+ 
+    } */
     /* ----------------COMMENTS COMPONENT-----------------*/
     .comments_component_div {
         width: fit-content;
@@ -1182,14 +1182,14 @@ hr {
         margin-left: 4.5rem;
     }
 
-    .user_details_par_container .uploaded_by_par {
+    /* .user_details_par_container .uploaded_by_par {
     }
 
     .user_details_par_container .created_at_par {
     }
 
     .user_details_par_container .decription_par {
-    }
+    } */
     /* ----------------COMMENTS COMPONENT-----------------*/
     .comments_component_div {
         grid-row: 2/3;

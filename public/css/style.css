@@ -1757,7 +1757,7 @@ hr {
     }
 }
 
-@media only screen and (min-width: 1600px) {
+@media only screen and (min-width: 1601px) {
     #app_container .more_button_div {
         width: 100%;
         margin: 3rem;

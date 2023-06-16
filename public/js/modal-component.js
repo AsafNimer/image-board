@@ -77,7 +77,9 @@ const modalComponent = {
             </div>
             <div class="user_details_div">
                 <div class="user_details_container">
-                    <h3>{{img.title}}</h3>
+                    <div class="img_title_wrapper">
+                        <h3>{{img.title}}</h3>
+                    </div>
                     <div class="user_details_par_container">
                         <p class="uploaded_by_par">Uploaded By:<br>{{img.username}}, {{img.created_at}}</p><br>
                         <p class="decription_par">Description:<br>{{img.description}}</p>

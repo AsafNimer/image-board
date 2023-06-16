@@ -13,6 +13,7 @@ Vue.createApp({
             userInput: { username: "", description: "", title: "" },
             formNotValid: false,
             errorMsg: false,
+            isMobile: false,
         };
     },
     mounted() {
@@ -107,9 +108,14 @@ Vue.createApp({
                 "",
                 `${location.pathname}/${this.imgClicked}`
             );
+
+            if (window.innerWidth <= 768) {
+                this.isMobile = true;
+            }
         },
         closeModalComponent() {
             this.imgClicked = null;
+            this.isMobile = false;
             history.pushState({}, "", "/home");
         },
         checkIfUserSelectedImg() {

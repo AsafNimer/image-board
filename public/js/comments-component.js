@@ -50,7 +50,7 @@ const commentsComponent = {
         </div>
         <div class="single_comment_box" v-if="comments.length" v-for="comment in comments" :key="comment.id">
             <div class="list_item">
-                <p id="username_par"><strong>{{comment.username}}:</strong></p>
+                <p id="username_par">{{comment.username}}:</p>
                 <p id="comment_par">{{comment.comment}}</p>
             </div>
         </div>

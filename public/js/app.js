@@ -21,6 +21,7 @@ Vue.createApp({
         history.pushState({}, "", "/home");
         this.imagePath = "";
         this.imageRemoved = false;
+        this.errorMsg = false;
 
         fetch("/image_board")
             .then((res) => res.json())

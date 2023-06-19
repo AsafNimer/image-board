@@ -1314,22 +1314,12 @@ hr {
 
     .user_details_container .img_title_wrapper {
         height: fit-content;
+        margin-left: 0.5rem;
     }
 
     .user_details_container .user_details_par_container {
-        border: none;
-        border-radius: 20px;
-        padding-left: 1rem;
-        padding-bottom: 1rem;
-        background-color: aliceblue;
-        position: relative;
-        left: 2rem;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        overflow-y: scroll;
-        width: 75%;
+        margin-left: 3rem;
+        width: 85%;
     }
 
     .img_title_wrapper h3 {
@@ -1457,19 +1447,21 @@ hr {
 
     .modal_component_div {
         position: absolute;
-        top: 13rem;
+        top: 20rem;
         width: 60rem;
         height: 40rem;
+        grid-template-columns: 65% 30%;
+        grid-template-rows: 40rem;
     }
 
     .modal_img_div img {
         object-fit: contain;
         width: 100%;
-        height: 35rem;
+        height: 30rem;
     }
 
     .modal_img_div .next_previous_img_div {
-        width: 65%;
+        width: 62%;
     }
 
     .modal_img_div .previous_div {
@@ -1495,10 +1487,18 @@ hr {
         left: 86%;
     }
 
-    .img_title_wrapper h3 {
-        font-size: 1.2rem;
-        margin-top: 0.5rem;
-        margin-left: 3rem;
+    .modal_component_div .user_details_div {
+        width: 115%;
+        grid-row: 1/2;
+    }
+
+    .user_details_div .user_details_container {
+        height: 15rem;
+    }
+
+    .user_details_container .img_title_wrapper {
+        height: fit-content;
+        margin-left: 0.5rem;
     }
 
     .user_details_container .user_details_par_container {
@@ -1506,13 +1506,19 @@ hr {
         width: 85%;
     }
 
+    .img_title_wrapper h3 {
+        font-size: 1rem;
+        margin-top: 1rem;
+        margin-left: 2.5rem;
+    }
+
     .user_details_par_container .uploaded_by_par {
-        font-size: 0.9rem;
-        margin-top: 0.5rem;
+        font-size: 0.8rem;
+        margin-top: 1rem;
     }
 
     .user_details_par_container .decription_par {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
     /* ----------------------COMMENTS-------------------------*/
     .comments_form .username_input {
@@ -1602,9 +1608,39 @@ hr {
 
     .modal_component_div {
         position: absolute;
-        top: 13rem;
+        top: 20rem;
         width: 65rem;
         height: 45rem;
+        grid-template-columns: 65% 30%;
+        grid-template-rows: 45rem;
+    }
+
+    .modal_img_div img {
+        object-fit: contain;
+        width: 100%;
+        height: 30rem;
+    }
+
+    .modal_img_div .next_previous_img_div {
+        width: 62%;
+    }
+
+    .modal_img_div .previous_div {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .previous_div span {
+        font-size: 1.5rem;
+    }
+
+    .modal_img_div .next_div {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .next_div span {
+        font-size: 1.5rem;
     }
 
     .modal_img_div .next_div {
@@ -1612,55 +1648,72 @@ hr {
         left: 86%;
     }
 
-    .img_title_wrapper h3 {
-        font-size: 1.5rem;
-        margin-left: 3.2rem;
+    .modal_component_div .user_details_div {
+        width: 115%;
+        grid-row: 1/2;
+    }
+
+    .user_details_div .user_details_container {
+        height: 15rem;
+    }
+
+    .user_details_container .img_title_wrapper {
+        height: fit-content;
+        margin-left: 0.5rem;
     }
 
     .user_details_container .user_details_par_container {
-        margin-left: 3.2rem;
-        width: 78%;
+        margin-left: 3rem;
+        width: 85%;
+    }
+
+    .img_title_wrapper h3 {
+        font-size: 1.5rem;
+        margin-top: 1rem;
+        margin-left: 3.4rem;
     }
 
     .user_details_par_container .uploaded_by_par {
-        font-size: 0.9rem;
-        margin-top: 0.5rem;
+        font-size: 1rem;
+        margin-top: 1rem;
+        margin-left: 1rem;
     }
 
     .user_details_par_container .decription_par {
-        font-size: 0.9rem;
+        font-size: 1rem;
+        margin-left: 1rem;
     }
     /****************************COMMENTS************/
     .comments_form .username_input {
-        width: 12rem;
+        width: 15rem;
         height: 1.5rem;
-        font-size: 0.8rem;
+        font-size: 1rem;
     }
 
     .comments_form .comment_input {
-        width: 12rem;
-        height: 3rem;
-        font-size: 0.8rem;
+        width: 15rem;
+        height: 4rem;
+        font-size: 1rem;
     }
 
     .comments_form .comments_button {
-        width: 7rem;
-        height: 2rem;
-        font-size: 0.8rem;
+        width: 10rem;
+        height: 2.3rem;
+        font-size: 1rem;
         border-radius: 5px;
     }
 
     .comments_component_div .single_comment_box {
         padding: 0.5rem;
-        width: 12rem;
+        width: 15rem;
     }
 
     .list_item #username_par {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 
     .list_item .comment_par {
-        font-size: 0.8rem;
+        font-size: 1rem;
     }
 }
 
@@ -1702,7 +1755,7 @@ hr {
     }
     /* ----------------------MODAL COMPONENT-------------------------*/
     .modal_wrapper_div {
-        bottom: 0.1rem;
+        bottom: 0rem;
     }
 
     .modal_component_div {
@@ -1710,19 +1763,36 @@ hr {
         top: 13rem;
         width: 80rem;
         height: 60rem;
+        grid-template-columns: 65% 30%;
+        grid-template-rows: 60rem;
     }
 
-    .modal_component_div .span_x_div {
-        width: 2rem;
-        height: 2rem;
+    .modal_img_div img {
+        object-fit: contain;
+        width: 100%;
+        height: 45rem;
     }
 
-    .modal_img_div {
-        padding: 1rem;
-        grid-column: 1/2;
-    }
     .modal_img_div .next_previous_img_div {
-        width: 65%;
+        width: 62%;
+    }
+
+    .modal_img_div .previous_div {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .previous_div span {
+        font-size: 1.5rem;
+    }
+
+    .modal_img_div .next_div {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .next_div span {
+        font-size: 1.5rem;
     }
 
     .modal_img_div .next_div {
@@ -1730,22 +1800,71 @@ hr {
         left: 86%;
     }
 
-    .img_title_wrapper h3 {
-        font-size: 2rem;
-        margin-left: 3.5rem;
+    .modal_component_div .user_details_div {
+        width: 115%;
+        grid-row: 1/2;
+    }
+
+    .user_details_div .user_details_container {
+        height: 15rem;
+    }
+
+    .user_details_container .img_title_wrapper {
+        height: fit-content;
+        margin-left: 0.5rem;
     }
 
     .user_details_container .user_details_par_container {
-        margin-left: 3.5rem;
-        width: 80%;
+        margin-left: 3rem;
+        width: 85%;
+    }
+
+    .img_title_wrapper h3 {
+        font-size: 1.5rem;
+        margin-top: 1rem;
+        margin-left: 3.4rem;
     }
 
     .user_details_par_container .uploaded_by_par {
         font-size: 1rem;
-        margin-top: 0.5rem;
+        margin-top: 1rem;
+        margin-left: 1rem;
     }
 
     .user_details_par_container .decription_par {
         font-size: 1rem;
+        margin-left: 1rem;
+    }
+    /****************************COMMENTS************/
+    .comments_form .username_input {
+        width: 15rem;
+        height: 1.5rem;
+        font-size: 1rem;
+    }
+
+    .comments_form .comment_input {
+        width: 15rem;
+        height: 4rem;
+        font-size: 1rem;
+    }
+
+    .comments_form .comments_button {
+        width: 12rem;
+        height: 2.7rem;
+        font-size: 1rem;
+        border-radius: 5px;
+    }
+
+    .comments_component_div .single_comment_box {
+        padding: 0.5rem;
+        width: 17rem;
+    }
+
+    .list_item #username_par {
+        font-size: 1.2rem;
+    }
+
+    .list_item .comment_par {
+        font-size: 1.2rem;
     }
 }

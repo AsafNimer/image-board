@@ -69,7 +69,6 @@ hr {
 .err_msgs_div .error_msg {
     color: red;
     font-size: 1.3rem;
-
     font-family: var(--font-family);
 }
 
@@ -351,20 +350,22 @@ hr {
 
 .modal_component_div .user_details_div {
     grid-column: 2/3;
-    display: flex;
-    flex-direction: column;
-    width: 150%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 30% 70%;
     overflow-x: hidden;
 }
 
 .user_details_div .user_details_container {
+    grid-column: 1/2;
+    grid-row: 1/2;
     display: flex;
     flex-direction: column;
     gap: 0rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    height: fit-content;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .user_details_container .img_title_wrapper {
@@ -411,6 +412,8 @@ hr {
 }
 /* ----------------COMMENTS COMPONENT-----------------*/
 .comments_component_div {
+    grid-column: 1/2;
+    grid-row: 2/3;
     width: 100%;
     overflow: scroll;
     display: flex;
@@ -435,15 +438,15 @@ hr {
     width: 16rem;
     height: 2rem;
     padding: 0.5rem;
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
+    border: none;
+    border-radius: 15px;
 }
 
 .comments_form .comment_input {
     width: 16rem;
     height: 4.5rem;
     padding: 0.5rem;
-    border: 1px solid rgba(0, 0, 0, 0.3);
+    border: none;
     border-radius: 20px;
     overflow: auto;
     outline: none;
@@ -1304,12 +1307,8 @@ hr {
     }
 
     .modal_component_div .user_details_div {
-        width: 115%;
         grid-row: 1/2;
-    }
-
-    .user_details_div .user_details_container {
-        height: 15rem;
+        width: 115%;
     }
 
     .user_details_container .img_title_wrapper {
@@ -1488,12 +1487,8 @@ hr {
     }
 
     .modal_component_div .user_details_div {
-        width: 115%;
         grid-row: 1/2;
-    }
-
-    .user_details_div .user_details_container {
-        height: 15rem;
+        width: 115%;
     }
 
     .user_details_container .img_title_wrapper {
@@ -1649,12 +1644,8 @@ hr {
     }
 
     .modal_component_div .user_details_div {
-        width: 115%;
         grid-row: 1/2;
-    }
-
-    .user_details_div .user_details_container {
-        height: 15rem;
+        width: 115%;
     }
 
     .user_details_container .img_title_wrapper {
@@ -1687,13 +1678,13 @@ hr {
     .comments_form .username_input {
         width: 15rem;
         height: 1.5rem;
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 
     .comments_form .comment_input {
         width: 15rem;
         height: 4rem;
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 
     .comments_form .comments_button {
@@ -1801,12 +1792,8 @@ hr {
     }
 
     .modal_component_div .user_details_div {
-        width: 115%;
         grid-row: 1/2;
-    }
-
-    .user_details_div .user_details_container {
-        height: 15rem;
+        width: 115%;
     }
 
     .user_details_container .img_title_wrapper {

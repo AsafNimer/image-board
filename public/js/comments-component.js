@@ -11,7 +11,10 @@ const commentsComponent = {
         fetch(`/comments/${this.imgId}`)
             .then((res) => res.json())
             .then((fetchedData) => {
-                console.log("FETCHED DATA: ", fetchedData);
+                console.log(
+                    "FETCHED DATA: comments are retreived",
+                    fetchedData
+                );
                 this.comments = fetchedData;
             })
             .catch((err) => {
@@ -36,6 +39,9 @@ const commentsComponent = {
                     this.comments.unshift(data.payload);
                     this.username = "";
                     this.comment = "";
+                })
+                .catch((err) => {
+                    "Error fetch comments: ", err;
                 });
         },
     },

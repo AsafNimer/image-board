@@ -22,6 +22,7 @@ const modalComponent = {
         selectedImg: function () {
             this.fetchData();
             this.img.id = this.img.nextId || this.img.previousId;
+            console.log("this.img.id: ", this.img.id);
         },
     },
     methods: {
@@ -57,7 +58,6 @@ const modalComponent = {
             this.$emit("update", this.img.previousId);
         },
     },
-
     template: `
     <div class="modal_wrapper_div">
         <div class="modal_component_div">

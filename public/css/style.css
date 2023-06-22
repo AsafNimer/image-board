@@ -303,7 +303,7 @@ hr {
 
 .modal_img_div .next_previous_img_div {
     position: absolute;
-    width: 60%;
+    width: 55%;
     display: flex;
 }
 
@@ -702,10 +702,8 @@ hr {
     }
 
     .img_title_wrapper h3 {
-        /*************/
         word-wrap: break-word;
         margin-left: 3rem;
-        /*************/
         font-size: 1rem;
         margin-right: 1rem;
         margin-top: 0.1rem;
@@ -720,10 +718,8 @@ hr {
         bottom: 0rem;
         margin-top: 0.5rem;
         margin-right: 1rem;
-        /*************/
         margin-left: 3rem;
         width: 80%;
-        /*************/
         height: fit-content;
     }
 
@@ -1279,12 +1275,13 @@ hr {
     }
 
     .modal_img_div .next_previous_img_div {
-        width: 62%;
+        justify-content: space-between;
+        width: 58%;
     }
 
     .next_previous_img_div .previous_div {
-        width: 2.5rem;
-        height: 2.5rem;
+        width: 2.8rem;
+        height: 2.8rem;
     }
 
     .previous_div span {
@@ -1292,10 +1289,8 @@ hr {
     }
 
     .next_previous_img_div .next_div {
-        width: 2.5rem;
-        height: 2.5rem;
-        position: relative;
-        left: 86%;
+        width: 2.8rem;
+        height: 2.8rem;
     }
 
     .next_div span {
@@ -1456,12 +1451,13 @@ hr {
     }
 
     .modal_img_div .next_previous_img_div {
-        width: 62%;
+        justify-content: space-between;
+        width: 60%;
     }
 
     .next_previous_img_div .previous_div {
-        width: 2.5rem;
-        height: 2.5rem;
+        width: 3rem;
+        height: 3rem;
     }
 
     .previous_div span {
@@ -1469,10 +1465,8 @@ hr {
     }
 
     .next_previous_img_div .next_div {
-        width: 2.5rem;
-        height: 2.5rem;
-        position: relative;
-        left: 86%;
+        width: 3rem;
+        height: 3rem;
     }
 
     .next_div span {
@@ -1610,12 +1604,12 @@ hr {
     }
 
     .modal_img_div .next_previous_img_div {
-        width: 62%;
+        justify-content: space-between;
     }
 
     .next_previous_img_div .previous_div {
-        width: 2.5rem;
-        height: 2.5rem;
+        width: 3rem;
+        height: 3rem;
     }
 
     .previous_div span {
@@ -1623,10 +1617,8 @@ hr {
     }
 
     .next_previous_img_div .next_div {
-        width: 2.5rem;
-        height: 2.5rem;
-        position: relative;
-        left: 86%;
+        width: 3rem;
+        height: 3rem;
     }
 
     .next_div span {
@@ -1754,13 +1746,9 @@ hr {
         height: 45rem;
     }
 
-    .modal_img_div .next_previous_img_div {
-        width: 62%;
-    }
-
     .next_previous_img_div .previous_div {
-        width: 2.5rem;
-        height: 2.5rem;
+        width: 3.5rem;
+        height: 3.5rem;
     }
 
     .previous_div span {
@@ -1768,8 +1756,8 @@ hr {
     }
 
     .next_previous_img_div .next_div {
-        width: 2.5rem;
-        height: 2.5rem;
+        width: 3.5rem;
+        height: 3.5rem;
         position: relative;
         left: 86%;
     }

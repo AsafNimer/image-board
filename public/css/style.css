@@ -48,7 +48,7 @@ hr {
 
 .header_title_div h1 {
     font-family: var(--font-family);
-    font-size: 4rem;
+    font-size: 3.5rem;
     color: white;
 }
 /* -------------- MAIN CONTAINER-----------------*/
@@ -123,7 +123,7 @@ hr {
 }
 
 .select_file_div .select_img_btn {
-    font-size: 1rem;
+    font-size: 1.2rem;
     border-radius: 5px;
     width: 12rem;
     height: 3rem;
@@ -1437,7 +1437,7 @@ hr {
 
     .modal_component_div {
         position: absolute;
-        top: 20rem;
+        top: 15rem;
         width: 60rem;
         height: 40rem;
         grid-template-columns: 65% 30%;
@@ -1590,7 +1590,7 @@ hr {
 
     .modal_component_div {
         position: absolute;
-        top: 20rem;
+        top: 12rem;
         width: 65rem;
         height: 45rem;
         grid-template-columns: 65% 30%;

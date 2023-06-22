@@ -17,7 +17,7 @@
         <div v-bind:class="isMobile ? 'mobile' : 'main_view_wrapper' ">
             <div class="err_msgs_div">
                 <p v-if="formNotValid" class="form_not_valid_msg">Please fill in all fields and choose an image before submitting</p>
-                <p v-if="errorMsg" class="error_msg">Something went wrong, please try again</p>
+                <p v-if="errorMsg" class="error_msg">Something went wrong or file is too big</p>
             </div>
             <div class="upload_form_container">
                 <form class="upload_form" method="post" enctype="multipart/form-data" action="/upload" @submit.prevent="handleImgSubmit">

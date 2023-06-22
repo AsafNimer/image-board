@@ -140,11 +140,11 @@ app.delete("/removeImgAndComments/:id", (req, res) => {
                     return res.status(204).json({ success: true });
                 })
                 .catch((err) => {
-                    console.log("error by deleting image: ", err);
+                    console.log("error by deleting image1: ", err);
                 });
         })
         .catch((err) => {
-            console.log("error by deleting image: ", err);
+            console.log("error by deleting image2: ", err);
         });
 });
 

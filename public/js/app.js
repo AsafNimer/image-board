@@ -50,6 +50,7 @@ Vue.createApp({
     methods: {
         handleImgSubmit(e) {
             this.formNotValid = false;
+            this.errorMsg = false;
 
             for (const prop in this.userInput) {
                 if (

@@ -3,6 +3,7 @@
     --font-color: rgb(255, 255, 255);
     --light-font: lighter;
     --font-family: "Gill Sans", "Gill Sans MT", "Calibri", "Trebuchet MS";
+    background-color: none;
 }
 
 * {

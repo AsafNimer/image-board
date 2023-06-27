@@ -28,6 +28,14 @@ const uploader = multer({
     },
 });
 //********************************************* */
+if (process.env.NODE_ENV == "production") {
+    app.use((req, res, next) => {
+        if (req.headers["x-forwarded-proto"].startsWith("https")) {
+            return next();
+        }
+        res.redirect(`https://${req.hostname}${req.url}`);
+    });
+}
 
 app.use(express.urlencoded({ extended: false })); // GIVES US AN ACCESS TO OUR FORM DATA, WITHOUT, MIDDLEWARE EXPRESS CAN'T INTERPRET IT
 
@@ -152,4 +160,4 @@ app.get("*", (req, res) => {
     res.sendFile(`${__dirname}/index.html`);
 });
 
-app.listen(8080, () => console.log(`I'm listening`));
+app.listen(process.env.PORT || 8080, () => console.log(`I'm listening`));

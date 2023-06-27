@@ -350,17 +350,21 @@ hr {
 .modal_component_div .user_details_div {
     grid-column: 2/3;
     display: grid;
+    grid-template-columns: 1fr;
     grid-template-rows: 30% 70%;
-    width: 149%;
-    overflow: scroll;
+    overflow-x: hidden;
 }
 
 .user_details_div .user_details_container {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-column: 1/2;
     grid-row: 1/2;
-    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0rem;
+    padding-bottom: 1rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .user_details_container .img_title_wrapper {
@@ -407,6 +411,7 @@ hr {
 }
 /* ----------------COMMENTS COMPONENT-----------------*/
 .comments_component_div {
+    grid-column: 1/2;
     grid-row: 2/3;
     width: 100%;
     overflow: scroll;
@@ -487,7 +492,7 @@ hr {
     }
 
     .header_title_div h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 
     #app_container .more_button_div {
@@ -653,42 +658,17 @@ hr {
         justify-content: space-between;
     }
 
-    .modal_img_div .previous_div {
+    .next_previous_img_div .previous_div {
+        cursor: none;
+    }
+
+    .next_previous_img_div .next_div {
+        cursor: none;
+    }
+
+    .modal_component_div .user_details_div {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;
-        width: 2rem;
-        height: 2rem;
-        background-color: rgba(131, 129, 132, 0.7);
-    }
-
-    .previous_div span {
-        font-size: 1rem;
-        color: white;
-        font-weight: lighter;
-    }
-
-    .modal_img_div .next_div {
-        position: relative;
-        left: 82%;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 2rem;
-        height: 2rem;
-        background-color: rgba(131, 129, 132, 0.7);
-    }
-
-    .next_div span {
-        font-size: 1rem;
-        font-weight: lighter;
-        color: white;
-    }
-
-    .modal_img_div img {
-        object-fit: cover;
+        flex-direction: column;
         width: 100%;
         overflow-x: hidden;
     }
@@ -717,12 +697,26 @@ hr {
         display: flex;
     }
 
-    .user_details_div .uploaded_by_par {
-        width: fit-content;
+    .img_title_wrapper h3 {
+        word-wrap: break-word;
+        margin-left: 3rem;
+        font-size: 1rem;
+        margin-right: 1rem;
+        margin-top: 0.1rem;
+        align-self: flex-start;
+        justify-self: flex-start;
+        padding-right: 5rem;
+        width: 100%;
     }
 
-    .user_details_div .decription_par {
-        width: fit-content;
+    .user_details_container .user_details_par_container {
+        margin-left: 0rem;
+        bottom: 0rem;
+        margin-top: 0.5rem;
+        margin-right: 1rem;
+        margin-left: 3rem;
+        width: 80%;
+        height: fit-content;
     }
 
     .user_details_par_container .uploaded_by_par {
@@ -984,44 +978,12 @@ hr {
         justify-content: space-between;
     }
 
-    .modal_img_div .previous_div {
-        position: relative;
-        right: 2%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;
-        width: 2.3rem;
-        height: 2.3rem;
-        background-color: rgba(131, 129, 132, 0.7);
+    .next_previous_img_div .previous_div {
+        cursor: none;
     }
 
-    .previous_div span {
-        font-size: 1.3rem;
-        color: white;
-        font-weight: lighter;
-    }
-
-    .modal_img_div .next_div {
-        position: relative;
-        left: 84%;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 2.3rem;
-        height: 2.3rem;
-        background-color: rgba(131, 129, 132, 0.7);
-    }
-
-    .next_div span {
-        font-size: 1.3rem;
-        font-weight: lighter;
-        color: white;
-    }
-
-    .modal_img_div img {
-        object-fit: contain;
+    .next_previous_img_div .next_div {
+        cursor: none;
     }
 
     .modal_component_div .user_details_div {
@@ -1328,19 +1290,14 @@ hr {
         width: 115%;
     }
 
-    .modal_component_div .user_details_div {
-        overflow-x: hidden;
+    .user_details_container .img_title_wrapper {
+        height: fit-content;
+        margin-left: 0.5rem;
     }
 
     .user_details_container .user_details_par_container {
-        grid-row: 2/3;
-        display: flex;
-        position: relative;
-        bottom: 2rem;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        margin-left: 2.5rem;
+        margin-left: 3rem;
+        width: 85%;
     }
 
     .img_title_wrapper h3 {
@@ -1509,15 +1466,20 @@ hr {
         width: 115%;
     }
 
-    .user_details_container h3 {
-        font-size: 1.5rem;
-        margin-top: 0.5rem;
-        margin-left: 2.5rem;
+    .user_details_container .img_title_wrapper {
+        height: fit-content;
+        margin-left: 0.5rem;
     }
 
     .user_details_container .user_details_par_container {
+        margin-left: 3rem;
+        width: 85%;
+    }
+
+    .img_title_wrapper h3 {
+        font-size: 1rem;
+        margin-top: 1rem;
         margin-left: 2.5rem;
-        width: 70%;
     }
 
     .user_details_par_container .uploaded_by_par {
@@ -1629,7 +1591,16 @@ hr {
         height: 30rem;
     }
 
-    .user_details_container h3 {
+    .modal_img_div .next_previous_img_div {
+        justify-content: space-between;
+    }
+
+    .next_previous_img_div .previous_div {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .previous_div span {
         font-size: 1.5rem;
     }
 
@@ -1779,9 +1750,18 @@ hr {
         left: 86%;
     }
 
-    .user_details_container h3 {
-        font-size: 2rem;
-        margin-left: 3.5rem;
+    .next_div span {
+        font-size: 1.5rem;
+    }
+
+    .modal_component_div .user_details_div {
+        grid-row: 1/2;
+        width: 115%;
+    }
+
+    .user_details_container .img_title_wrapper {
+        height: fit-content;
+        margin-left: 0.5rem;
     }
 
     .user_details_container .user_details_par_container {

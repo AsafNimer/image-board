@@ -128,7 +128,7 @@ app.delete("/removeImgAndComments/:id", (req, res) => {
     db.deleteComments(req.params.id)
         .then(() => {
             console.log("Comments removed", req.params.id);
-            res.status(204);
+            res.status(204).send("comments removed");
         })
         .catch((err) => {
             console.log("Error with deleteComments", err);
@@ -137,14 +137,14 @@ app.delete("/removeImgAndComments/:id", (req, res) => {
             db.deleteImage(req.params.id)
                 .then(() => {
                     console.log("Image removed", req.params.id);
-                    res.status(204);
+                    res.status(204).send("image removed");
                 })
                 .catch((err) => {
-                    console.log("error by deleting image: ", err);
+                    console.log("error by deleting image1: ", err);
                 });
         })
         .catch((err) => {
-            console.log("error by deleting image: ", err);
+            console.log("error by deleting image2: ", err);
         });
 });
 

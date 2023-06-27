@@ -32,7 +32,7 @@ header {
 }
 
 header .header_title_div {
-    padding-top: 1.2rem;
+    padding-top: 0.5rem;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -47,9 +47,8 @@ hr {
 }
 
 .header_title_div h1 {
-    font-family: QuiteMagical-Regular;
-    font-weight: var(--light-font);
-    font-size: 6rem;
+    font-family: var(--font-family);
+    font-size: 3.5rem;
     color: white;
 }
 /* -------------- MAIN CONTAINER-----------------*/
@@ -69,7 +68,6 @@ hr {
 .err_msgs_div .error_msg {
     color: red;
     font-size: 1.3rem;
-
     font-family: var(--font-family);
 }
 
@@ -104,10 +102,10 @@ hr {
 
 .input_fields_div .upload_input {
     width: 18rem;
-    height: 2rem;
-    padding: 0.7rem;
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
+    height: 1.5rem;
+    padding: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
 }
 
 .upload_form .buttons_div {
@@ -125,7 +123,7 @@ hr {
 }
 
 .select_file_div .select_img_btn {
-    font-size: 1rem;
+    font-size: 1.2rem;
     border-radius: 5px;
     width: 12rem;
     height: 3rem;
@@ -238,9 +236,9 @@ hr {
 }
 
 .more_button_div .more_button {
-    font-size: 1rem;
-    width: 10rem;
-    height: 2.7rem;
+    font-size: 1.2rem;
+    width: 15rem;
+    height: 3.5rem;
     font-family: var(--font-family);
     background-color: var(--button-color);
     color: white;
@@ -305,11 +303,11 @@ hr {
 
 .modal_img_div .next_previous_img_div {
     position: absolute;
-    width: 60%;
+    width: 55%;
     display: flex;
 }
 
-.modal_img_div .previous_div {
+.next_previous_img_div .previous_div {
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -326,7 +324,7 @@ hr {
     font-weight: lighter;
 }
 
-.modal_img_div .next_div {
+.next_previous_img_div .next_div {
     cursor: pointer;
     border-radius: 50%;
     display: flex;
@@ -351,20 +349,18 @@ hr {
 
 .modal_component_div .user_details_div {
     grid-column: 2/3;
-    display: flex;
-    flex-direction: column;
-    width: 150%;
-    overflow-x: hidden;
+    display: grid;
+    grid-template-rows: 30% 70%;
+    width: 149%;
+    overflow: scroll;
 }
 
 .user_details_div .user_details_container {
-    display: flex;
-    flex-direction: column;
-    gap: 0rem;
-    padding-bottom: 1rem;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-row: 1/2;
+    gap: 1rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    height: fit-content;
-    overflow-y: scroll;
 }
 
 .user_details_container .img_title_wrapper {
@@ -411,6 +407,7 @@ hr {
 }
 /* ----------------COMMENTS COMPONENT-----------------*/
 .comments_component_div {
+    grid-row: 2/3;
     width: 100%;
     overflow: scroll;
     display: flex;
@@ -435,15 +432,15 @@ hr {
     width: 16rem;
     height: 2rem;
     padding: 0.5rem;
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
+    border: none;
+    border-radius: 15px;
 }
 
 .comments_form .comment_input {
     width: 16rem;
     height: 4.5rem;
     padding: 0.5rem;
-    border: 1px solid rgba(0, 0, 0, 0.3);
+    border: none;
     border-radius: 20px;
     overflow: auto;
     outline: none;
@@ -483,10 +480,6 @@ hr {
     header {
         height: 4.5rem;
         width: 100%;
-    }
-
-    header .header_title_div {
-        padding-top: 1.1rem;
     }
 
     hr {
@@ -661,16 +654,41 @@ hr {
     }
 
     .modal_img_div .previous_div {
-        cursor: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        width: 2rem;
+        height: 2rem;
+        background-color: rgba(131, 129, 132, 0.7);
+    }
+
+    .previous_div span {
+        font-size: 1rem;
+        color: white;
+        font-weight: lighter;
     }
 
     .modal_img_div .next_div {
-        cursor: none;
+        position: relative;
+        left: 82%;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 2rem;
+        height: 2rem;
+        background-color: rgba(131, 129, 132, 0.7);
     }
 
-    .modal_component_div .user_details_div {
-        display: flex;
-        flex-direction: column;
+    .next_div span {
+        font-size: 1rem;
+        font-weight: lighter;
+        color: white;
+    }
+
+    .modal_img_div img {
+        object-fit: cover;
         width: 100%;
         overflow-x: hidden;
     }
@@ -699,30 +717,12 @@ hr {
         display: flex;
     }
 
-    .img_title_wrapper h3 {
-        /*************/
-        word-wrap: break-word;
-        margin-left: 3rem;
-        /*************/
-        font-size: 1rem;
-        margin-right: 1rem;
-        margin-top: 0.1rem;
-        align-self: flex-start;
-        justify-self: flex-start;
-        padding-right: 5rem;
-        width: 100%;
+    .user_details_div .uploaded_by_par {
+        width: fit-content;
     }
 
-    .user_details_container .user_details_par_container {
-        margin-left: 0rem;
-        bottom: 0rem;
-        margin-top: 0.5rem;
-        margin-right: 1rem;
-        /*************/
-        margin-left: 3rem;
-        width: 80%;
-        /*************/
-        height: fit-content;
+    .user_details_div .decription_par {
+        width: fit-content;
     }
 
     .user_details_par_container .uploaded_by_par {
@@ -816,16 +816,12 @@ hr {
         width: 100%;
     }
 
-    header .header_title_div {
-        padding-top: 1.1rem;
-    }
-
     hr {
         display: none;
     }
 
     .header_title_div h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 
     #app_container .more_button_div {
@@ -989,11 +985,43 @@ hr {
     }
 
     .modal_img_div .previous_div {
-        cursor: none;
+        position: relative;
+        right: 2%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        width: 2.3rem;
+        height: 2.3rem;
+        background-color: rgba(131, 129, 132, 0.7);
+    }
+
+    .previous_div span {
+        font-size: 1.3rem;
+        color: white;
+        font-weight: lighter;
     }
 
     .modal_img_div .next_div {
-        cursor: none;
+        position: relative;
+        left: 84%;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 2.3rem;
+        height: 2.3rem;
+        background-color: rgba(131, 129, 132, 0.7);
+    }
+
+    .next_div span {
+        font-size: 1.3rem;
+        font-weight: lighter;
+        color: white;
+    }
+
+    .modal_img_div img {
+        object-fit: contain;
     }
 
     .modal_component_div .user_details_div {
@@ -1140,16 +1168,12 @@ hr {
         width: 100%;
     }
 
-    header .header_title_div {
-        padding-top: 1.1rem;
-    }
-
     hr {
         margin-bottom: 3rem;
     }
 
     .header_title_div h1 {
-        font-size: 4rem;
+        font-size: 3rem;
     }
     /* -------------- MAIN CONTAINER-----------------*/
     .err_msgs_div .error_msg {
@@ -1277,59 +1301,46 @@ hr {
     }
 
     .modal_img_div .next_previous_img_div {
-        width: 62%;
+        justify-content: space-between;
+        width: 58%;
     }
 
-    .modal_img_div .previous_div {
-        width: 2.5rem;
-        height: 2.5rem;
+    .next_previous_img_div .previous_div {
+        width: 2.8rem;
+        height: 2.8rem;
     }
 
     .previous_div span {
         font-size: 1.5rem;
     }
 
-    .modal_img_div .next_div {
-        width: 2.5rem;
-        height: 2.5rem;
+    .next_previous_img_div .next_div {
+        width: 2.8rem;
+        height: 2.8rem;
     }
 
     .next_div span {
         font-size: 1.5rem;
     }
 
-    .modal_img_div .next_div {
-        position: relative;
-        left: 86%;
+    .modal_component_div .user_details_div {
+        grid-row: 1/2;
+        width: 115%;
     }
 
     .modal_component_div .user_details_div {
-        width: 115%;
-        grid-row: 1/2;
-    }
-
-    .user_details_div .user_details_container {
-        height: 15rem;
-    }
-
-    .user_details_container .img_title_wrapper {
-        height: fit-content;
+        overflow-x: hidden;
     }
 
     .user_details_container .user_details_par_container {
-        border: none;
-        border-radius: 20px;
-        padding-left: 1rem;
-        padding-bottom: 1rem;
-        background-color: aliceblue;
-        position: relative;
-        left: 2rem;
+        grid-row: 2/3;
         display: flex;
+        position: relative;
+        bottom: 2rem;
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        overflow-y: scroll;
-        width: 75%;
+        margin-left: 2.5rem;
     }
 
     .img_title_wrapper h3 {
@@ -1457,62 +1468,65 @@ hr {
 
     .modal_component_div {
         position: absolute;
-        top: 13rem;
+        top: 15rem;
         width: 60rem;
         height: 40rem;
+        grid-template-columns: 65% 30%;
+        grid-template-rows: 40rem;
     }
 
     .modal_img_div img {
         object-fit: contain;
         width: 100%;
-        height: 35rem;
+        height: 30rem;
     }
 
     .modal_img_div .next_previous_img_div {
-        width: 65%;
+        justify-content: space-between;
+        width: 60%;
     }
 
-    .modal_img_div .previous_div {
-        width: 2.5rem;
-        height: 2.5rem;
+    .next_previous_img_div .previous_div {
+        width: 3rem;
+        height: 3rem;
     }
 
     .previous_div span {
         font-size: 1.5rem;
     }
 
-    .modal_img_div .next_div {
-        width: 2.5rem;
-        height: 2.5rem;
+    .next_previous_img_div .next_div {
+        width: 3rem;
+        height: 3rem;
     }
 
     .next_div span {
         font-size: 1.5rem;
     }
 
-    .modal_img_div .next_div {
-        position: relative;
-        left: 86%;
+    .modal_component_div .user_details_div {
+        grid-row: 1/2;
+        width: 115%;
     }
 
-    .img_title_wrapper h3 {
-        font-size: 1.2rem;
+    .user_details_container h3 {
+        font-size: 1.5rem;
         margin-top: 0.5rem;
-        margin-left: 3rem;
+        margin-left: 2.5rem;
     }
 
     .user_details_container .user_details_par_container {
-        margin-left: 3rem;
-        width: 85%;
+        margin-left: 2.5rem;
+        width: 70%;
     }
 
     .user_details_par_container .uploaded_by_par {
-        font-size: 0.9rem;
-        margin-top: 0.5rem;
+        font-size: 0.8rem;
+        margin-top: 1rem;
     }
 
     .user_details_par_container .decription_par {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
     /* ----------------------COMMENTS-------------------------*/
     .comments_form .username_input {
@@ -1602,65 +1616,94 @@ hr {
 
     .modal_component_div {
         position: absolute;
-        top: 13rem;
+        top: 12rem;
         width: 65rem;
         height: 45rem;
+        grid-template-columns: 65% 30%;
+        grid-template-rows: 45rem;
     }
 
-    .modal_img_div .next_div {
-        position: relative;
-        left: 86%;
+    .modal_img_div img {
+        object-fit: contain;
+        width: 100%;
+        height: 30rem;
+    }
+
+    .user_details_container h3 {
+        font-size: 1.5rem;
+    }
+
+    .next_previous_img_div .next_div {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .next_div span {
+        font-size: 1.5rem;
+    }
+
+    .modal_component_div .user_details_div {
+        grid-row: 1/2;
+        width: 115%;
+    }
+
+    .user_details_container .img_title_wrapper {
+        height: fit-content;
+        margin-left: 0.5rem;
+    }
+
+    .user_details_container .user_details_par_container {
+        margin-left: 3rem;
+        width: 85%;
     }
 
     .img_title_wrapper h3 {
         font-size: 1.5rem;
-        margin-left: 3.2rem;
-    }
-
-    .user_details_container .user_details_par_container {
-        margin-left: 3.2rem;
-        width: 78%;
+        margin-top: 1rem;
+        margin-left: 3.4rem;
     }
 
     .user_details_par_container .uploaded_by_par {
-        font-size: 0.9rem;
-        margin-top: 0.5rem;
+        font-size: 1rem;
+        margin-top: 1rem;
+        margin-left: 1rem;
     }
 
     .user_details_par_container .decription_par {
-        font-size: 0.9rem;
+        font-size: 1rem;
+        margin-left: 1rem;
     }
     /****************************COMMENTS************/
     .comments_form .username_input {
-        width: 12rem;
+        width: 15rem;
         height: 1.5rem;
         font-size: 0.8rem;
     }
 
     .comments_form .comment_input {
-        width: 12rem;
-        height: 3rem;
+        width: 15rem;
+        height: 4rem;
         font-size: 0.8rem;
     }
 
     .comments_form .comments_button {
-        width: 7rem;
-        height: 2rem;
-        font-size: 0.8rem;
+        width: 10rem;
+        height: 2.3rem;
+        font-size: 1rem;
         border-radius: 5px;
     }
 
     .comments_component_div .single_comment_box {
         padding: 0.5rem;
-        width: 12rem;
+        width: 15rem;
     }
 
     .list_item #username_par {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 
     .list_item .comment_par {
-        font-size: 0.8rem;
+        font-size: 1rem;
     }
 }
 
@@ -1702,7 +1745,7 @@ hr {
     }
     /* ----------------------MODAL COMPONENT-------------------------*/
     .modal_wrapper_div {
-        bottom: 0.1rem;
+        bottom: 0rem;
     }
 
     .modal_component_div {
@@ -1710,42 +1753,88 @@ hr {
         top: 13rem;
         width: 80rem;
         height: 60rem;
+        grid-template-columns: 65% 30%;
+        grid-template-rows: 60rem;
     }
 
-    .modal_component_div .span_x_div {
-        width: 2rem;
-        height: 2rem;
+    .modal_img_div img {
+        object-fit: contain;
+        width: 100%;
+        height: 45rem;
     }
 
-    .modal_img_div {
-        padding: 1rem;
-        grid-column: 1/2;
-    }
-    .modal_img_div .next_previous_img_div {
-        width: 65%;
+    .next_previous_img_div .previous_div {
+        width: 3.5rem;
+        height: 3.5rem;
     }
 
-    .modal_img_div .next_div {
+    .previous_div span {
+        font-size: 1.5rem;
+    }
+
+    .next_previous_img_div .next_div {
+        width: 3.5rem;
+        height: 3.5rem;
         position: relative;
         left: 86%;
     }
 
-    .img_title_wrapper h3 {
+    .user_details_container h3 {
         font-size: 2rem;
         margin-left: 3.5rem;
     }
 
     .user_details_container .user_details_par_container {
-        margin-left: 3.5rem;
-        width: 80%;
+        margin-left: 3rem;
+        width: 85%;
+    }
+
+    .img_title_wrapper h3 {
+        font-size: 1.5rem;
+        margin-top: 1rem;
+        margin-left: 3.4rem;
     }
 
     .user_details_par_container .uploaded_by_par {
         font-size: 1rem;
-        margin-top: 0.5rem;
+        margin-top: 1rem;
+        margin-left: 1rem;
     }
 
     .user_details_par_container .decription_par {
         font-size: 1rem;
+        margin-left: 1rem;
+    }
+    /****************************COMMENTS************/
+    .comments_form .username_input {
+        width: 15rem;
+        height: 1.5rem;
+        font-size: 1rem;
+    }
+
+    .comments_form .comment_input {
+        width: 15rem;
+        height: 4rem;
+        font-size: 1rem;
+    }
+
+    .comments_form .comments_button {
+        width: 12rem;
+        height: 2.7rem;
+        font-size: 1rem;
+        border-radius: 5px;
+    }
+
+    .comments_component_div .single_comment_box {
+        padding: 0.5rem;
+        width: 17rem;
+    }
+
+    .list_item #username_par {
+        font-size: 1.2rem;
+    }
+
+    .list_item .comment_par {
+        font-size: 1.2rem;
     }
 }

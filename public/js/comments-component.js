@@ -8,17 +8,29 @@ const commentsComponent = {
     },
     props: ["imgId"],
     mounted() {
-        fetch(`/comments/${this.imgId}`)
-            .then((res) => res.json())
-            .then((fetchedData) => {
-                console.log("FETCHED DATA: ", fetchedData);
-                this.comments = fetchedData;
-            })
-            .catch((err) => {
-                console.log("ERROR: PROBLEM TO FETCH DATA ", err);
-            });
+        this.fetchData();
+        console.log("mounted comments", this.imgId);
+    },
+    watch: {
+        imgId: function () {
+            this.fetchData();
+        },
     },
     methods: {
+        fetchData() {
+            fetch(`/comments/${this.imgId}`)
+                .then((res) => res.json())
+                .then((fetchedData) => {
+                    console.log(
+                        "FETCHED DATA: comments are retreived",
+                        fetchedData
+                    );
+                    this.comments = fetchedData;
+                })
+                .catch((err) => {
+                    console.log("ERROR: PROBLEM TO FETCH DATA ", err);
+                });
+        },
         handleCommentSubmit(e) {
             e.preventDefault();
 
@@ -36,6 +48,9 @@ const commentsComponent = {
                     this.comments.unshift(data.payload);
                     this.username = "";
                     this.comment = "";
+                })
+                .catch((err) => {
+                    "Error fetch comments: ", err;
                 });
         },
     },

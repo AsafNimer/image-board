@@ -644,6 +644,8 @@ hr {
     }
 
     .modal_component_div .span_x_div {
+        margin-left: 1rem;
+        margin-top: 1rem;
         width: 2rem;
         height: 2rem;
     }

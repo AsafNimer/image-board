@@ -18,3 +18,5 @@ CREATE TABLE comments(
     image_id INT NOT NULL REFERENCES images(id),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+

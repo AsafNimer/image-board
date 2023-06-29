@@ -644,12 +644,12 @@ hr {
     }
 
     .modal_component_div .span_x_div {
-        width: 3rem;
-        height: 3rem;
+        width: 2rem;
+        height: 2rem;
     }
 
     .span_x_div span {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         cursor: none;
     }
 

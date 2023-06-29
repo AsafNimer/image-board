@@ -3,10 +3,11 @@ const fs = require("fs");
 
 let moreSecrets;
 if (process.env.NODE_ENV === "production") {
-    moreSecrets = process.env;
+    moreSecrets = process.env.MORE_SECRETS;
 } else {
     //this means we're running locally
-    moreSecrets = require("./moreSecrets.json");
+    moreSecrets = require("./moreSecrets.json").AWS_SECRET;
+    console.log(moreSecrets);
 }
 
 //Creating s3 instance and configuration
